@@ -1,0 +1,1131 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//WUM-Tracker//plan zajec//PL
+CALSCALE:GREGORIAN
+X-WR-CALNAME:WUM - grupa 8b
+X-WR-TIMEZONE:Europe/Warsaw
+BEGIN:VTIMEZONE
+TZID:Europe/Warsaw
+COMMENT:This timezone only works from 1970-01-01 to 2038-01-01.
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:CET
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0100
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:19770403T020000
+RDATE:19780402T020000,19790401T020000,19800406T020000,19810329T020000,1982
+ 0328T020000,19830327T020000,19840325T020000,19850331T020000,19860330T02000
+ 0,19870329T020000,19880327T030000,19890326T030000,19900325T030000,19910331
+ T030000,19920329T030000,19930328T030000,19940327T030000,19950326T030000,19
+ 960331T030000,19970330T030000,19980329T030000,19990328T030000,20000326T030
+ 000,20010325T030000,20020331T030000,20030330T030000,20040328T030000,200503
+ 27T030000,20060326T030000,20070325T030000,20080330T030000,20090329T030000,
+ 20100328T030000,20110327T030000,20120325T030000,20130331T030000,20140330T0
+ 30000,20150329T030000,20160327T030000,20170326T030000,20180325T030000,2019
+ 0331T030000,20200329T030000,20210328T030000,20220327T030000,20230326T03000
+ 0,20240331T030000,20250330T030000,20260329T030000,20270328T030000,20280326
+ T030000,20290325T030000,20300331T030000,20310330T030000,20320328T030000,20
+ 330327T030000,20340326T030000,20350325T030000,20360330T030000,20370329T030
+ 000
+TZNAME:CEST
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+END:DAYLIGHT
+BEGIN:STANDARD
+DTSTART:19770925T020000
+RDATE:19781001T020000,19790930T020000,19800928T020000,19810927T020000,1982
+ 0926T020000,19830925T020000,19840930T020000,19850929T020000,19860928T02000
+ 0,19870927T020000,19880925T030000,19890924T030000,19900930T030000,19910929
+ T030000,19920927T030000,19930926T030000,19940925T030000,19950924T030000,19
+ 961027T030000,19971026T030000,19981025T030000,19991031T030000,20001029T030
+ 000,20011028T030000,20021027T030000,20031026T030000,20041031T030000,200510
+ 30T030000,20061029T030000,20071028T030000,20081026T030000,20091025T030000,
+ 20101031T030000,20111030T030000,20121028T030000,20131027T030000,20141026T0
+ 30000,20151025T030000,20161030T030000,20171029T030000,20181028T030000,2019
+ 1027T030000,20201025T030000,20211031T030000,20221030T030000,20231029T03000
+ 0,20241027T030000,20251026T030000,20261025T030000,20271031T030000,20281029
+ T030000,20291028T030000,20301027T030000,20311026T030000,20321031T030000,20
+ 331030T030000,20341029T030000,20351028T030000,20361026T030000,20371025T030
+ 000
+TZNAME:CET
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:Fizjologia seminaria NZME
+DTSTART;TZID=Europe/Warsaw:20261217T074500
+DTEND;TZID=Europe/Warsaw:20261217T104500
+DTSTAMP:20260930T180730Z
+UID:6ea811bcd14739bbf55cd2123654a100dda828d3@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 5 spotkań po 4 godz. grupy: 4\, 12\, 11
+ \, 2\, 9\, 13\, 6\, 14\, 10\, 1 - sala 104\, ul. Ciołka grupy: 5 i 7 - sa
+ la 5. DE 002 (jasna)\, Szpital Pediatryczny\, ul\, Żwirki i Wigury 63a gr
+ upa 8 - sala 4.7 UCS WUM\, ul. Binieckiego 6 grupy: 3\, 15 - brak Sali\nDa
+ ty w planie: 17.12. - 28.01.\nŹródło: KK8:KK19
+LOCATION:sala 4.7 UCS WUM\, ul. Binieckiego 6
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fizjologia seminaria NZME
+DTSTART;TZID=Europe/Warsaw:20270107T074500
+DTEND;TZID=Europe/Warsaw:20270107T104500
+DTSTAMP:20260930T180730Z
+UID:cf94bf376d5909a170947025aa62e94dc6a5e5ec@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 5 spotkań po 4 godz. grupy: 4\, 12\, 11
+ \, 2\, 9\, 13\, 6\, 14\, 10\, 1 - sala 104\, ul. Ciołka grupy: 5 i 7 - sa
+ la 5. DE 002 (jasna)\, Szpital Pediatryczny\, ul\, Żwirki i Wigury 63a gr
+ upa 8 - sala 4.7 UCS WUM\, ul. Binieckiego 6 grupy: 3\, 15 - brak Sali\nDa
+ ty w planie: 17.12. - 28.01.\nŹródło: KK8:KK19
+LOCATION:sala 4.7 UCS WUM\, ul. Binieckiego 6
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fizjologia seminaria NZME
+DTSTART;TZID=Europe/Warsaw:20270114T074500
+DTEND;TZID=Europe/Warsaw:20270114T104500
+DTSTAMP:20260930T180730Z
+UID:adb6610ee991405d05892df29480e1c05003a60f@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 5 spotkań po 4 godz. grupy: 4\, 12\, 11
+ \, 2\, 9\, 13\, 6\, 14\, 10\, 1 - sala 104\, ul. Ciołka grupy: 5 i 7 - sa
+ la 5. DE 002 (jasna)\, Szpital Pediatryczny\, ul\, Żwirki i Wigury 63a gr
+ upa 8 - sala 4.7 UCS WUM\, ul. Binieckiego 6 grupy: 3\, 15 - brak Sali\nDa
+ ty w planie: 17.12. - 28.01.\nŹródło: KK8:KK19
+LOCATION:sala 4.7 UCS WUM\, ul. Binieckiego 6
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fizjologia seminaria NZME
+DTSTART;TZID=Europe/Warsaw:20270121T074500
+DTEND;TZID=Europe/Warsaw:20270121T104500
+DTSTAMP:20260930T180730Z
+UID:123021a974355d0b11f78ec2b0464c8639afe8ed@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 5 spotkań po 4 godz. grupy: 4\, 12\, 11
+ \, 2\, 9\, 13\, 6\, 14\, 10\, 1 - sala 104\, ul. Ciołka grupy: 5 i 7 - sa
+ la 5. DE 002 (jasna)\, Szpital Pediatryczny\, ul\, Żwirki i Wigury 63a gr
+ upa 8 - sala 4.7 UCS WUM\, ul. Binieckiego 6 grupy: 3\, 15 - brak Sali\nDa
+ ty w planie: 17.12. - 28.01.\nŹródło: KK8:KK19
+LOCATION:sala 4.7 UCS WUM\, ul. Binieckiego 6
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fizjologia seminaria NZME
+DTSTART;TZID=Europe/Warsaw:20270128T074500
+DTEND;TZID=Europe/Warsaw:20270128T104500
+DTSTAMP:20260930T180730Z
+UID:dc838d39bfadcce0ed11b5e9c731074c7648b47b@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 5 spotkań po 4 godz. grupy: 4\, 12\, 11
+ \, 2\, 9\, 13\, 6\, 14\, 10\, 1 - sala 104\, ul. Ciołka grupy: 5 i 7 - sa
+ la 5. DE 002 (jasna)\, Szpital Pediatryczny\, ul\, Żwirki i Wigury 63a gr
+ upa 8 - sala 4.7 UCS WUM\, ul. Binieckiego 6 grupy: 3\, 15 - brak Sali\nDa
+ ty w planie: 17.12. - 28.01.\nŹródło: KK8:KK19
+LOCATION:sala 4.7 UCS WUM\, ul. Binieckiego 6
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pedagogika seminaria NZJ
+DTSTART;TZID=Europe/Warsaw:20261116T080000
+DTEND;TZID=Europe/Warsaw:20261116T101500
+DTSTAMP:20260930T180730Z
+UID:b73cd37ddd04b034814bb322e5e4efd881209dfe@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 5 spotkań po 3 godz. Sala 203\, ul. Cio
+ łka 27\nDaty w planie: 16.11. - 14.12.\nŹródło: CQ9:CQ17
+LOCATION:Sala 203\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pedagogika seminaria NZJ
+DTSTART;TZID=Europe/Warsaw:20261123T080000
+DTEND;TZID=Europe/Warsaw:20261123T101500
+DTSTAMP:20260930T180730Z
+UID:34679972afc10de1dbbbc31d884de8b6c28c196c@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 5 spotkań po 3 godz. Sala 203\, ul. Cio
+ łka 27\nDaty w planie: 16.11. - 14.12.\nŹródło: CQ9:CQ17
+LOCATION:Sala 203\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pedagogika seminaria NZJ
+DTSTART;TZID=Europe/Warsaw:20261130T080000
+DTEND;TZID=Europe/Warsaw:20261130T101500
+DTSTAMP:20260930T180730Z
+UID:b242dfd931ca130f83cc7cac7233cc346f42f333@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 5 spotkań po 3 godz. Sala 203\, ul. Cio
+ łka 27\nDaty w planie: 16.11. - 14.12.\nŹródło: CQ9:CQ17
+LOCATION:Sala 203\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pedagogika seminaria NZJ
+DTSTART;TZID=Europe/Warsaw:20261207T080000
+DTEND;TZID=Europe/Warsaw:20261207T101500
+DTSTAMP:20260930T180730Z
+UID:d771b23bdf546934e159912e68e72b263350cc4a@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 5 spotkań po 3 godz. Sala 203\, ul. Cio
+ łka 27\nDaty w planie: 16.11. - 14.12.\nŹródło: CQ9:CQ17
+LOCATION:Sala 203\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pedagogika seminaria NZJ
+DTSTART;TZID=Europe/Warsaw:20261214T080000
+DTEND;TZID=Europe/Warsaw:20261214T101500
+DTSTAMP:20260930T180730Z
+UID:79e13a4cce99a730ffe4ead46686f2aef6533c3f@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 5 spotkań po 3 godz. Sala 203\, ul. Cio
+ łka 27\nDaty w planie: 16.11. - 14.12.\nŹródło: CQ9:CQ17
+LOCATION:Sala 203\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Etyka zawodu pielęgniarki seminaria NZJ
+DTSTART;TZID=Europe/Warsaw:20261020T080000
+DTEND;TZID=Europe/Warsaw:20261020T114500
+DTSTAMP:20260930T180730Z
+UID:bc6acaef68482facc42443066ec0ee8e19eda4c4@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 2 spotkania po 5 godz. sala 104\, ul. Ci
+ ołka 27\nDaty w planie: 20.10.\nŹródło: GL9:GL23
+LOCATION:sala 104\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Etyka zawodu pielęgniarki seminaria NZJ
+DTSTART;TZID=Europe/Warsaw:20261104T080000
+DTEND;TZID=Europe/Warsaw:20261104T114500
+DTSTAMP:20260930T180730Z
+UID:d936c140a3c32452c5bdc81fbdaaf1fe91259b1f@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 2 spotkania po 5 godz. sala 203\, ul. Ci
+ ołka 27\nDaty w planie: 04.11.\nŹródło: JF9:JF23
+LOCATION:sala 203\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Badanie fizykalne NZA seminaria
+DTSTART;TZID=Europe/Warsaw:20261028T080000
+DTEND;TZID=Europe/Warsaw:20261028T114500
+DTSTAMP:20260930T180730Z
+UID:065c5cad45e8aab8bb255298bcce7a6cd222a173@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 1 spotkanie 5 godz. sala nr 6 niski part
+ er\, ul.Pawińskiego 3c\nDaty w planie: 28.10.\nŹródło: JO9:JO23
+LOCATION:sala nr 6 niski parter\, ul.Pawińskiego 3c
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Biochemia seminaria NZT
+DTSTART;TZID=Europe/Warsaw:20261112T080000
+DTEND;TZID=Europe/Warsaw:20261112T093000
+DTSTAMP:20260930T180730Z
+UID:224d836b77d80cf0f42534763ff99fc6f41c25d2@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 5 spotkanie 2 godz. sala nr 42\, ul. Paw
+ ińskiego 3c\nDaty w planie: 12.11. - 10.12.\nŹródło: LB9:LB14
+LOCATION:sala nr 42\, ul. Pawińskiego 3c
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Biochemia seminaria NZT
+DTSTART;TZID=Europe/Warsaw:20261119T080000
+DTEND;TZID=Europe/Warsaw:20261119T093000
+DTSTAMP:20260930T180730Z
+UID:33aff21500c18724b8570b63e62935160b699339@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 5 spotkanie 2 godz. sala nr 42\, ul. Paw
+ ińskiego 3c\nDaty w planie: 12.11. - 10.12.\nŹródło: LB9:LB14
+LOCATION:sala nr 42\, ul. Pawińskiego 3c
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Biochemia seminaria NZT
+DTSTART;TZID=Europe/Warsaw:20261126T080000
+DTEND;TZID=Europe/Warsaw:20261126T093000
+DTSTAMP:20260930T180730Z
+UID:272cfa495907a1f395ce18184e6d68ba06e933b0@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 5 spotkanie 2 godz. sala nr 42\, ul. Paw
+ ińskiego 3c\nDaty w planie: 12.11. - 10.12.\nŹródło: LB9:LB14
+LOCATION:sala nr 42\, ul. Pawińskiego 3c
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Biochemia seminaria NZT
+DTSTART;TZID=Europe/Warsaw:20261203T080000
+DTEND;TZID=Europe/Warsaw:20261203T093000
+DTSTAMP:20260930T180730Z
+UID:bb91ce8623d1f1030e66ac69933f182094f6727f@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 5 spotkanie 2 godz. sala nr 42\, ul. Paw
+ ińskiego 3c\nDaty w planie: 12.11. - 10.12.\nŹródło: LB9:LB14
+LOCATION:sala nr 42\, ul. Pawińskiego 3c
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Biochemia seminaria NZT
+DTSTART;TZID=Europe/Warsaw:20261210T080000
+DTEND;TZID=Europe/Warsaw:20261210T093000
+DTSTAMP:20260930T180730Z
+UID:5a0d2e72e898321750ceb68213cc258cb2348022@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 5 spotkanie 2 godz. sala nr 42\, ul. Paw
+ ińskiego 3c\nDaty w planie: 12.11. - 10.12.\nŹródło: LB9:LB14
+LOCATION:sala nr 42\, ul. Pawińskiego 3c
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Psychologia seminaria 2MB
+DTSTART;TZID=Europe/Warsaw:20261026T083000
+DTEND;TZID=Europe/Warsaw:20261026T104500
+DTSTAMP:20260930T180730Z
+UID:007b233b32c2abbb69bffc30f610af730eb52725@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 1 spotkanie po 3 godz. Sala 104\, ul. Ci
+ ołka 27\nDaty w planie: 26.10\nŹródło: CE11:CE19
+LOCATION:Sala 104\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Badanie fizykalne NZA ćwiczenia
+DTSTART;TZID=Europe/Warsaw:20261209T083000
+DTEND;TZID=Europe/Warsaw:20261209T104500
+DTSTAMP:20260930T180730Z
+UID:724b6774671e88e0e1e3b3b738bc1681ae618f43@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 5 spotkań po 3 godz. sala 41\, ul. Paw
+ ińskiego 3c\nDaty w planie: 09.12. - 27.01.\nŹródło: JR11:JR19
+LOCATION:sala 41\, ul. Pawińskiego 3c
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Badanie fizykalne NZA ćwiczenia
+DTSTART;TZID=Europe/Warsaw:20261216T083000
+DTEND;TZID=Europe/Warsaw:20261216T104500
+DTSTAMP:20260930T180730Z
+UID:d87dd31106c5f6ec200dabfb67e1d723cc862c67@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 5 spotkań po 3 godz. sala 41\, ul. Paw
+ ińskiego 3c\nDaty w planie: 09.12. - 27.01.\nŹródło: JR11:JR19
+LOCATION:sala 41\, ul. Pawińskiego 3c
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Badanie fizykalne NZA ćwiczenia
+DTSTART;TZID=Europe/Warsaw:20270113T083000
+DTEND;TZID=Europe/Warsaw:20270113T104500
+DTSTAMP:20260930T180730Z
+UID:9297ed0aaf94f421e40ae18c055d675700fc36c6@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 5 spotkań po 3 godz. sala 41\, ul. Paw
+ ińskiego 3c\nDaty w planie: 09.12. - 27.01.\nŹródło: JR11:JR19
+LOCATION:sala 41\, ul. Pawińskiego 3c
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Badanie fizykalne NZA ćwiczenia
+DTSTART;TZID=Europe/Warsaw:20270120T083000
+DTEND;TZID=Europe/Warsaw:20270120T104500
+DTSTAMP:20260930T180730Z
+UID:65ca3c4b911ea4cb6d2487307c4bc3ae5a7129c9@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 5 spotkań po 3 godz. sala 41\, ul. Paw
+ ińskiego 3c\nDaty w planie: 09.12. - 27.01.\nŹródło: JR11:JR19
+LOCATION:sala 41\, ul. Pawińskiego 3c
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Badanie fizykalne NZA ćwiczenia
+DTSTART;TZID=Europe/Warsaw:20270127T083000
+DTEND;TZID=Europe/Warsaw:20270127T104500
+DTSTAMP:20260930T180730Z
+UID:68fea868627840debcc5962ab0cc207ca8ebe6a3@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 5 spotkań po 3 godz. sala 41\, ul. Paw
+ ińskiego 3c\nDaty w planie: 09.12. - 27.01.\nŹródło: JR11:JR19
+LOCATION:sala 41\, ul. Pawińskiego 3c
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Prawo medyczne seminaria
+DTSTART;TZID=Europe/Warsaw:20261022T083000
+DTEND;TZID=Europe/Warsaw:20261022T121500
+DTSTAMP:20260930T180730Z
+UID:5309b8828dcfbe533888464b8cefb0f106f73394@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 1 spotkanie 5 godz. sala 5.71\, UCS\, ul
+ . Binieckiego 6\nDaty w planie: 22.10.\nŹródło: LJ11:LJ25
+LOCATION:sala 5.71\, UCS\, ul. Binieckiego 6
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Psychologia seminaria S4
+DTSTART;TZID=Europe/Warsaw:20261012T091500
+DTEND;TZID=Europe/Warsaw:20261012T113000
+DTSTAMP:20260930T180730Z
+UID:6c11adc886d2d978d11da7656b8e45788ce92fd0@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 1 spotkanie po 3 godz. Sala 210\, ul. Ci
+ ołka 27\nDaty w planie: 12.10.\nŹródło: CI14:CI22
+LOCATION:Sala 210\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Podst. piel. Seminaria NZA
+DTSTART;TZID=Europe/Warsaw:20261027T104500
+DTEND;TZID=Europe/Warsaw:20261027T131500
+DTSTAMP:20260930T180730Z
+UID:1c066d2343645cf6a8ce42a1400e139285895744@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 3 spotkania po 3 godz. i 15 min. sala 20
+ 4\, ul. Ciołka 27\nDaty w planie: 27.10. - 10.11.\nŹródło: FQ20:FQ29
+LOCATION:sala 204\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Podst. piel. Seminaria NZA
+DTSTART;TZID=Europe/Warsaw:20261103T104500
+DTEND;TZID=Europe/Warsaw:20261103T131500
+DTSTAMP:20260930T180730Z
+UID:a670c9d5c278def2c6caa9f164d79cfc9c8b64f7@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 3 spotkania po 3 godz. i 15 min. sala 20
+ 4\, ul. Ciołka 27\nDaty w planie: 27.10. - 10.11.\nŹródło: FQ20:FQ29
+LOCATION:sala 204\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Podst. piel. Seminaria NZA
+DTSTART;TZID=Europe/Warsaw:20261110T104500
+DTEND;TZID=Europe/Warsaw:20261110T131500
+DTSTAMP:20260930T180730Z
+UID:5aeda754ced00dea6a3a2a0769b721665b7ba831@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 3 spotkania po 3 godz. i 15 min. sala 20
+ 4\, ul. Ciołka 27\nDaty w planie: 27.10. - 10.11.\nŹródło: FQ20:FQ29
+LOCATION:sala 204\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Socjologia seminaria S4
+DTSTART;TZID=Europe/Warsaw:20261029T110000
+DTEND;TZID=Europe/Warsaw:20261029T133000
+DTSTAMP:20260930T180730Z
+UID:a80d26f133fc30ded826b770195ccd0541c346b2@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 3 spotkania po 3 godz. i 15 min. sala 20
+ 4\, ul.Ciołka 27\nDaty w planie: 29.10. - 12.11.\nŹródło: KY21:KY30
+LOCATION:sala 204\, ul.Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Socjologia seminaria S4
+DTSTART;TZID=Europe/Warsaw:20261105T110000
+DTEND;TZID=Europe/Warsaw:20261105T133000
+DTSTAMP:20260930T180730Z
+UID:61e660cd66bf8219d69b167f1d6a46735373f645@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 3 spotkania po 3 godz. i 15 min. sala 20
+ 4\, ul.Ciołka 27\nDaty w planie: 29.10. - 12.11.\nŹródło: KY21:KY30
+LOCATION:sala 204\, ul.Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Socjologia seminaria S4
+DTSTART;TZID=Europe/Warsaw:20261112T110000
+DTEND;TZID=Europe/Warsaw:20261112T133000
+DTSTAMP:20260930T180730Z
+UID:d64053203c542af4a724fd3ac44284b7c8378179@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 3 spotkania po 3 godz. i 15 min. sala 20
+ 4\, ul.Ciołka 27\nDaty w planie: 29.10. - 12.11.\nŹródło: KY21:KY30
+LOCATION:sala 204\, ul.Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Podst. Piel. ćwiczenia NZA
+DTSTART;TZID=Europe/Warsaw:20261009T110000
+DTEND;TZID=Europe/Warsaw:20261009T140000
+DTSTAMP:20260930T180730Z
+UID:2bab17981c09da63b74a797f66d7727abbc3e86e@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 15 spotkań po 4 godz. Pracownie do ćw
+ iczeń\, ul. Ciołka 27\nDaty w planie: 09.10. - 29.01.\nŹródło: LX21:L
+ X32
+LOCATION:Pracownie do ćwiczeń\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Podst. Piel. ćwiczenia NZA
+DTSTART;TZID=Europe/Warsaw:20261016T110000
+DTEND;TZID=Europe/Warsaw:20261016T140000
+DTSTAMP:20260930T180730Z
+UID:8b51895ecf1c6de2baa0dd748469e24134386cb4@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 15 spotkań po 4 godz. Pracownie do ćw
+ iczeń\, ul. Ciołka 27\nDaty w planie: 09.10. - 29.01.\nŹródło: LX21:L
+ X32
+LOCATION:Pracownie do ćwiczeń\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Podst. Piel. ćwiczenia NZA
+DTSTART;TZID=Europe/Warsaw:20261023T110000
+DTEND;TZID=Europe/Warsaw:20261023T140000
+DTSTAMP:20260930T180730Z
+UID:ea0c81bec41188bd470b2498f20279f54ff818c6@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 15 spotkań po 4 godz. Pracownie do ćw
+ iczeń\, ul. Ciołka 27\nDaty w planie: 09.10. - 29.01.\nŹródło: LX21:L
+ X32
+LOCATION:Pracownie do ćwiczeń\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Podst. Piel. ćwiczenia NZA
+DTSTART;TZID=Europe/Warsaw:20261030T110000
+DTEND;TZID=Europe/Warsaw:20261030T140000
+DTSTAMP:20260930T180730Z
+UID:da21332e1bf12f36b05e1665a9931ba87a4692fb@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 15 spotkań po 4 godz. Pracownie do ćw
+ iczeń\, ul. Ciołka 27\nDaty w planie: 09.10. - 29.01.\nŹródło: LX21:L
+ X32
+LOCATION:Pracownie do ćwiczeń\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Podst. Piel. ćwiczenia NZA
+DTSTART;TZID=Europe/Warsaw:20261106T110000
+DTEND;TZID=Europe/Warsaw:20261106T140000
+DTSTAMP:20260930T180730Z
+UID:acbe74c1a9df168a32e9e8fd32f862597d04de2c@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 15 spotkań po 4 godz. Pracownie do ćw
+ iczeń\, ul. Ciołka 27\nDaty w planie: 09.10. - 29.01.\nŹródło: LX21:L
+ X32
+LOCATION:Pracownie do ćwiczeń\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Podst. Piel. ćwiczenia NZA
+DTSTART;TZID=Europe/Warsaw:20261113T110000
+DTEND;TZID=Europe/Warsaw:20261113T140000
+DTSTAMP:20260930T180730Z
+UID:a9a3d84dd85069544db2000cf8f0dcd56e365540@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 15 spotkań po 4 godz. Pracownie do ćw
+ iczeń\, ul. Ciołka 27\nDaty w planie: 09.10. - 29.01.\nŹródło: LX21:L
+ X32
+LOCATION:Pracownie do ćwiczeń\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Podst. Piel. ćwiczenia NZA
+DTSTART;TZID=Europe/Warsaw:20261120T110000
+DTEND;TZID=Europe/Warsaw:20261120T140000
+DTSTAMP:20260930T180730Z
+UID:910cee2198f826eb56505cc75529a69f3ebf2785@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 15 spotkań po 4 godz. Pracownie do ćw
+ iczeń\, ul. Ciołka 27\nDaty w planie: 09.10. - 29.01.\nŹródło: LX21:L
+ X32
+LOCATION:Pracownie do ćwiczeń\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Podst. Piel. ćwiczenia NZA
+DTSTART;TZID=Europe/Warsaw:20261127T110000
+DTEND;TZID=Europe/Warsaw:20261127T140000
+DTSTAMP:20260930T180730Z
+UID:d5a63317bf858bdebfb60a7c644d8df912a7ef51@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 15 spotkań po 4 godz. Pracownie do ćw
+ iczeń\, ul. Ciołka 27\nDaty w planie: 09.10. - 29.01.\nŹródło: LX21:L
+ X32
+LOCATION:Pracownie do ćwiczeń\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Podst. Piel. ćwiczenia NZA
+DTSTART;TZID=Europe/Warsaw:20261204T110000
+DTEND;TZID=Europe/Warsaw:20261204T140000
+DTSTAMP:20260930T180730Z
+UID:b3637e1d4f1e785a8663f5ebdc075d12c0c18bce@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 15 spotkań po 4 godz. Pracownie do ćw
+ iczeń\, ul. Ciołka 27\nDaty w planie: 09.10. - 29.01.\nŹródło: LX21:L
+ X32
+LOCATION:Pracownie do ćwiczeń\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Podst. Piel. ćwiczenia NZA
+DTSTART;TZID=Europe/Warsaw:20261211T110000
+DTEND;TZID=Europe/Warsaw:20261211T140000
+DTSTAMP:20260930T180730Z
+UID:894ae195da4ce73d08323d6bea5fb94dda3535fd@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 15 spotkań po 4 godz. Pracownie do ćw
+ iczeń\, ul. Ciołka 27\nDaty w planie: 09.10. - 29.01.\nŹródło: LX21:L
+ X32
+LOCATION:Pracownie do ćwiczeń\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Podst. Piel. ćwiczenia NZA
+DTSTART;TZID=Europe/Warsaw:20261218T110000
+DTEND;TZID=Europe/Warsaw:20261218T140000
+DTSTAMP:20260930T180730Z
+UID:9dcba150dff0ce5db5d68d1c873882d356054e0c@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 15 spotkań po 4 godz. Pracownie do ćw
+ iczeń\, ul. Ciołka 27\nDaty w planie: 09.10. - 29.01.\nŹródło: LX21:L
+ X32
+LOCATION:Pracownie do ćwiczeń\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Podst. Piel. ćwiczenia NZA
+DTSTART;TZID=Europe/Warsaw:20270108T110000
+DTEND;TZID=Europe/Warsaw:20270108T140000
+DTSTAMP:20260930T180730Z
+UID:59529cb7823b1d3fb5cbe1ee1c2d945fc6a49777@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 15 spotkań po 4 godz. Pracownie do ćw
+ iczeń\, ul. Ciołka 27\nDaty w planie: 09.10. - 29.01.\nŹródło: LX21:L
+ X32
+LOCATION:Pracownie do ćwiczeń\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Podst. Piel. ćwiczenia NZA
+DTSTART;TZID=Europe/Warsaw:20270115T110000
+DTEND;TZID=Europe/Warsaw:20270115T140000
+DTSTAMP:20260930T180730Z
+UID:a252feb4a17ea2d0bb328fa04fb6dac0b85216a3@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 15 spotkań po 4 godz. Pracownie do ćw
+ iczeń\, ul. Ciołka 27\nDaty w planie: 09.10. - 29.01.\nŹródło: LX21:L
+ X32
+LOCATION:Pracownie do ćwiczeń\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Podst. Piel. ćwiczenia NZA
+DTSTART;TZID=Europe/Warsaw:20270122T110000
+DTEND;TZID=Europe/Warsaw:20270122T140000
+DTSTAMP:20260930T180730Z
+UID:07b858d9c5c2f415bc151712980d3bc2c1a373e9@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 15 spotkań po 4 godz. Pracownie do ćw
+ iczeń\, ul. Ciołka 27\nDaty w planie: 09.10. - 29.01.\nŹródło: LX21:L
+ X32
+LOCATION:Pracownie do ćwiczeń\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Podst. Piel. ćwiczenia NZA
+DTSTART;TZID=Europe/Warsaw:20270129T110000
+DTEND;TZID=Europe/Warsaw:20270129T140000
+DTSTAMP:20260930T180730Z
+UID:1272f0473a8131a8638a7591b9011499b34bf083@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 15 spotkań po 4 godz. Pracownie do ćw
+ iczeń\, ul. Ciołka 27\nDaty w planie: 09.10. - 29.01.\nŹródło: LX21:L
+ X32
+LOCATION:Pracownie do ćwiczeń\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fizjologia ćwiczenia NZME
+DTSTART;TZID=Europe/Warsaw:20261117T111500
+DTEND;TZID=Europe/Warsaw:20261117T134500
+DTSTAMP:20260930T180730Z
+UID:311b5b3a648b0820254be33aadffc82a6bd4eb17@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 3 spotkania po 3 godz. i 15 min. sale d
+ o ćwiczeń\, ul. Chałubińskiego 5\nDaty w planie: 17.11. - 01.12\nŹró
+ dło: GD22:GD31
+LOCATION:sale do ćwiczeń\, ul. Chałubińskiego 5
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fizjologia ćwiczenia NZME
+DTSTART;TZID=Europe/Warsaw:20261124T111500
+DTEND;TZID=Europe/Warsaw:20261124T134500
+DTSTAMP:20260930T180730Z
+UID:c1c329b1ccd12dfb870bf7d79327a089a5373e62@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 3 spotkania po 3 godz. i 15 min. sale d
+ o ćwiczeń\, ul. Chałubińskiego 5\nDaty w planie: 17.11. - 01.12\nŹró
+ dło: GD22:GD31
+LOCATION:sale do ćwiczeń\, ul. Chałubińskiego 5
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fizjologia ćwiczenia NZME
+DTSTART;TZID=Europe/Warsaw:20261201T111500
+DTEND;TZID=Europe/Warsaw:20261201T134500
+DTSTAMP:20260930T180730Z
+UID:b7da91c90dc99f9d3bd807bdfa471f3736460ced@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 3 spotkania po 3 godz. i 15 min. sale d
+ o ćwiczeń\, ul. Chałubińskiego 5\nDaty w planie: 17.11. - 01.12\nŹró
+ dło: GD22:GD31
+LOCATION:sale do ćwiczeń\, ul. Chałubińskiego 5
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Anatomia ćwiczenia NZZA
+DTSTART;TZID=Europe/Warsaw:20261012T123000
+DTEND;TZID=Europe/Warsaw:20261012T144500
+DTSTAMP:20260930T180730Z
+UID:894b686f8d6c534ed548aeed10fcaca761c32d7c@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 10 spotkań po 3 godz. sala do ćwicze
+ ń\, ul. Oczki 1\nDaty w planie: 12.10. - 14.12.\nŹródło: CO27:CO35
+LOCATION:sala do ćwiczeń\, ul. Oczki 1
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Anatomia ćwiczenia NZZA
+DTSTART;TZID=Europe/Warsaw:20261019T123000
+DTEND;TZID=Europe/Warsaw:20261019T144500
+DTSTAMP:20260930T180730Z
+UID:634c5475c7144dfb86b44bdd529f1c51c3a0bd78@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 10 spotkań po 3 godz. sala do ćwicze
+ ń\, ul. Oczki 1\nDaty w planie: 12.10. - 14.12.\nŹródło: CO27:CO35
+LOCATION:sala do ćwiczeń\, ul. Oczki 1
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Anatomia ćwiczenia NZZA
+DTSTART;TZID=Europe/Warsaw:20261026T123000
+DTEND;TZID=Europe/Warsaw:20261026T144500
+DTSTAMP:20260930T180730Z
+UID:77b8d2ad221c6d1dd2837cd7533d4c0b93126b27@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 10 spotkań po 3 godz. sala do ćwicze
+ ń\, ul. Oczki 1\nDaty w planie: 12.10. - 14.12.\nŹródło: CO27:CO35
+LOCATION:sala do ćwiczeń\, ul. Oczki 1
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Anatomia ćwiczenia NZZA
+DTSTART;TZID=Europe/Warsaw:20261102T123000
+DTEND;TZID=Europe/Warsaw:20261102T144500
+DTSTAMP:20260930T180730Z
+UID:6c0b28c7c827982aac259a81e5ae332e1a4eec6e@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 10 spotkań po 3 godz. sala do ćwicze
+ ń\, ul. Oczki 1\nDaty w planie: 12.10. - 14.12.\nŹródło: CO27:CO35
+LOCATION:sala do ćwiczeń\, ul. Oczki 1
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Anatomia ćwiczenia NZZA
+DTSTART;TZID=Europe/Warsaw:20261109T123000
+DTEND;TZID=Europe/Warsaw:20261109T144500
+DTSTAMP:20260930T180730Z
+UID:d0b879af7ec11f2809c57e9d281c925c83d9098c@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 10 spotkań po 3 godz. sala do ćwicze
+ ń\, ul. Oczki 1\nDaty w planie: 12.10. - 14.12.\nŹródło: CO27:CO35
+LOCATION:sala do ćwiczeń\, ul. Oczki 1
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Anatomia ćwiczenia NZZA
+DTSTART;TZID=Europe/Warsaw:20261116T123000
+DTEND;TZID=Europe/Warsaw:20261116T144500
+DTSTAMP:20260930T180730Z
+UID:295f4f0b285722e0595735f4924a5a1420435088@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 10 spotkań po 3 godz. sala do ćwicze
+ ń\, ul. Oczki 1\nDaty w planie: 12.10. - 14.12.\nŹródło: CO27:CO35
+LOCATION:sala do ćwiczeń\, ul. Oczki 1
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Anatomia ćwiczenia NZZA
+DTSTART;TZID=Europe/Warsaw:20261123T123000
+DTEND;TZID=Europe/Warsaw:20261123T144500
+DTSTAMP:20260930T180730Z
+UID:173c19a81048dbf11779f74ea5692d16a5ee72d0@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 10 spotkań po 3 godz. sala do ćwicze
+ ń\, ul. Oczki 1\nDaty w planie: 12.10. - 14.12.\nŹródło: CO27:CO35
+LOCATION:sala do ćwiczeń\, ul. Oczki 1
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Anatomia ćwiczenia NZZA
+DTSTART;TZID=Europe/Warsaw:20261130T123000
+DTEND;TZID=Europe/Warsaw:20261130T144500
+DTSTAMP:20260930T180730Z
+UID:bdd65a696364959b22191dbbd54b42a474584295@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 10 spotkań po 3 godz. sala do ćwicze
+ ń\, ul. Oczki 1\nDaty w planie: 12.10. - 14.12.\nŹródło: CO27:CO35
+LOCATION:sala do ćwiczeń\, ul. Oczki 1
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Anatomia ćwiczenia NZZA
+DTSTART;TZID=Europe/Warsaw:20261207T123000
+DTEND;TZID=Europe/Warsaw:20261207T144500
+DTSTAMP:20260930T180730Z
+UID:dc79701f885e2d686067672271e8de5b255af51d@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 10 spotkań po 3 godz. sala do ćwicze
+ ń\, ul. Oczki 1\nDaty w planie: 12.10. - 14.12.\nŹródło: CO27:CO35
+LOCATION:sala do ćwiczeń\, ul. Oczki 1
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Anatomia ćwiczenia NZZA
+DTSTART;TZID=Europe/Warsaw:20261214T123000
+DTEND;TZID=Europe/Warsaw:20261214T144500
+DTSTAMP:20260930T180730Z
+UID:19e3a7d79a2def848c2b84852bf53433a6bd40a0@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 10 spotkań po 3 godz. sala do ćwicze
+ ń\, ul. Oczki 1\nDaty w planie: 12.10. - 14.12.\nŹródło: CO27:CO35
+LOCATION:sala do ćwiczeń\, ul. Oczki 1
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Psychologia ćwiczenia
+DTSTART;TZID=Europe/Warsaw:20261125T123000
+DTEND;TZID=Europe/Warsaw:20261125T144500
+DTSTAMP:20260930T180730Z
+UID:fc12b9418c21b612365239c07b8d843f880120f0@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 3 pierwsze spotkania po 3 godz. - Studi
+ um Psychologii Zdrowia\; 2 ostatnie spotkania po 3 godz. - Studium Komunik
+ acji Medycznej sala 128 w CBI\nDaty w planie: 25.11 - 13.01.\nŹródło: I
+ S27:IS35
+LOCATION:sala 128 w CBI
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Psychologia ćwiczenia
+DTSTART;TZID=Europe/Warsaw:20261202T123000
+DTEND;TZID=Europe/Warsaw:20261202T144500
+DTSTAMP:20260930T180730Z
+UID:a9f20831b2a435005d499acb2f6b7c0e70b0e7e6@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 3 pierwsze spotkania po 3 godz. - Studi
+ um Psychologii Zdrowia\; 2 ostatnie spotkania po 3 godz. - Studium Komunik
+ acji Medycznej sala 128 w CBI\nDaty w planie: 25.11 - 13.01.\nŹródło: I
+ S27:IS35
+LOCATION:sala 128 w CBI
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Psychologia ćwiczenia
+DTSTART;TZID=Europe/Warsaw:20261209T123000
+DTEND;TZID=Europe/Warsaw:20261209T144500
+DTSTAMP:20260930T180730Z
+UID:bbd569afcff4fe3b1122dc82ffaec1f2bd7d10fd@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 3 pierwsze spotkania po 3 godz. - Studi
+ um Psychologii Zdrowia\; 2 ostatnie spotkania po 3 godz. - Studium Komunik
+ acji Medycznej sala 128 w CBI\nDaty w planie: 25.11 - 13.01.\nŹródło: I
+ S27:IS35
+LOCATION:sala 128 w CBI
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Psychologia ćwiczenia
+DTSTART;TZID=Europe/Warsaw:20261216T123000
+DTEND;TZID=Europe/Warsaw:20261216T144500
+DTSTAMP:20260930T180730Z
+UID:65cdd549bee26d85fd105f98a68942fac9e24708@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 3 pierwsze spotkania po 3 godz. - Studi
+ um Psychologii Zdrowia\; 2 ostatnie spotkania po 3 godz. - Studium Komunik
+ acji Medycznej sala 128 w CBI\nDaty w planie: 25.11 - 13.01.\nŹródło: I
+ S27:IS35
+LOCATION:sala 128 w CBI
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Psychologia ćwiczenia
+DTSTART;TZID=Europe/Warsaw:20270113T123000
+DTEND;TZID=Europe/Warsaw:20270113T144500
+DTSTAMP:20260930T180730Z
+UID:7fdfb18424f14d15150a51909bafb58581c62f4e@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 3 pierwsze spotkania po 3 godz. - Studi
+ um Psychologii Zdrowia\; 2 ostatnie spotkania po 3 godz. - Studium Komunik
+ acji Medycznej sala 128 w CBI\nDaty w planie: 25.11 - 13.01.\nŹródło: I
+ S27:IS35
+LOCATION:sala 128 w CBI
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Podst. Piel. ćwiczenia NZA
+DTSTART;TZID=Europe/Warsaw:20270120T140000
+DTEND;TZID=Europe/Warsaw:20270120T170000
+DTSTAMP:20260930T180730Z
+UID:8b6dd92f8b13515e37105b72676241aa4fb32a7d@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 15 spotkań po 4 godz. Pracownie do ćw
+ iczeń\, ul. Ciołka 27\nDaty w planie: 20.01.\nŹródło: IJ33:IJ44
+LOCATION:Pracownie do ćwiczeń\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Podst. Piel. ćwiczenia NZA
+DTSTART;TZID=Europe/Warsaw:20270127T140000
+DTEND;TZID=Europe/Warsaw:20270127T170000
+DTSTAMP:20260930T180730Z
+UID:e47aaa3501a247c3c5c402e2acb6a74fc88828b0@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 15 spotkań po 4 godz. Pracownie do ćw
+ iczeń\, ul. Ciołka 27\nDaty w planie: 27.01.\nŹródło: IM33:IM44
+LOCATION:Pracownie do ćwiczeń\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Podst. Piel. ćwiczenia NZA
+DTSTART;TZID=Europe/Warsaw:20261008T140000
+DTEND;TZID=Europe/Warsaw:20261008T170000
+DTSTAMP:20260930T180730Z
+UID:ce675322976787ada6fed1765339bc6663fc4d5d@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 15 spotkań po 4 godz. Pracownie do ćw
+ iczeń\, ul. Ciołka 27\nDaty w planie: 08.10. - 28.01.\nŹródło: JY33:J
+ Y44
+LOCATION:Pracownie do ćwiczeń\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Podst. Piel. ćwiczenia NZA
+DTSTART;TZID=Europe/Warsaw:20261015T140000
+DTEND;TZID=Europe/Warsaw:20261015T170000
+DTSTAMP:20260930T180730Z
+UID:4b6540ece767a6a94387d5739ba9599e28346d92@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 15 spotkań po 4 godz. Pracownie do ćw
+ iczeń\, ul. Ciołka 27\nDaty w planie: 08.10. - 28.01.\nŹródło: JY33:J
+ Y44
+LOCATION:Pracownie do ćwiczeń\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Podst. Piel. ćwiczenia NZA
+DTSTART;TZID=Europe/Warsaw:20261022T140000
+DTEND;TZID=Europe/Warsaw:20261022T170000
+DTSTAMP:20260930T180730Z
+UID:214fdc945e6ecb24b0e44caa9dd3a938ab846357@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 15 spotkań po 4 godz. Pracownie do ćw
+ iczeń\, ul. Ciołka 27\nDaty w planie: 08.10. - 28.01.\nŹródło: JY33:J
+ Y44
+LOCATION:Pracownie do ćwiczeń\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Podst. Piel. ćwiczenia NZA
+DTSTART;TZID=Europe/Warsaw:20261029T140000
+DTEND;TZID=Europe/Warsaw:20261029T170000
+DTSTAMP:20260930T180730Z
+UID:f898c0bd671518fb4a3799da4dc93b37768fa417@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 15 spotkań po 4 godz. Pracownie do ćw
+ iczeń\, ul. Ciołka 27\nDaty w planie: 08.10. - 28.01.\nŹródło: JY33:J
+ Y44
+LOCATION:Pracownie do ćwiczeń\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Podst. Piel. ćwiczenia NZA
+DTSTART;TZID=Europe/Warsaw:20261105T140000
+DTEND;TZID=Europe/Warsaw:20261105T170000
+DTSTAMP:20260930T180730Z
+UID:ae861c00d638d080e9f9dee84702081d512bd03c@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 15 spotkań po 4 godz. Pracownie do ćw
+ iczeń\, ul. Ciołka 27\nDaty w planie: 08.10. - 28.01.\nŹródło: JY33:J
+ Y44
+LOCATION:Pracownie do ćwiczeń\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Podst. Piel. ćwiczenia NZA
+DTSTART;TZID=Europe/Warsaw:20261112T140000
+DTEND;TZID=Europe/Warsaw:20261112T170000
+DTSTAMP:20260930T180730Z
+UID:176fba33f432b5e4581e77031a6aa7ddc65825cd@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 15 spotkań po 4 godz. Pracownie do ćw
+ iczeń\, ul. Ciołka 27\nDaty w planie: 08.10. - 28.01.\nŹródło: JY33:J
+ Y44
+LOCATION:Pracownie do ćwiczeń\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Podst. Piel. ćwiczenia NZA
+DTSTART;TZID=Europe/Warsaw:20261119T140000
+DTEND;TZID=Europe/Warsaw:20261119T170000
+DTSTAMP:20260930T180730Z
+UID:066d0622e3eb7a7c319d0c5a4d8e504be31a68d8@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 15 spotkań po 4 godz. Pracownie do ćw
+ iczeń\, ul. Ciołka 27\nDaty w planie: 08.10. - 28.01.\nŹródło: JY33:J
+ Y44
+LOCATION:Pracownie do ćwiczeń\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Podst. Piel. ćwiczenia NZA
+DTSTART;TZID=Europe/Warsaw:20261126T140000
+DTEND;TZID=Europe/Warsaw:20261126T170000
+DTSTAMP:20260930T180730Z
+UID:87841fcfbea1dede00fe4dade3ffb1089942118f@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 15 spotkań po 4 godz. Pracownie do ćw
+ iczeń\, ul. Ciołka 27\nDaty w planie: 08.10. - 28.01.\nŹródło: JY33:J
+ Y44
+LOCATION:Pracownie do ćwiczeń\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Podst. Piel. ćwiczenia NZA
+DTSTART;TZID=Europe/Warsaw:20261203T140000
+DTEND;TZID=Europe/Warsaw:20261203T170000
+DTSTAMP:20260930T180730Z
+UID:d98bab0b74c383c53bc7286dc62904d939413477@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 15 spotkań po 4 godz. Pracownie do ćw
+ iczeń\, ul. Ciołka 27\nDaty w planie: 08.10. - 28.01.\nŹródło: JY33:J
+ Y44
+LOCATION:Pracownie do ćwiczeń\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Podst. Piel. ćwiczenia NZA
+DTSTART;TZID=Europe/Warsaw:20261210T140000
+DTEND;TZID=Europe/Warsaw:20261210T170000
+DTSTAMP:20260930T180730Z
+UID:2d3c58517128a0fdd2b7920dbe62b6cbc3328d18@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 15 spotkań po 4 godz. Pracownie do ćw
+ iczeń\, ul. Ciołka 27\nDaty w planie: 08.10. - 28.01.\nŹródło: JY33:J
+ Y44
+LOCATION:Pracownie do ćwiczeń\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Podst. Piel. ćwiczenia NZA
+DTSTART;TZID=Europe/Warsaw:20261217T140000
+DTEND;TZID=Europe/Warsaw:20261217T170000
+DTSTAMP:20260930T180730Z
+UID:2193aa17c573f518de363f68969bb05b8f70d05b@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 15 spotkań po 4 godz. Pracownie do ćw
+ iczeń\, ul. Ciołka 27\nDaty w planie: 08.10. - 28.01.\nŹródło: JY33:J
+ Y44
+LOCATION:Pracownie do ćwiczeń\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Podst. Piel. ćwiczenia NZA
+DTSTART;TZID=Europe/Warsaw:20270107T140000
+DTEND;TZID=Europe/Warsaw:20270107T170000
+DTSTAMP:20260930T180730Z
+UID:962136c68e8c3d5245e89635fe08015738ae4e41@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 15 spotkań po 4 godz. Pracownie do ćw
+ iczeń\, ul. Ciołka 27\nDaty w planie: 08.10. - 28.01.\nŹródło: JY33:J
+ Y44
+LOCATION:Pracownie do ćwiczeń\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Podst. Piel. ćwiczenia NZA
+DTSTART;TZID=Europe/Warsaw:20270114T140000
+DTEND;TZID=Europe/Warsaw:20270114T170000
+DTSTAMP:20260930T180730Z
+UID:d9c483aee657f587e378db1d3aa030236a4a3874@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 15 spotkań po 4 godz. Pracownie do ćw
+ iczeń\, ul. Ciołka 27\nDaty w planie: 08.10. - 28.01.\nŹródło: JY33:J
+ Y44
+LOCATION:Pracownie do ćwiczeń\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Podst. Piel. ćwiczenia NZA
+DTSTART;TZID=Europe/Warsaw:20270121T140000
+DTEND;TZID=Europe/Warsaw:20270121T170000
+DTSTAMP:20260930T180730Z
+UID:57cc1748893ae368c4bb3bdd176cdbe63d8b63e1@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 15 spotkań po 4 godz. Pracownie do ćw
+ iczeń\, ul. Ciołka 27\nDaty w planie: 08.10. - 28.01.\nŹródło: JY33:J
+ Y44
+LOCATION:Pracownie do ćwiczeń\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Podst. Piel. ćwiczenia NZA
+DTSTART;TZID=Europe/Warsaw:20270128T140000
+DTEND;TZID=Europe/Warsaw:20270128T170000
+DTSTAMP:20260930T180730Z
+UID:7212c6b3ff62a9eacde6d191f13c98854febecbb@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 15 spotkań po 4 godz. Pracownie do ćw
+ iczeń\, ul. Ciołka 27\nDaty w planie: 08.10. - 28.01.\nŹródło: JY33:J
+ Y44
+LOCATION:Pracownie do ćwiczeń\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Język angielski
+DTSTART;TZID=Europe/Warsaw:20261006T153000
+DTEND;TZID=Europe/Warsaw:20261006T170000
+DTSTAMP:20260930T180730Z
+UID:797a65ae24eee4ab20dc0555cf5355cce7e338ad@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 15 spotkań po 2 godz.\nDaty w planie: c
+ ały semestr\nŹródło: GV39:GV44
+LOCATION:5. DE 002 (jasna)\, Szpital Pediatryczny\, ul. Żwirki i Wigury 6
+ 3a
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Język angielski
+DTSTART;TZID=Europe/Warsaw:20261013T153000
+DTEND;TZID=Europe/Warsaw:20261013T170000
+DTSTAMP:20260930T180730Z
+UID:e3d0a492327dd9dc1546f9103bfcb6f83257d0fc@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 15 spotkań po 2 godz.\nDaty w planie: c
+ ały semestr\nŹródło: GV39:GV44
+LOCATION:5. DE 002 (jasna)\, Szpital Pediatryczny\, ul. Żwirki i Wigury 6
+ 3a
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Język angielski
+DTSTART;TZID=Europe/Warsaw:20261020T153000
+DTEND;TZID=Europe/Warsaw:20261020T170000
+DTSTAMP:20260930T180730Z
+UID:c552add11fd28f6edfde8d21f8b6942b7e61f1b7@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 15 spotkań po 2 godz.\nDaty w planie: c
+ ały semestr\nŹródło: GV39:GV44
+LOCATION:5. DE 002 (jasna)\, Szpital Pediatryczny\, ul. Żwirki i Wigury 6
+ 3a
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Język angielski
+DTSTART;TZID=Europe/Warsaw:20261027T153000
+DTEND;TZID=Europe/Warsaw:20261027T170000
+DTSTAMP:20260930T180730Z
+UID:c606023a28412053fca0b5305a6872183a4cb73f@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 15 spotkań po 2 godz.\nDaty w planie: c
+ ały semestr\nŹródło: GV39:GV44
+LOCATION:5. DE 002 (jasna)\, Szpital Pediatryczny\, ul. Żwirki i Wigury 6
+ 3a
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Język angielski
+DTSTART;TZID=Europe/Warsaw:20261103T153000
+DTEND;TZID=Europe/Warsaw:20261103T170000
+DTSTAMP:20260930T180730Z
+UID:6dc5aa2f5c10661ed50dcb77b2435d2f78ab925d@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 15 spotkań po 2 godz.\nDaty w planie: c
+ ały semestr\nŹródło: GV39:GV44
+LOCATION:5. DE 002 (jasna)\, Szpital Pediatryczny\, ul. Żwirki i Wigury 6
+ 3a
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Język angielski
+DTSTART;TZID=Europe/Warsaw:20261110T153000
+DTEND;TZID=Europe/Warsaw:20261110T170000
+DTSTAMP:20260930T180730Z
+UID:6b8b08e9c8c02922143513c3fbf06f9e630431f3@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 15 spotkań po 2 godz.\nDaty w planie: c
+ ały semestr\nŹródło: GV39:GV44
+LOCATION:5. DE 002 (jasna)\, Szpital Pediatryczny\, ul. Żwirki i Wigury 6
+ 3a
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Język angielski
+DTSTART;TZID=Europe/Warsaw:20261117T153000
+DTEND;TZID=Europe/Warsaw:20261117T170000
+DTSTAMP:20260930T180730Z
+UID:a1a4f23c6073e60507af5aaf02af36d167ccbfb0@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 15 spotkań po 2 godz.\nDaty w planie: c
+ ały semestr\nŹródło: GV39:GV44
+LOCATION:5. DE 002 (jasna)\, Szpital Pediatryczny\, ul. Żwirki i Wigury 6
+ 3a
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Język angielski
+DTSTART;TZID=Europe/Warsaw:20261124T153000
+DTEND;TZID=Europe/Warsaw:20261124T170000
+DTSTAMP:20260930T180730Z
+UID:d0e9b796e0dd2e703f54f1b81338c339f059bca0@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 15 spotkań po 2 godz.\nDaty w planie: c
+ ały semestr\nŹródło: GV39:GV44
+LOCATION:5. DE 002 (jasna)\, Szpital Pediatryczny\, ul. Żwirki i Wigury 6
+ 3a
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Język angielski
+DTSTART;TZID=Europe/Warsaw:20261201T153000
+DTEND;TZID=Europe/Warsaw:20261201T170000
+DTSTAMP:20260930T180730Z
+UID:166e267f1d6e8b7f9bd8d78c93af7b3576a180a6@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 15 spotkań po 2 godz.\nDaty w planie: c
+ ały semestr\nŹródło: GV39:GV44
+LOCATION:5. DE 002 (jasna)\, Szpital Pediatryczny\, ul. Żwirki i Wigury 6
+ 3a
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Język angielski
+DTSTART;TZID=Europe/Warsaw:20261208T153000
+DTEND;TZID=Europe/Warsaw:20261208T170000
+DTSTAMP:20260930T180730Z
+UID:48aa902cb5214cbd4779d070a1d5e06cfc191b54@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 15 spotkań po 2 godz.\nDaty w planie: c
+ ały semestr\nŹródło: GV39:GV44
+LOCATION:5. DE 002 (jasna)\, Szpital Pediatryczny\, ul. Żwirki i Wigury 6
+ 3a
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Język angielski
+DTSTART;TZID=Europe/Warsaw:20261215T153000
+DTEND;TZID=Europe/Warsaw:20261215T170000
+DTSTAMP:20260930T180730Z
+UID:97756d8498485ee0c4385431cb26e8b3863418cc@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 15 spotkań po 2 godz.\nDaty w planie: c
+ ały semestr\nŹródło: GV39:GV44
+LOCATION:5. DE 002 (jasna)\, Szpital Pediatryczny\, ul. Żwirki i Wigury 6
+ 3a
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Język angielski
+DTSTART;TZID=Europe/Warsaw:20270105T153000
+DTEND;TZID=Europe/Warsaw:20270105T170000
+DTSTAMP:20260930T180730Z
+UID:6624f24647bbfeef2d58edd87fc80051e3ade80d@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 15 spotkań po 2 godz.\nDaty w planie: c
+ ały semestr\nŹródło: GV39:GV44
+LOCATION:5. DE 002 (jasna)\, Szpital Pediatryczny\, ul. Żwirki i Wigury 6
+ 3a
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Język angielski
+DTSTART;TZID=Europe/Warsaw:20270112T153000
+DTEND;TZID=Europe/Warsaw:20270112T170000
+DTSTAMP:20260930T180730Z
+UID:291bf7c845d7f9d277a93ba66aaeae8c21c20c59@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 15 spotkań po 2 godz.\nDaty w planie: c
+ ały semestr\nŹródło: GV39:GV44
+LOCATION:5. DE 002 (jasna)\, Szpital Pediatryczny\, ul. Żwirki i Wigury 6
+ 3a
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Język angielski
+DTSTART;TZID=Europe/Warsaw:20270119T153000
+DTEND;TZID=Europe/Warsaw:20270119T170000
+DTSTAMP:20260930T180730Z
+UID:01aab3604f5751252a1ce1d34501f050f9011a9f@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 15 spotkań po 2 godz.\nDaty w planie: c
+ ały semestr\nŹródło: GV39:GV44
+LOCATION:5. DE 002 (jasna)\, Szpital Pediatryczny\, ul. Żwirki i Wigury 6
+ 3a
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Język angielski
+DTSTART;TZID=Europe/Warsaw:20270126T153000
+DTEND;TZID=Europe/Warsaw:20270126T170000
+DTSTAMP:20260930T180730Z
+UID:e15ae45b5f4d1608757f6c0003c93d591f706fe2@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 15 spotkań po 2 godz.\nDaty w planie: c
+ ały semestr\nŹródło: GV39:GV44
+LOCATION:5. DE 002 (jasna)\, Szpital Pediatryczny\, ul. Żwirki i Wigury 6
+ 3a
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pedagogika ćwiczenia NZJ
+DTSTART;TZID=Europe/Warsaw:20261218T160000
+DTEND;TZID=Europe/Warsaw:20261218T194500
+DTSTAMP:20260930T180730Z
+UID:891d50bf057acf9c225df08a6ea070bd70a322e2@wum-tracker
+DESCRIPTION:Grupa: 8b\nInformacje: 1 spotkanie 5 godz. Sala 210\, ul. Cio
+ łka 27\nDaty w planie: 18.12.\nŹródło: MZ41:MZ55
+LOCATION:Sala 210\, ul. Ciołka 27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Psychologia seminaria 2MB
+DTSTART;TZID=Europe/Warsaw:20261009T164500
+DTEND;TZID=Europe/Warsaw:20261009T181500
+DTSTAMP:20260930T180730Z
+UID:42d714fa996dcf00de6a2dd9876280c19559ffc0@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 1 spotkanie po 2 godz. aula im. prof. A.
+  Gluzińskiego\, ul. Nowogrodzka 59\nDaty w planie: 09.10.\nŹródło: MF4
+ 4:MF49
+LOCATION:aula im. prof. A. Gluzińskiego\, ul. Nowogrodzka 59
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Psychologia seminaria S4
+DTSTART;TZID=Europe/Warsaw:20261016T164500
+DTEND;TZID=Europe/Warsaw:20261016T181500
+DTSTAMP:20260930T180730Z
+UID:c55cfccfbf16e9fa37e60744e8d3b4c469457707@wum-tracker
+DESCRIPTION:Grupa: 8\nInformacje: 1 spotkania po 2 godz. sala 5.71\, UCS\,
+  ul. Binieckiego 6\nDaty w planie: 16.10.\nŹródło: MJ44:MJ49
+LOCATION:sala 5.71\, UCS\, ul. Binieckiego 6
+END:VEVENT
+END:VCALENDAR
