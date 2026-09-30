@@ -1,0 +1,78 @@
+name: Generuj kalendarz
+
+# Generuje plan_zajec.ics z planu w data/*.xlsx i commituje go do repozytorium,
+# żeby kalendarz można było subskrybować pod stałym adresem.
+#
+# Opcjonalne zmienne repozytorium (Settings -> Secrets and variables -> Actions -> Variables):
+#   WUM_TARGET_GROUP     np. "grupa 8"   (domyślnie: wartość TARGET_GROUP w skrypcie)
+#   WUM_TARGET_SUBGROUP  np. "b"         (domyślnie: wartość TARGET_SUBGROUP w skrypcie)
+#   WUM_PLAN_URL         bezpośredni link do pliku .xlsx - wtedy plan jest pobierany
+#                        przy każdym uruchomieniu (także codziennie z harmonogramu)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/**"
+      - "wum_tracker.py"
+      - "requirements.txt"
+      - ".github/workflows/generate-calendar.yml"
+  workflow_dispatch:
+  schedule:
+    - cron: "17 4 * * *" # codziennie ok. 6:17 czasu polskiego (tylko gdy ustawiono WUM_PLAN_URL)
+
+permissions:
+  contents: write
+
+concurrency:
+  group: generate-calendar
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    # Bez WUM_PLAN_URL harmonogram nie ma czego odświeżać - plan zmienia się tylko przez push.
+    if: github.event_name != 'schedule' || vars.WUM_PLAN_URL != ''
+    runs-on: ubuntu-latest
+    env:
+      WUM_TARGET_GROUP: ${{ vars.WUM_TARGET_GROUP }}
+      WUM_TARGET_SUBGROUP: ${{ vars.WUM_TARGET_SUBGROUP }}
+      WUM_PLAN_URL: ${{ vars.WUM_PLAN_URL }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          cache: pip
+
+      - name: Instaluj zależności
+        run: pip install -r requirements.txt
+
+      - name: Pobierz plan z WUM_PLAN_URL
+        if: env.WUM_PLAN_URL != ''
+        run: |
+          curl -fsSL --retry 3 -o "$RUNNER_TEMP/plan.xlsx" "$WUM_PLAN_URL"
+          echo "WUM_INPUT_FILE=$RUNNER_TEMP/plan.xlsx" >> "$GITHUB_ENV"
+
+      - name: Generuj plan_zajec.ics
+        run: python wum_tracker.py --output plan_zajec.ics
+
+      - name: Zapisz plik jako artefakt
+        uses: actions/upload-artifact@v4
+        with:
+          name: plan_zajec
+          path: plan_zajec.ics
+
+      - name: Commituj zmiany w kalendarzu
+        run: |
+          git add plan_zajec.ics
+          # DTSTAMP zmienia się przy każdym uruchomieniu - ignorujemy go,
+          # żeby nie tworzyć pustych commitów, gdy plan się nie zmienił.
+          if git diff --cached --quiet -I '^DTSTAMP:' -- plan_zajec.ics; then
+            echo "Kalendarz bez zmian - nic do commitowania."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Aktualizacja plan_zajec.ics"
+          git push
