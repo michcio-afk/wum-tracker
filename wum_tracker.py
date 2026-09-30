@@ -46,12 +46,12 @@ from openpyxl.worksheet.worksheet import Worksheet
 # ---------------------------------------------------------------------------
 
 # Grupa dziekańska, dla której generujemy kalendarz.
-TARGET_GROUP = "grupa 14"
+TARGET_GROUP = "grupa 8"
 
 # Podgrupa ("a", "b", "c") - ćwiczenia odbywają się w podgrupach 8/12-osobowych.
 # None = weź zajęcia całej grupy ORAZ wszystkich jej podgrup (podgrupa trafi
 # do tytułu wydarzenia, np. "Anatomia NZZA [14a]").
-TARGET_SUBGROUP: str | None = None
+TARGET_SUBGROUP: str | None = "b"
 
 # Domyślny plik wejściowy; gdy nie istnieje, bierzemy najnowszy pasujący *.xlsx.
 INPUT_FILE = "licencjat-i-rok-piel.xlsx"

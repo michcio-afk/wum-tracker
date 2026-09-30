@@ -7,7 +7,7 @@ dla wybranej grupy dziekańskiej.
 
 ```bash
 pip install -r requirements.txt
-python wum_tracker.py                                  # grupa 14, wszystkie podgrupy
+python wum_tracker.py                                  # domyślnie: grupa 8, podgrupa 8b
 python wum_tracker.py --group "grupa 14" --subgroup a  # tylko zajęcia podgrupy 14a
 python wum_tracker.py --input data/plan.xlsx --output plan_zajec.ics
 ```
