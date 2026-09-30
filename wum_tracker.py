@@ -552,6 +552,17 @@ def build_calendar(lessons: list[Lesson], group_label: str, show_subgroup: bool)
 # WEJŚCIE / WYJŚCIE
 # ---------------------------------------------------------------------------
 
+def filename_date(path: str) -> date | None:
+    """Data z nazwy pliku, np. 'licencjat-i-rok-piel.-30.09.2026.xlsx' -> 2026-09-30."""
+    m = re.search(r"(\d{1,2})\.(\d{1,2})\.(\d{4})", os.path.basename(path))
+    if not m:
+        return None
+    try:
+        return date(int(m.group(3)), int(m.group(2)), int(m.group(1)))
+    except ValueError:
+        return None
+
+
 def resolve_input(path: str | None) -> str:
     """Zwraca ścieżkę pliku Excel: podaną jawnie albo najnowszy pasujący."""
     if path:
@@ -563,7 +574,9 @@ def resolve_input(path: str | None) -> str:
     for pattern in INPUT_GLOB_PATTERNS:
         candidates = [p for p in glob.glob(pattern) if not os.path.basename(p).startswith("~$")]
         if candidates:
-            chosen = max(candidates, key=os.path.getmtime)
+            # W świeżym checkoucie (CI) wszystkie pliki mają ten sam mtime,
+            # więc o "najnowszości" decyduje przede wszystkim data w nazwie.
+            chosen = max(candidates, key=lambda p: (filename_date(p) or date.min, os.path.getmtime(p)))
             log.info("Nie podano pliku - używam najnowszego pasującego: %s", chosen)
             return chosen
     raise FileNotFoundError("Nie znaleziono pliku .xlsx z planem zajęć (użyj --input).")
@@ -576,7 +589,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--group", "-g", default=os.environ.get("WUM_TARGET_GROUP") or TARGET_GROUP,
                         help=f"grupa dziekańska (domyślnie: '{TARGET_GROUP}')")
     parser.add_argument("--subgroup", "-s", default=os.environ.get("WUM_TARGET_SUBGROUP") or TARGET_SUBGROUP,
-                        help="podgrupa a/b/c (domyślnie: wszystkie)")
+                        help=f"podgrupa a/b/c (domyślnie: {TARGET_SUBGROUP or 'wszystkie'})")
     parser.add_argument("--output", "-o", default=os.environ.get("WUM_OUTPUT_FILE") or OUTPUT_FILE,
                         help=f"plik wynikowy (domyślnie: {OUTPUT_FILE})")
     parser.add_argument("--verbose", "-v", action="store_true", help="więcej logów")
