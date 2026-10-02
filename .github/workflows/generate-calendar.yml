@@ -1,7 +1,8 @@
 name: Generuj kalendarz
 
-# Generuje plan_zajec.ics z planu w data/*.xlsx i commituje go do repozytorium,
-# żeby kalendarz można było subskrybować pod stałym adresem.
+# Generuje plan_zajec.ics (wszystko) i kalendarze/*.ics (osobno ćwiczenia, seminaria,
+# wykłady, zaliczenia - każdy z własnym kolorem) z planu w data/*.xlsx i commituje je
+# do repozytorium, żeby kalendarze można było subskrybować pod stałymi adresami.
 #
 # Opcjonalne zmienne repozytorium (Settings -> Secrets and variables -> Actions -> Variables):
 #   WUM_TARGET_GROUP     np. "grupa 8"   (domyślnie: wartość TARGET_GROUP w skrypcie)
@@ -54,25 +55,27 @@ jobs:
           curl -fsSL --retry 3 -o "$RUNNER_TEMP/plan.xlsx" "$WUM_PLAN_URL"
           echo "WUM_INPUT_FILE=$RUNNER_TEMP/plan.xlsx" >> "$GITHUB_ENV"
 
-      - name: Generuj plan_zajec.ics
-        run: python wum_tracker.py --output plan_zajec.ics
+      - name: Generuj kalendarze
+        run: python wum_tracker.py --output plan_zajec.ics --calendars-dir kalendarze
 
       - name: Zapisz plik jako artefakt
         uses: actions/upload-artifact@v4
         with:
-          name: plan_zajec
-          path: plan_zajec.ics
+          name: kalendarze
+          path: |
+            plan_zajec.ics
+            kalendarze/*.ics
 
-      - name: Commituj zmiany w kalendarzu
+      - name: Commituj zmiany w kalendarzach
         run: |
-          git add plan_zajec.ics
+          git add plan_zajec.ics kalendarze/
           # DTSTAMP zmienia się przy każdym uruchomieniu - ignorujemy go,
           # żeby nie tworzyć pustych commitów, gdy plan się nie zmienił.
-          if git diff --cached --quiet -I '^DTSTAMP:' -- plan_zajec.ics; then
+          if git diff --cached --quiet -I '^DTSTAMP:' -- plan_zajec.ics kalendarze/; then
             echo "Kalendarz bez zmian - nic do commitowania."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Aktualizacja plan_zajec.ics"
+          git commit -m "Aktualizacja kalendarzy"
           git push

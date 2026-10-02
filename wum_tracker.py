@@ -12,15 +12,27 @@ Plik Excel ma bardzo nieregularną strukturę (arkusz "PLAN ZAJĘĆ"):
   * siatka od C7              - nazwy grup w komórkach scalonych pionowo
                                 (wysokość scalenia = czas trwania zajęć).
 
+Arkusz "WYKŁADY" ma inny układ: bloki dni tygodnia z nagłówkiem
+"PONIEDZIAŁKI (AULA B) Centrum Dydaktyczne, ul. Trojdena 2a", a pod nim wiersze
+"data | Przedmiot (prowadzący) 17.45 - 20.00 (3h) stacjonarnie/online".
+Wykłady są wspólne dla całego roku.
+
 Ponieważ niemal wszystko opiera się na scalonych komórkach, używamy openpyxl
 (data_only=True) i sami rozwiązujemy wartości scaleń - pandas tego nie potrafi.
+
+Wynik:
+  * plan_zajec.ics            - wszystko w jednym kalendarzu,
+  * kalendarze/<rodzaj>.ics   - osobny kalendarz na każdy rodzaj zajęć
+                                (Apple koloruje tylko całe kalendarze).
 
 Użycie:
     python wum_tracker.py [--input PLIK.xlsx] [--group "grupa 14"]
                           [--subgroup a] [--output plan_zajec.ics]
+                          [--calendars-dir kalendarze] [--no-lectures]
 
 Każdy parametr można też ustawić zmienną środowiskową (wygodne w GitHub
-Actions): WUM_INPUT_FILE, WUM_TARGET_GROUP, WUM_TARGET_SUBGROUP, WUM_OUTPUT_FILE.
+Actions): WUM_INPUT_FILE, WUM_TARGET_GROUP, WUM_TARGET_SUBGROUP, WUM_OUTPUT_FILE,
+WUM_CALENDARS_DIR.
 """
 
 from __future__ import annotations
@@ -37,7 +49,7 @@ from datetime import date, datetime, timedelta, timezone
 
 import openpyxl
 import pytz
-from icalendar import Calendar, Event
+from icalendar import Alarm, Calendar, Event
 from openpyxl.utils import get_column_letter
 from openpyxl.worksheet.worksheet import Worksheet
 
@@ -59,6 +71,7 @@ INPUT_GLOB_PATTERNS = ("licencjat*.xlsx", "data/licencjat*.xlsx", "*.xlsx", "dat
 
 OUTPUT_FILE = "plan_zajec.ics"
 SHEET_NAME = "PLAN ZAJĘĆ"
+LECTURE_SHEET_NAME = "WYKŁADY"
 
 # Układ arkusza (indeksy 1-based, jak w Excelu).
 ROW_DAYS = 3
@@ -104,6 +117,97 @@ WEEKDAYS_PL = {
     "SOBOTA": 5,
     "NIEDZIELA": 6,
 }
+
+# ---------------------------------------------------------------------------
+# WYGLĄD KALENDARZA
+# ---------------------------------------------------------------------------
+
+@dataclass(frozen=True)
+class CalendarSpec:
+    name: str
+    color_hex: str   # X-APPLE-CALENDAR-COLOR
+    color_css: str   # COLOR z RFC 7986 (musi być nazwą koloru CSS)
+    filename: str
+
+
+# Apple Calendar koloruje tylko całe kalendarze (Google także pojedyncze
+# wydarzenia, ale nie w subskrypcjach), więc dzielimy zajęcia na kilka plików
+# .ics - każdy subskrybuje się osobno i dostaje własny kolor.
+CALENDARS: dict[str, CalendarSpec] = {
+    "cwiczenia": CalendarSpec("WUM · Ćwiczenia i praktyki", "#E53935", "red", "cwiczenia.ics"),
+    "seminaria": CalendarSpec("WUM · Seminaria", "#43A047", "green", "seminaria.ics"),
+    "wyklady": CalendarSpec("WUM · Wykłady", "#1E88E5", "blue", "wyklady.ics"),
+    "zaliczenia": CalendarSpec("WUM · Zaliczenia i egzaminy", "#8E24AA", "purple", "zaliczenia.ics"),
+}
+CALENDARS_DIR = "kalendarze"
+
+# Przedmiot -> (krótka nazwa do tytułu, emoji). Pierwsze dopasowanie wygrywa.
+SUBJECTS: list[tuple[str, str, str]] = [
+    (r"podst\w*\.?\s*piel", "PP", "🩺"),
+    (r"badanie\s+fizykaln", "Bad. fizykalne", "🫁"),
+    (r"anatom", "Anatomia", "🦴"),
+    (r"biofizyk", "Biofizyka", "🧲"),
+    (r"fizjolog", "Fizjologia", "🫀"),
+    (r"biochem", "Biochemia", "🧪"),
+    (r"psycholog", "Psychologia", "🧠"),
+    (r"socjolog", "Socjologia", "👥"),
+    (r"pedagog", "Pedagogika", "🎓"),
+    (r"prawo", "Prawo", "⚖️"),
+    (r"etyk", "Etyka", "🤝"),
+    (r"ratownict", "Ratownictwo", "🚑"),
+    (r"angielsk", "Angielski", "🇬🇧"),
+]
+DEFAULT_SUBJECT_EMOJI = "📚"
+
+# Forma zajęć wykrywana z nazwy przedmiotu. Pierwsze dopasowanie wygrywa.
+FORMS: list[tuple[str, str]] = [
+    ("OSCE", r"\bosce\b"),
+    ("ZP", r"zaj\w*\.?\s+prakt|praktyk"),
+    ("SEM", r"semin"),
+    ("WYK", r"wykład"),
+    ("ĆW", r"ćw|ćwicz|cwicz"),
+]
+DEFAULT_FORM = "ĆW"  # np. "Anatomia NZZA", "Język angielski" - wg legendy to ćwiczenia
+
+# Zaliczenia/egzaminy - znacznik na początku tytułu, żeby od razu rzucały się w oczy.
+# (wzorzec, znacznik, temat dopisywany do tytułu)
+EXAMS: list[tuple[str, str, str]] = [
+    (r"egzamin", "🎯", "egzamin"),
+    (r"\bosce\b", "🎯", ""),            # forma OSCE jest już w tytule
+    (r"zaliczeni", "⚠️", "zaliczenie"),
+    (r"kolokwi", "⚠️", "kolokwium"),
+    (r"wejściówk", "⚠️", "wejściówka"),
+    (r"sprawdzian", "⚠️", "sprawdzian"),
+]
+
+# Co zabrać - (krótka nazwa przedmiotu, forma) -> tekst w opisie.
+_PP_KIT = "strój, identyfikator, spięte włosy, krótkie paznokcie"
+BRING: dict[tuple[str, str], str] = {
+    ("PP", "ĆW"): _PP_KIT,
+    ("PP", "ZP"): _PP_KIT,
+    ("PP", "OSCE"): _PP_KIT,
+}
+
+# Linki do Teams / e-learningu: klucz to krótka nazwa przedmiotu ("PP")
+# albo para (nazwa, forma), np. ("PP", "WYK"). Link trafia do pola URL
+# i do opisu. W pliku Excel linków nie ma - uzupełnij ręcznie.
+LINKS: dict[str | tuple[str, str], str] = {}
+
+# Przypomnienia dla kategorii, które "mogą uziemić" (czerwony i fioletowy).
+REMINDER_CATEGORIES = {"cwiczenia", "zaliczenia"}
+REMINDER_EVENING_BEFORE = "18:00"   # dzień wcześniej o tej godzinie
+REMINDER_MINUTES_BEFORE = 60
+
+# Adresy budynków podawanych w planie tylko skrótem (legenda pod planem).
+BUILDINGS = {
+    "CD": "Trojdena 2a",
+    "CBI": "Żwirki i Wigury 63",
+    "UCS": "Binieckiego 6",
+    "CSR": "Trojdena 2c",
+}
+# Ulice, przy których w planie czasem brakuje numeru.
+STREET_NUMBERS = {"Ciołka": "27"}
+CITY = "Warszawa"
 
 log = logging.getLogger("wum-tracker")
 
@@ -387,19 +491,84 @@ def extract_location(raw: object, group_number: str) -> str:
     return ", ".join(part for part in kept if part)
 
 
+def extract_info(raw: object) -> str:
+    """Z wiersza 6 bierze tylko to, co NIE jest salą: liczbę spotkań,
+    godziny i jednostkę (np. '3 pierwsze spotkania po 3 godz. - Studium ...')."""
+    return " ".join(
+        line for line in split_lines(raw)
+        if _NOT_LOCATION_RE.search(line) and not _GROUP_LIST_LINE_RE.match(line)
+    )
+
+
+_STREET_RE = re.compile(r"\bul[.,]?\s*([^,]+)", re.IGNORECASE)
+_BUILDING_RE = re.compile(r"\b(?:w\s+)?(" + "|".join(BUILDINGS) + r")\b")
+_NO_ROOM_RE = re.compile(r"brak\s+sal", re.IGNORECASE)
+
+
+def format_location(raw: object) -> str:
+    """Zamienia opis sali z planu na pole LOCATION w układzie
+    'ulica numer, sala, Warszawa' - adres na początku, żeby mapa
+    i czas dojazdu działały same.
+
+      'sala 204, ul. Ciołka 27' -> 'Ciołka 27, sala 204, Warszawa'
+      'sala 204 w CD'           -> 'Trojdena 2a (CD), sala 204, Warszawa'
+      '120 w CBI'               -> 'Żwirki i Wigury 63 (CBI), sala 120, Warszawa'
+      'brak sali'               -> ''
+    """
+    text = normalize_ws(raw)
+    if not text or _NO_ROOM_RE.search(text):
+        return ""
+
+    street = ""
+    m = _STREET_RE.search(text)
+    if m:
+        street = m.group(1).strip(" .")
+        text = text[:m.start()] + text[m.end():]
+        if not re.search(r"\d", street):
+            for name, number in STREET_NUMBERS.items():
+                if street.lower() == name.lower():
+                    street = f"{name} {number}"
+    else:
+        b = _BUILDING_RE.search(text)
+        if b:
+            street = f"{BUILDINGS[b.group(1)]} ({b.group(1)})"
+            text = text[:b.start()] + text[b.end():]
+
+    parts: list[str] = []
+    for part in text.split(","):
+        part = part.strip(" .;")
+        if not part:
+            continue
+        if re.fullmatch(r"\d+[\w.]*", part):  # sam numer sali, np. "120"
+            part = f"sala {part}"
+        part = re.sub(r"^Sal([ae])\b", r"sal\1", part)
+        parts.append(part)
+
+    if not street:
+        # Bez ulicy dopisanie miasta nic nie da - mapa i tak nie trafi.
+        return ", ".join(parts)
+    return ", ".join([street, *parts, CITY])
+
+
 # ---------------------------------------------------------------------------
 # GŁÓWNA LOGIKA
 # ---------------------------------------------------------------------------
 
 @dataclass
 class Lesson:
-    subject: str
+    subject: str             # pełna nazwa z planu, np. "Podst. Piel. ćwiczenia NZA"
     start: str               # "HH:MM"
     end: str                 # "HH:MM"
     dates: list[date]
-    location: str
-    groups: list[str]        # np. ['14'] albo ['14a']
-    source: str              # np. "N33:N44"
+    location: str            # pole LOCATION: "Ciołka 27, sala 204, Warszawa"
+    groups: list[str]        # np. ['14'] albo ['14a']; wykłady: ['cały rok']
+    source: str              # np. "PLAN ZAJĘĆ!N33:N44"
+    location_raw: str = ""   # sala dokładnie tak, jak w planie
+    dates_text: str = ""     # daty dokładnie tak, jak w planie
+    cell_text: str = ""      # tekst komórki z grupą (szukamy w nim zaliczeń)
+    form: str | None = None  # wymuszona forma (wykłady: "WYK")
+    lecturer: str = ""
+    online: bool = False
     notes: list[str] = field(default_factory=list)
 
 
@@ -447,6 +616,7 @@ def find_lessons(ws: Worksheet, group_number: str, subgroup: str | None) -> list
             if max_row != min_row:
                 src += f":{cell_ref(max_row, min_col)}"
             ctx = f"[{src}]"
+            src = f"{ws.title}!{src}"
 
             if min_row not in time_map:
                 log.warning("%s: brak slotu czasu w kolumnie A dla wiersza %d - pomijam.", ctx, min_row)
@@ -471,7 +641,10 @@ def find_lessons(ws: Worksheet, group_number: str, subgroup: str | None) -> list
             # Sala: dopisek w samej komórce grupy (np. 'grupa 14\n5. DE 003 ...')
             # ma pierwszeństwo przed ogólną informacją z wiersza 6.
             cell_extra = ", ".join(split_lines(raw)[1:])
-            location = cell_extra or extract_location(room_raw, group_number)
+            location_raw = cell_extra or extract_location(room_raw, group_number)
+            location = format_location(location_raw)
+            if _NO_ROOM_RE.search(location_raw):
+                notes.append("w planie: brak sali")  # pole LOCATION zostaje puste
 
             log.info(
                 "%s %-45s %s-%s  grupa=%-8s dat=%2d  sala=%s",
@@ -482,6 +655,9 @@ def find_lessons(ws: Worksheet, group_number: str, subgroup: str | None) -> list
                 log.warning("%s: brak dat dla '%s' (wiersz 5: %r) - pomijam.", ctx, subject, dates_raw)
                 continue
 
+            info = extract_info(room_raw)
+            if info:
+                notes.append(info)
             lessons.append(Lesson(
                 subject=subject,
                 start=start_time,
@@ -490,10 +666,105 @@ def find_lessons(ws: Worksheet, group_number: str, subgroup: str | None) -> list
                 location=location,
                 groups=groups,
                 source=src,
-                notes=notes + ([f"Informacje: {normalize_ws(room_raw)}"] if normalize_ws(room_raw) else [])
-                + [f"Daty w planie: {normalize_ws(dates_raw)}"],
+                location_raw=location_raw,
+                dates_text=normalize_ws(dates_raw),
+                cell_text=normalize_ws(raw),
+                notes=notes,
             ))
     return lessons
+
+
+# ---------------------------------------------------------------------------
+# ARKUSZ "WYKŁADY"
+# ---------------------------------------------------------------------------
+
+# "PONIEDZIAŁKI (AULA B) Centrum Dydaktyczne, ul. Trojdena 2a"
+_LECTURE_HEADER_RE = re.compile(
+    r"(PONIEDZIA\w*|WTOR\w*|ŚROD\w*|CZWART\w*|PIĄT\w*|SOBOT\w*)\s*(?:\(([^)]*)\))?\s*(.*)$",
+    re.IGNORECASE,
+)
+_WEEKDAY_STEMS = {"PONIEDZIA": 0, "WTOR": 1, "ŚROD": 2, "CZWART": 3, "PIĄT": 4, "SOBOT": 5}
+_LONE_DATE_RE = re.compile(r"^(\d{1,2})\.(\d{1,2})\.?$")
+# "Fizjologia  (prof. D. Szukiewicz) 17.45 - 20.00 (3h)  (stacjonarnie) ?"
+_LECTURE_TEXT_RE = re.compile(r"^(?P<subject>[^(]+?)\s*\((?P<lecturer>[^)]*)\)\s*(?P<rest>.*)$")
+
+
+def find_lectures(ws: Worksheet) -> list[Lesson]:
+    """Parsuje arkusz wykładów. Każdy wiersz z datą to jeden wykład
+    (wspólny dla całego roku, więc nie filtrujemy po grupie)."""
+    sheet = MergedSheet(ws)
+    lectures: list[Lesson] = []
+    weekday: int | None = None
+    venue = ""
+
+    for row in range(1, ws.max_row + 1):
+        head = normalize_ws(sheet.value(row, 1))
+        if not head:
+            continue
+        ctx = f"[{ws.title}!A{row}]"
+
+        header = _LECTURE_HEADER_RE.search(head)
+        if header and "WYKŁAD" in head.upper():
+            stem = next(s for s in _WEEKDAY_STEMS if header.group(1).upper().startswith(s))
+            weekday = _WEEKDAY_STEMS[stem]
+            hall = normalize_ws(header.group(2)).title()  # "AULA B" -> "Aula B"
+            venue = ", ".join(p for p in (hall, normalize_ws(header.group(3))) if p)
+            log.info("%s blok wykładów: %s, %s", ctx, header.group(1).upper(), venue or "(brak sali)")
+            continue
+
+        dm = _LONE_DATE_RE.match(head)
+        if not dm:
+            continue  # przypisy pod planem itp.
+        day = make_date(int(dm.group(1)), int(dm.group(2)))
+        text = next(
+            (normalize_ws(sheet.value(row, c)) for c in range(2, ws.max_column + 1) if normalize_ws(sheet.value(row, c))),
+            "",
+        )
+        if day is None or not text:
+            continue
+        if "NIE MA" in text.upper():
+            log.info("%s %s: %s", ctx, day.strftime("%d.%m"), text)
+            continue
+        if weekday is not None and day.weekday() != weekday:
+            log.warning("%s: data %s nie pasuje do dnia bloku - sprawdź plan.", ctx, day.strftime("%d.%m.%Y"))
+
+        slot = parse_time_slot(text)
+        if not slot:
+            log.warning("%s: brak godzin w '%s' - pomijam.", ctx, text)
+            continue
+
+        m = _LECTURE_TEXT_RE.match(text)
+        subject = normalize_ws(m.group("subject")) if m else normalize_ws(_TIME_SLOT_RE.split(text)[0])
+        lecturer = normalize_ws(m.group("lecturer")) if m else ""
+        rest = (m.group("rest") if m else text).lower()
+
+        online = "online" in rest
+        notes: list[str] = []
+        if not online and "stacjonarn" not in rest:
+            notes.append("forma nie podana w planie - zakładam stacjonarnie")
+        if "?" in rest:
+            notes.append("w planie ze znakiem zapytania - forma do potwierdzenia")
+
+        log.info(
+            "%s %s %-35s %s-%s  %s", ctx, day.strftime("%d.%m"), subject[:35], slot[0], slot[1],
+            "online" if online else venue,
+        )
+        lectures.append(Lesson(
+            subject=subject,
+            start=slot[0],
+            end=slot[1],
+            dates=[day],
+            location="" if online else format_location(venue),
+            groups=["cały rok"],
+            source=f"{ws.title}!A{row}",
+            location_raw="" if online else venue,
+            cell_text=text,
+            form="WYK",
+            lecturer=lecturer,
+            online=online,
+            notes=notes,
+        ))
+    return lectures
 
 
 # ---------------------------------------------------------------------------
@@ -506,46 +777,197 @@ def to_local_dt(day: date, hhmm: str) -> datetime:
     return TIMEZONE.localize(datetime(day.year, day.month, day.day, hour, minute))
 
 
-def build_calendar(lessons: list[Lesson], group_label: str, show_subgroup: bool) -> tuple[Calendar, int]:
+@dataclass
+class Look:
+    """Jak zajęcia wyglądają w kalendarzu."""
+    title: str
+    category: str      # klucz z CALENDARS
+    short: str         # "PP", "Anatomia", ...
+    form: str          # "ĆW", "SEM", "WYK", "ZP", "OSCE"
+    bring: str = ""
+    link: str = ""
+
+
+def _first_match(patterns, text: str):
+    for pattern, *values in patterns:
+        m = re.search(pattern, text, re.IGNORECASE)
+        if m:
+            return m, values
+    return None, None
+
+
+def describe(lesson: Lesson, show_subgroup: bool) -> Look:
+    """Tytuł 'emoji FORMA · Przedmiot: temat' (+ kategoria kalendarza).
+
+    Tytuł jest krótki - w widoku tygodnia w telefonie widać ok. 20 znaków.
+    """
+    _, subj = _first_match(SUBJECTS, lesson.subject)
+    if subj:
+        short, emoji = subj
+    else:
+        # Pierwsze słowo bez formy zajęć i kodu jednostki ("Mikrobiologia seminaria NZT").
+        words = [
+            w for w in lesson.subject.split()
+            if not any(re.search(p, w, re.IGNORECASE) for _, p in FORMS) and not re.fullmatch(r"[A-Z0-9]{2,5}", w)
+        ]
+        short, emoji = (words[0] if words else lesson.subject), DEFAULT_SUBJECT_EMOJI
+        log.info("Nieznany przedmiot '%s' - używam '%s'.", lesson.subject, short)
+
+    form = lesson.form
+    if form is None:
+        found = next((f for f, pattern in FORMS if re.search(pattern, lesson.subject, re.IGNORECASE)), None)
+        form = found or DEFAULT_FORM
+
+    # Zaliczenia szukamy w nazwie i w komórce z grupą, ale nie w wierszu 6
+    # (tam bywa np. "zaliczenie na ostatnich zajęciach" dla całej serii).
+    _, exam = _first_match(EXAMS, f"{lesson.subject} {lesson.cell_text}")
+    exam_mark, topic = exam if exam else ("", "")
+
+    if exam and form != "OSCE":
+        category = "zaliczenia"
+    elif form == "WYK":
+        category = "wyklady"
+    elif form == "SEM":
+        category = "seminaria"
+    else:  # ĆW, ZP, OSCE
+        category = "cwiczenia"
+
+    title = f"{emoji} {form} · {short}"
+    if topic:
+        title += f": {topic}"
+    if exam_mark:
+        title = f"{exam_mark} {title}"
+    if lesson.online:
+        title += " 💻"
+    if show_subgroup and any(g[-1].isalpha() for g in lesson.groups):
+        title += f" [{'/'.join(lesson.groups)}]"
+
+    return Look(
+        title=title,
+        category=category,
+        short=short,
+        form=form,
+        bring=BRING.get((short, form), ""),
+        link=LINKS.get((short, form)) or LINKS.get(short, ""),
+    )
+
+
+def build_description(lesson: Lesson, look: Look) -> str:
+    """Ten sam szablon dla każdej pozycji: najważniejsze na górze, reszta niżej."""
+    lines = [f"👥 Grupa: {', '.join(lesson.groups)}"]
+    if look.bring:
+        lines.append(f"🎒 Przynieś: {look.bring}")
+    if look.link:
+        lines.append(f"🔗 Teams / e-learning: {look.link}")
+    elif lesson.online:
+        lines.append("🔗 Teams / e-learning: brak linku w planie - sprawdź e-learning WUM")
+
+    lines.append("")
+    lines.append(f"📚 {lesson.subject}")
+    if lesson.lecturer:
+        lines.append(f"👤 {lesson.lecturer}")
+    if lesson.online:
+        lines.append("💻 Online w czasie rzeczywistym")
+    elif not lesson.location:
+        lines.append(f"📍 {lesson.location_raw or 'brak sali w planie'}")
+    lines.extend(f"ℹ️ {note}" for note in lesson.notes)
+    if lesson.dates_text:
+        lines.append(f"📅 Terminy w planie: {lesson.dates_text}")
+    lines.append(f"🗂 Źródło: {lesson.source}")
+    return "\n".join(lines)
+
+
+def build_alarms(lesson: Lesson, look: Look, start: datetime) -> list[Alarm]:
+    """Dzień wcześniej wieczorem (przygotuj rzeczy) i godzinę przed zajęciami."""
+    if look.category not in REMINDER_CATEGORIES:
+        return []
+    alarms: list[Alarm] = []
+
+    hour, minute = (int(x) for x in REMINDER_EVENING_BEFORE.split(":"))
+    evening = TIMEZONE.localize(datetime.combine(start.date() - timedelta(days=1), datetime.min.time()).replace(hour=hour, minute=minute))
+    evening_text = f"Jutro {start.strftime('%H:%M')}: {look.title}"
+    if look.bring:
+        evening_text += f" - przygotuj: {look.bring}"
+
+    for offset, text in (
+        (start - evening, evening_text),
+        (timedelta(minutes=REMINDER_MINUTES_BEFORE), f"Za {REMINDER_MINUTES_BEFORE} min: {look.title}"),
+    ):
+        alarm = Alarm()
+        alarm.add("action", "DISPLAY")
+        alarm.add("description", text)
+        # Względny wyzwalacz (-PT14H itp.) - działa też po przesunięciu zajęć.
+        alarm.add("trigger", -offset)
+        alarms.append(alarm)
+    return alarms
+
+
+def build_events(lessons: list[Lesson], group_label: str, show_subgroup: bool) -> list[tuple[str, Event]]:
+    """Zwraca listę (kategoria, wydarzenie)."""
+    stamp = datetime.now(timezone.utc)
+    seen: set[tuple] = set()
+    events: list[tuple[str, Event]] = []
+    for lesson in lessons:
+        look = describe(lesson, show_subgroup)
+        description = build_description(lesson, look)
+        spec = CALENDARS[look.category]
+        for day in lesson.dates:
+            key = (day, lesson.start, lesson.end, look.title)
+            if key in seen:
+                log.info("Duplikat %s %s %s - pomijam.", look.title, day, lesson.start)
+                continue
+            seen.add(key)
+
+            start = to_local_dt(day, lesson.start)
+            event = Event()
+            # Deterministyczny UID -> przy ponownym imporcie/subskrypcji
+            # kalendarz aktualizuje wydarzenia zamiast je dublować.
+            uid_src = f"{group_label}|{day.isoformat()}|{lesson.start}|{lesson.end}|{lesson.subject}|{look.form}"
+            event.add("uid", hashlib.sha1(uid_src.encode("utf-8")).hexdigest() + "@wum-tracker")
+            event.add("dtstamp", stamp)
+            event.add("dtstart", start)
+            event.add("dtend", to_local_dt(day, lesson.end))
+            event.add("summary", look.title)
+            event.add("description", description)
+            event.add("categories", [spec.name.split("· ")[-1]])
+            # Kolor pojedynczego wydarzenia (RFC 7986) - honorują go niektóre
+            # aplikacje; Apple i subskrypcje Google biorą kolor całego kalendarza.
+            event.add("color", spec.color_css)
+            if look.link:
+                event.add("url", look.link)
+            if lesson.location:
+                event.add("location", lesson.location)
+                # Apple Calendar: licz czas dojazdu automatycznie.
+                event.add("x-apple-travel-advisory-behavior", "AUTOMATIC")
+            for alarm in build_alarms(lesson, look, start):
+                event.add_component(alarm)
+            events.append((look.category, event))
+    return events
+
+
+def build_calendar(name: str, events: list[Event], spec: CalendarSpec | None = None) -> Calendar:
     cal = Calendar()
     cal.add("prodid", "-//WUM-Tracker//plan zajec//PL")
     cal.add("version", "2.0")
     cal.add("calscale", "GREGORIAN")
-    cal.add("x-wr-calname", f"WUM - {group_label}")
+    cal.add("x-wr-calname", name)
+    cal.add("name", name)
     cal.add("x-wr-timezone", TIMEZONE.zone)
-
-    stamp = datetime.now(timezone.utc)
-    seen: set[tuple] = set()
-    count = 0
-    for lesson in lessons:
-        tag = "/".join(lesson.groups)
-        summary = f"{lesson.subject} [{tag}]" if show_subgroup and any(g[-1].isalpha() for g in lesson.groups) else lesson.subject
-        for day in lesson.dates:
-            key = (day, lesson.start, lesson.end, summary)
-            if key in seen:
-                log.info("Duplikat %s %s %s - pomijam.", summary, day, lesson.start)
-                continue
-            seen.add(key)
-
-            event = Event()
-            # Deterministyczny UID -> przy ponownym imporcie/subskrypcji
-            # kalendarz aktualizuje wydarzenia zamiast je dublować.
-            uid_src = f"{group_label}|{day.isoformat()}|{lesson.start}|{lesson.end}|{summary}"
-            event.add("uid", hashlib.sha1(uid_src.encode("utf-8")).hexdigest() + "@wum-tracker")
-            event.add("dtstamp", stamp)
-            event.add("dtstart", to_local_dt(day, lesson.start))
-            event.add("dtend", to_local_dt(day, lesson.end))
-            event.add("summary", summary)
-            if lesson.location:
-                event.add("location", lesson.location)
-            event.add("description", "\n".join([f"Grupa: {tag}", *lesson.notes, f"Źródło: {lesson.source}"]))
-            cal.add_component(event)
-            count += 1
-
+    if spec:
+        cal.add("color", spec.color_css)
+        cal.add("x-apple-calendar-color", spec.color_hex)
+    for event in events:
+        cal.add_component(event)
     # Dołącz definicję VTIMEZONE (lepsza zgodność z Outlookiem itp.).
     if hasattr(cal, "add_missing_timezones"):
         cal.add_missing_timezones()
-    return cal, count
+    return cal
+
+
+def write_calendar(path: str, cal: Calendar) -> None:
+    os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+    with open(path, "wb") as fh:
+        fh.write(cal.to_ical())
 
 
 # ---------------------------------------------------------------------------
@@ -591,7 +1013,10 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--subgroup", "-s", default=os.environ.get("WUM_TARGET_SUBGROUP") or TARGET_SUBGROUP,
                         help=f"podgrupa a/b/c (domyślnie: {TARGET_SUBGROUP or 'wszystkie'})")
     parser.add_argument("--output", "-o", default=os.environ.get("WUM_OUTPUT_FILE") or OUTPUT_FILE,
-                        help=f"plik wynikowy (domyślnie: {OUTPUT_FILE})")
+                        help=f"łączny plik ze wszystkimi zajęciami (domyślnie: {OUTPUT_FILE})")
+    parser.add_argument("--calendars-dir", default=os.environ.get("WUM_CALENDARS_DIR") or CALENDARS_DIR,
+                        help=f"katalog na osobne kalendarze wg rodzaju zajęć (domyślnie: {CALENDARS_DIR})")
+    parser.add_argument("--no-lectures", action="store_true", help="pomiń arkusz z wykładami")
     parser.add_argument("--verbose", "-v", action="store_true", help="więcej logów")
     return parser.parse_args(argv)
 
@@ -628,18 +1053,41 @@ def main(argv: list[str] | None = None) -> int:
             log.error("Brak zajęć dla %s - nie zapisuję pliku .ics.", group_label)
             return 1
 
-        cal, count = build_calendar(lessons, group_label, show_subgroup=subgroup is None)
-        with open(args.output, "wb") as fh:
-            fh.write(cal.to_ical())
-        log.info("Zapisano %d wydarzeń do %s.", count, args.output)
+        lectures: list[Lesson] = []
+        if args.no_lectures:
+            log.info("Pomijam wykłady (--no-lectures).")
+        elif LECTURE_SHEET_NAME in wb.sheetnames:
+            lectures = find_lectures(wb[LECTURE_SHEET_NAME])
+            log.info("Znaleziono %d wykładów.", len(lectures))
+        else:
+            log.warning("Brak arkusza '%s' - kalendarz bez wykładów.", LECTURE_SHEET_NAME)
+        for name in wb.sheetnames:
+            if name not in (ws.title, LECTURE_SHEET_NAME):
+                log.info("Pomijam arkusz '%s' (pomocniczy, bez zajęć).", name)
 
-        # Krótkie podsumowanie tygodnia w logu CI.
-        for lesson in sorted(lessons, key=lambda l: (l.dates[0].weekday(), l.start)):
-            log.info(
-                "  %-10s %s-%s  %-45s %-6s %d terminów",
-                ["pon", "wt", "śr", "czw", "pt", "sob", "nd"][lesson.dates[0].weekday()],
-                lesson.start, lesson.end, lesson.subject[:45], "/".join(lesson.groups), len(lesson.dates),
-            )
+        events = build_events(lessons + lectures, group_label, show_subgroup=subgroup is None)
+
+        # 1) Wszystko w jednym pliku (np. dla Google, gdzie kolor i tak ustawiasz ręcznie).
+        write_calendar(args.output, build_calendar(f"WUM · {group_label}", [e for _, e in events]))
+        log.info("Zapisano %d wydarzeń do %s.", len(events), args.output)
+
+        # 2) Osobny kalendarz na każdy rodzaj zajęć - każdy z własnym kolorem.
+        #    Zapisujemy także puste, żeby adres subskrypcji był stały.
+        for key, spec in CALENDARS.items():
+            subset = [e for cat, e in events if cat == key]
+            path = os.path.join(args.calendars_dir, spec.filename)
+            write_calendar(path, build_calendar(spec.name, subset, spec))
+            log.info("  %-32s %-7s %3d wydarzeń -> %s", spec.name, spec.color_css, len(subset), path)
+
+        # Krótkie podsumowanie tygodnia w logu CI (jak w widoku tygodnia).
+        summary: dict[tuple, int] = {}
+        for lesson in lessons + lectures:
+            look = describe(lesson, show_subgroup=subgroup is None)
+            key = (lesson.dates[0].weekday(), lesson.start, lesson.end, look.title, look.category)
+            summary[key] = summary.get(key, 0) + len(lesson.dates)
+        for (wd, start, end, title, category), count in sorted(summary.items()):
+            log.info("  %-4s %s-%s  %-28s %-10s %d terminów",
+                     ["pon", "wt", "śr", "czw", "pt", "sob", "nd"][wd], start, end, title, category, count)
         return 0
     except Exception:
         log.exception("Błąd krytyczny")
