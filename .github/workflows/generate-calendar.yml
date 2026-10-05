@@ -3,6 +3,7 @@ name: Generuj kalendarz
 # Generuje plan_zajec.ics (wszystko) i kalendarze/*.ics (osobno ćwiczenia, seminaria,
 # wykłady, zaliczenia - każdy z własnym kolorem) z planu w data/*.xlsx i commituje je
 # do repozytorium, żeby kalendarze można było subskrybować pod stałymi adresami.
+# Do eksport/ trafiają kalendarze dla wszystkich grup i konfiguracji podgrup.
 #
 # Opcjonalne zmienne repozytorium (Settings -> Secrets and variables -> Actions -> Variables):
 #   WUM_TARGET_GROUP     np. "grupa 8"   (domyślnie: wartość TARGET_GROUP w skrypcie)
@@ -56,7 +57,7 @@ jobs:
           echo "WUM_INPUT_FILE=$RUNNER_TEMP/plan.xlsx" >> "$GITHUB_ENV"
 
       - name: Generuj kalendarze
-        run: python wum_tracker.py --output plan_zajec.ics --calendars-dir kalendarze
+        run: python wum_tracker.py --output plan_zajec.ics --calendars-dir kalendarze --export-dir eksport
 
       - name: Zapisz plik jako artefakt
         uses: actions/upload-artifact@v4
@@ -65,13 +66,14 @@ jobs:
           path: |
             plan_zajec.ics
             kalendarze/*.ics
+            eksport/
 
       - name: Commituj zmiany w kalendarzach
         run: |
-          git add plan_zajec.ics kalendarze/
+          git add -A plan_zajec.ics kalendarze/ eksport/
           # DTSTAMP zmienia się przy każdym uruchomieniu - ignorujemy go,
           # żeby nie tworzyć pustych commitów, gdy plan się nie zmienił.
-          if git diff --cached --quiet -I '^DTSTAMP:' -- plan_zajec.ics kalendarze/; then
+          if git diff --cached --quiet -I '^DTSTAMP:' -- plan_zajec.ics kalendarze/ eksport/; then
             echo "Kalendarz bez zmian - nic do commitowania."
             exit 0
           fi

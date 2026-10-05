@@ -29,10 +29,14 @@ Użycie:
     python wum_tracker.py [--input PLIK.xlsx] [--group "grupa 14"]
                           [--subgroup a] [--output plan_zajec.ics]
                           [--calendars-dir kalendarze] [--no-lectures]
+                          [--export-dir eksport]
 
 Każdy parametr można też ustawić zmienną środowiskową (wygodne w GitHub
 Actions): WUM_INPUT_FILE, WUM_TARGET_GROUP, WUM_TARGET_SUBGROUP, WUM_OUTPUT_FILE,
-WUM_CALENDARS_DIR.
+WUM_CALENDARS_DIR, WUM_EXPORT_DIR.
+
+Z --export-dir eksport skrypt generuje dodatkowo kalendarze dla KAŻDEJ grupy
+w każdej konfiguracji podgrup (np. eksport/grupa-08/pp-b_cw-a/wszystko.ics).
 """
 
 from __future__ import annotations
@@ -40,11 +44,14 @@ from __future__ import annotations
 import argparse
 import glob
 import hashlib
+import itertools
 import logging
 import os
 import re
+import shutil
 import sys
-from dataclasses import dataclass, field
+from collections import defaultdict
+from dataclasses import dataclass, field, replace
 from datetime import date, datetime, timedelta, timezone
 
 import openpyxl
@@ -187,6 +194,20 @@ BRING: dict[tuple[str, str], str] = {
     ("PP", "ZP"): _PP_KIT,
     ("PP", "OSCE"): _PP_KIT,
 }
+
+# W kalendarzach do eksportu (dla wszystkich grup) przy PP zostaje tylko
+# identyfikator - bez stroju, włosów i paznokci.
+EXPORT_BRING: dict[tuple[str, str], str] = {
+    **BRING,
+    **{key: "identyfikator" for key in BRING if key[0] == "PP"},
+}
+
+# Podgrupy są układane pod maksymalną liczbę studentów na zajęciach:
+# PP ćwiczenia po 8-10 osób (a/b/c), pozostałe ćwiczenia po 12 (a/b).
+# Który przedmiot ma jaki podział, skrypt sprawdza w samym planie;
+# tu są tylko etykiety do nazw folderów w eksporcie.
+SPLIT_LABELS = {"abc": "pp", "ab": "cw"}
+EXPORT_DIR = "eksport"
 
 # Linki do Teams / e-learningu: klucz to krótka nazwa przedmiotu ("PP")
 # albo para (nazwa, forma), np. ("PP", "WYK"). Link trafia do pola URL
@@ -796,7 +817,7 @@ def _first_match(patterns, text: str):
     return None, None
 
 
-def describe(lesson: Lesson, show_subgroup: bool) -> Look:
+def describe(lesson: Lesson, show_subgroup: bool, bring: dict[tuple[str, str], str] | None = None) -> Look:
     """Tytuł 'emoji FORMA · Przedmiot: temat' (+ kategoria kalendarza).
 
     Tytuł jest krótki - w widoku tygodnia w telefonie widać ok. 20 znaków.
@@ -847,7 +868,7 @@ def describe(lesson: Lesson, show_subgroup: bool) -> Look:
         category=category,
         short=short,
         form=form,
-        bring=BRING.get((short, form), ""),
+        bring=(BRING if bring is None else bring).get((short, form), ""),
         link=LINKS.get((short, form)) or LINKS.get(short, ""),
     )
 
@@ -902,13 +923,18 @@ def build_alarms(lesson: Lesson, look: Look, start: datetime) -> list[Alarm]:
     return alarms
 
 
-def build_events(lessons: list[Lesson], group_label: str, show_subgroup: bool) -> list[tuple[str, Event]]:
+def build_events(
+    lessons: list[Lesson],
+    group_label: str,
+    show_subgroup: bool,
+    bring: dict[tuple[str, str], str] | None = None,
+) -> list[tuple[str, Event]]:
     """Zwraca listę (kategoria, wydarzenie)."""
     stamp = datetime.now(timezone.utc)
     seen: set[tuple] = set()
     events: list[tuple[str, Event]] = []
     for lesson in lessons:
-        look = describe(lesson, show_subgroup)
+        look = describe(lesson, show_subgroup, bring)
         description = build_description(lesson, look)
         spec = CALENDARS[look.category]
         for day in lesson.dates:
@@ -971,6 +997,170 @@ def write_calendar(path: str, cal: Calendar) -> None:
 
 
 # ---------------------------------------------------------------------------
+# EKSPORT DLA WSZYSTKICH GRUP
+# ---------------------------------------------------------------------------
+
+def _letter(token: str) -> str:
+    """'8b' -> 'b', '8' -> ''."""
+    return token[-1] if token[-1].isalpha() else ""
+
+
+def subject_key(lesson: Lesson) -> tuple[str, str]:
+    """(przedmiot, forma), np. ('PP', 'ĆW') - wspólny klucz dla wariantów nazwy
+    z planu ('Psychologia ćwiczenia' / 'Psychologia (ćwiczenia)')."""
+    look = describe(lesson, show_subgroup=False)
+    return look.short, look.form
+
+
+def discover_groups(ws: Worksheet) -> list[int]:
+    """Numery wszystkich grup dziekańskich występujących w siatce."""
+    numbers: set[int] = set()
+    for row in build_time_map(ws):
+        for col in range(FIRST_GRID_COL, ws.max_column + 1):
+            lines = split_lines(ws.cell(row, col).value)
+            if lines and _GROUP_PREFIX_RE.match(lines[0]):
+                tokens = _GROUP_TOKEN_RE.findall(_GROUP_PREFIX_RE.sub("", lines[0]))
+                numbers.update(int(num) for num, _ in tokens)
+    return sorted(numbers)
+
+
+def detect_splits(lessons_by_group: dict[int, list[Lesson]]) -> dict[tuple[str, str], str]:
+    """(przedmiot, forma) -> litery podgrup użyte w planie, np. 'abc' (PP, 8-10 osób)
+    albo 'ab' (pozostałe ćwiczenia, 12 osób). Przedmioty bez podgrup są pomijane."""
+    letters: dict[tuple[str, str], set[str]] = defaultdict(set)
+    for lessons in lessons_by_group.values():
+        for lesson in lessons:
+            letters[subject_key(lesson)].update(_letter(g) for g in lesson.groups if _letter(g))
+    return {key: "".join(sorted(found)) for key, found in letters.items() if found}
+
+
+def lessons_for_config(lessons: list[Lesson], splits: dict[tuple[str, str], str], choice: dict[str, str]) -> list[Lesson]:
+    """Zajęcia jednej konfiguracji podgrup, np. choice={'abc': 'b', 'ab': 'a'}:
+    zajęcia całej grupy + podgrupa b w podziale a/b/c + podgrupa a w podziale a/b."""
+    selected: list[Lesson] = []
+    for lesson in lessons:
+        split = splits.get(subject_key(lesson))
+        kept = [g for g in lesson.groups if not _letter(g) or (split and choice.get(split) == _letter(g))]
+        if kept:
+            selected.append(replace(lesson, groups=kept))
+    return selected
+
+
+def split_label(split: str) -> str:
+    return SPLIT_LABELS.get(split, split)
+
+
+def export_all_groups(ws: Worksheet, lectures: list[Lesson], export_dir: str, source_name: str) -> None:
+    """Zapisuje eksport/grupa-NN/<konfiguracja>/{wszystko,cwiczenia,...}.ics
+    dla każdej grupy i każdej konfiguracji podgrup, plus eksport/README.md."""
+    groups = discover_groups(ws)
+    log.info("=== Eksport: %d grup -> %s ===", len(groups), export_dir)
+
+    # Pełne logi dla 15 grup x 6 konfiguracji byłyby nieczytelne - zostają ostrzeżenia.
+    previous_level = log.level
+    log.setLevel(logging.WARNING)
+    try:
+        lessons_by_group = {n: find_lessons(ws, str(n), None) for n in groups}
+        splits = detect_splits(lessons_by_group)
+
+        # Usuwamy poprzedni eksport (tylko nasze foldery), żeby nie zostały
+        # konfiguracje, których w nowym planie już nie ma.
+        for old in glob.glob(os.path.join(export_dir, "grupa-*")):
+            shutil.rmtree(old)
+
+        index: dict[int, dict[str, int]] = {}
+        for number in groups:
+            lessons = lessons_by_group[number]
+            if not lessons:
+                log.warning("Grupa %d: brak zajęć - pomijam.", number)
+                continue
+            # Litery, które ta grupa faktycznie ma w każdym typie podziału.
+            options: dict[str, set[str]] = defaultdict(set)
+            for lesson in lessons:
+                split = splits.get(subject_key(lesson))
+                if split:
+                    options[split].update(_letter(g) for g in lesson.groups if _letter(g))
+            split_order = sorted(options, key=lambda s: (-len(s), s))  # najpierw a/b/c
+
+            index[number] = {}
+            for combo in itertools.product(*(sorted(options[s]) for s in split_order)):
+                choice = dict(zip(split_order, combo))
+                name = "_".join(f"{split_label(s)}-{letter}" for s, letter in choice.items()) or "cala-grupa"
+                selected = lessons_for_config(lessons, splits, choice)
+                events = build_events(selected + lectures, f"grupa {number}", show_subgroup=False, bring=EXPORT_BRING)
+
+                folder = os.path.join(export_dir, f"grupa-{number:02d}", name)
+                write_calendar(
+                    os.path.join(folder, "wszystko.ics"),
+                    build_calendar(f"WUM · grupa {number} ({name})", [e for _, e in events]),
+                )
+                for key, spec in CALENDARS.items():
+                    subset = [e for cat, e in events if cat == key]
+                    write_calendar(os.path.join(folder, spec.filename), build_calendar(spec.name, subset, spec))
+                index[number][name] = len(events)
+    finally:
+        log.setLevel(previous_level)
+
+    for number, configs in index.items():
+        log.info("  grupa %2d: %s", number, ", ".join(f"{name} ({count})" for name, count in configs.items()))
+    write_export_index(export_dir, index, splits, source_name)
+    log.info("Eksport gotowy: %d konfiguracji.", sum(len(c) for c in index.values()))
+
+
+COLOR_NAMES_PL = {"red": "czerwony", "green": "zielony", "blue": "niebieski", "purple": "fioletowy"}
+
+
+def write_export_index(export_dir: str, index: dict[int, dict[str, int]], splits: dict[tuple[str, str], str], source_name: str) -> None:
+    """eksport/README.md - jak wybrać swój folder + tabela z linkami."""
+    by_split: dict[str, list[str]] = defaultdict(list)
+    for (short, form), split in sorted(splits.items()):
+        by_split[split].append(f"{short} ({form.lower()})")
+    explain = [
+        f"- **`{split_label(split)}-X`** – Twoja podgrupa ({'/'.join(split)}) na zajęciach: {', '.join(subjects)}"
+        for split, subjects in sorted(by_split.items(), key=lambda item: (-len(item[0]), item[0]))
+    ]
+    configs = sorted({name for c in index.values() for name in c})
+
+    lines = [
+        "# Kalendarze do eksportu – wszystkie grupy",
+        "",
+        f"Wygenerowane automatycznie z pliku `{os.path.basename(source_name)}`. Nie edytuj ręcznie.",
+        "",
+        "Podgrupy są układane pod maksymalną liczbę studentów na zajęciach, dlatego każda",
+        "grupa ma kilka konfiguracji. Nazwa folderu mówi, w której podgrupie jesteś:",
+        "",
+        *explain,
+        "",
+        "Seminaria, język angielski i wykłady są wspólne dla całej grupy / roku i są w każdej konfiguracji.",
+        "",
+        "W każdym folderze:",
+        "",
+        "| Plik | Zawartość |",
+        "|---|---|",
+        "| `wszystko.ics` | wszystkie zajęcia w jednym kalendarzu |",
+        *(f"| `{spec.filename}` | {spec.name.split('· ')[-1].lower()} ({COLOR_NAMES_PL.get(spec.color_css, spec.color_css)}) |"
+          for spec in CALENDARS.values()),
+        "",
+        "Zaimportuj **albo** `wszystko.ics`, **albo** cztery osobne pliki (każdy do osobnego",
+        "kalendarza w innym kolorze) – inaczej wydarzenia się zdublują.",
+        "",
+        "Liczba w tabeli to liczba wydarzeń w `wszystko.ics`.",
+        "",
+        "| Grupa | " + " | ".join(f"`{c}`" for c in configs) + " |",
+        "|---|" + "---|" * len(configs),
+    ]
+    for number, conf in sorted(index.items()):
+        cells = [
+            f"[{conf[c]}](grupa-{number:02d}/{c}/wszystko.ics)" if c in conf else "–"
+            for c in configs
+        ]
+        lines.append(f"| {number} | " + " | ".join(cells) + " |")
+    os.makedirs(export_dir, exist_ok=True)
+    with open(os.path.join(export_dir, "README.md"), "w", encoding="utf-8") as fh:
+        fh.write("\n".join(lines) + "\n")
+
+
+# ---------------------------------------------------------------------------
 # WEJŚCIE / WYJŚCIE
 # ---------------------------------------------------------------------------
 
@@ -1017,6 +1207,8 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--calendars-dir", default=os.environ.get("WUM_CALENDARS_DIR") or CALENDARS_DIR,
                         help=f"katalog na osobne kalendarze wg rodzaju zajęć (domyślnie: {CALENDARS_DIR})")
     parser.add_argument("--no-lectures", action="store_true", help="pomiń arkusz z wykładami")
+    parser.add_argument("--export-dir", default=os.environ.get("WUM_EXPORT_DIR") or None,
+                        help=f"wygeneruj kalendarze dla wszystkich grup i konfiguracji podgrup (np. {EXPORT_DIR})")
     parser.add_argument("--verbose", "-v", action="store_true", help="więcej logów")
     return parser.parse_args(argv)
 
@@ -1078,6 +1270,9 @@ def main(argv: list[str] | None = None) -> int:
             path = os.path.join(args.calendars_dir, spec.filename)
             write_calendar(path, build_calendar(spec.name, subset, spec))
             log.info("  %-32s %-7s %3d wydarzeń -> %s", spec.name, spec.color_css, len(subset), path)
+
+        if args.export_dir:
+            export_all_groups(ws, lectures, args.export_dir, input_path)
 
         # Krótkie podsumowanie tygodnia w logu CI (jak w widoku tygodnia).
         summary: dict[tuple, int] = {}
