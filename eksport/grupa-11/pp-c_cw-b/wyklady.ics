@@ -1,0 +1,471 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//WUM-Tracker//plan zajec//PL
+CALSCALE:GREGORIAN
+NAME:WUM · Wykłady
+X-WR-CALNAME:WUM · Wykłady
+COLOR:blue
+X-APPLE-CALENDAR-COLOR:#1E88E5
+X-WR-TIMEZONE:Europe/Warsaw
+BEGIN:VTIMEZONE
+TZID:Europe/Warsaw
+COMMENT:This timezone only works from 1970-01-01 to 2038-01-01.
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:CET
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0100
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:19770403T020000
+RDATE:19780402T020000,19790401T020000,19800406T020000,19810329T020000,1982
+ 0328T020000,19830327T020000,19840325T020000,19850331T020000,19860330T02000
+ 0,19870329T020000,19880327T030000,19890326T030000,19900325T030000,19910331
+ T030000,19920329T030000,19930328T030000,19940327T030000,19950326T030000,19
+ 960331T030000,19970330T030000,19980329T030000,19990328T030000,20000326T030
+ 000,20010325T030000,20020331T030000,20030330T030000,20040328T030000,200503
+ 27T030000,20060326T030000,20070325T030000,20080330T030000,20090329T030000,
+ 20100328T030000,20110327T030000,20120325T030000,20130331T030000,20140330T0
+ 30000,20150329T030000,20160327T030000,20170326T030000,20180325T030000,2019
+ 0331T030000,20200329T030000,20210328T030000,20220327T030000,20230326T03000
+ 0,20240331T030000,20250330T030000,20260329T030000,20270328T030000,20280326
+ T030000,20290325T030000,20300331T030000,20310330T030000,20320328T030000,20
+ 330327T030000,20340326T030000,20350325T030000,20360330T030000,20370329T030
+ 000
+TZNAME:CEST
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+END:DAYLIGHT
+BEGIN:STANDARD
+DTSTART:19770925T020000
+RDATE:19781001T020000,19790930T020000,19800928T020000,19810927T020000,1982
+ 0926T020000,19830925T020000,19840930T020000,19850929T020000,19860928T02000
+ 0,19870927T020000,19880925T030000,19890924T030000,19900930T030000,19910929
+ T030000,19920927T030000,19930926T030000,19940925T030000,19950924T030000,19
+ 961027T030000,19971026T030000,19981025T030000,19991031T030000,20001029T030
+ 000,20011028T030000,20021027T030000,20031026T030000,20041031T030000,200510
+ 30T030000,20061029T030000,20071028T030000,20081026T030000,20091025T030000,
+ 20101031T030000,20111030T030000,20121028T030000,20131027T030000,20141026T0
+ 30000,20151025T030000,20161030T030000,20171029T030000,20181028T030000,2019
+ 1027T030000,20201025T030000,20211031T030000,20221030T030000,20231029T03000
+ 0,20241027T030000,20251026T030000,20261025T030000,20271031T030000,20281029
+ T030000,20291028T030000,20301027T030000,20311026T030000,20321031T030000,20
+ 331030T030000,20341029T030000,20351028T030000,20361026T030000,20371025T030
+ 000
+TZNAME:CET
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:🩺 WYK · PP
+DTSTART;TZID=Europe/Warsaw:20261005T174500
+DTEND;TZID=Europe/Warsaw:20261005T200000
+DTSTAMP:20261005T120914Z
+UID:8ae7be2f1f7f9478d2bbcb770140e734e008ce9c@wum-tracker
+CATEGORIES:Wykłady
+COLOR:blue
+DESCRIPTION:👥 Grupa: cały rok\n\n📚 Podstawy Pielęgniarstwa\n👤 p
+ rof. E. Krzych-Fałta\n🗂 Źródło: WYKŁADY!A3
+LOCATION:Trojdena 2a\, Aula B\, Centrum Dydaktyczne\, Warszawa
+X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🫀 WYK · Fizjologia
+DTSTART;TZID=Europe/Warsaw:20261012T174500
+DTEND;TZID=Europe/Warsaw:20261012T200000
+DTSTAMP:20261005T120914Z
+UID:df77a653442a33757ccd9db6130ff33eb1c2476e@wum-tracker
+CATEGORIES:Wykłady
+COLOR:blue
+DESCRIPTION:👥 Grupa: cały rok\n\n📚 Fizjologia\n👤 prof. D. Szukie
+ wicz\nℹ️ w planie ze znakiem zapytania - forma do potwierdzenia\n🗂 
+ Źródło: WYKŁADY!A4
+LOCATION:Trojdena 2a\, Aula B\, Centrum Dydaktyczne\, Warszawa
+X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🩺 WYK · PP
+DTSTART;TZID=Europe/Warsaw:20261019T174500
+DTEND;TZID=Europe/Warsaw:20261019T200000
+DTSTAMP:20261005T120914Z
+UID:426e010027366ba3e6065dcb849ee9b83259ebcc@wum-tracker
+CATEGORIES:Wykłady
+COLOR:blue
+DESCRIPTION:👥 Grupa: cały rok\n\n📚 Podstawy Pielęgniarstwa\n👤 p
+ rof. E. Krzych-Fałta\n🗂 Źródło: WYKŁADY!A5
+LOCATION:Trojdena 2a\, Aula B\, Centrum Dydaktyczne\, Warszawa
+X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🧲 WYK · Biofizyka
+DTSTART;TZID=Europe/Warsaw:20261026T174500
+DTEND;TZID=Europe/Warsaw:20261026T191500
+DTSTAMP:20261005T120914Z
+UID:57feb00dc0b0e8b6a9a6b6b76b32033e5cdd3801@wum-tracker
+CATEGORIES:Wykłady
+COLOR:blue
+DESCRIPTION:👥 Grupa: cały rok\n\n📚 Biofizyka\n👤 prof. D. Szukiew
+ icz\n🗂 Źródło: WYKŁADY!A6
+LOCATION:Trojdena 2a\, Aula B\, Centrum Dydaktyczne\, Warszawa
+X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🩺 WYK · PP
+DTSTART;TZID=Europe/Warsaw:20261102T174500
+DTEND;TZID=Europe/Warsaw:20261102T200000
+DTSTAMP:20261005T120914Z
+UID:5cfa2f716941a7b191afafb722217cd34c83b330@wum-tracker
+CATEGORIES:Wykłady
+COLOR:blue
+DESCRIPTION:👥 Grupa: cały rok\n\n📚 Podstawy Pielęgniarstwa\n👤 p
+ rof. E. Krzych-Fałta\n🗂 Źródło: WYKŁADY!A7
+LOCATION:Trojdena 2a\, Aula B\, Centrum Dydaktyczne\, Warszawa
+X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🩺 WYK · PP 💻
+DTSTART;TZID=Europe/Warsaw:20261109T174500
+DTEND;TZID=Europe/Warsaw:20261109T200000
+DTSTAMP:20261005T120914Z
+UID:6b52b2445a37bc3e8fee828f3a16d0062fa6acf6@wum-tracker
+CATEGORIES:Wykłady
+COLOR:blue
+DESCRIPTION:👥 Grupa: cały rok\n🔗 Teams / e-learning: brak linku w p
+ lanie - sprawdź e-learning WUM\n\n📚 Podstawy Pielęgniarstwa\n👤 pro
+ f. E. Krzych-Fałta\n💻 Online w czasie rzeczywistym\n🗂 Źródło: WY
+ KŁADY!A8
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🩺 WYK · PP 💻
+DTSTART;TZID=Europe/Warsaw:20261116T174500
+DTEND;TZID=Europe/Warsaw:20261116T200000
+DTSTAMP:20261005T120914Z
+UID:4b8afe4106fbdd5381024133ef3709834d46f5d5@wum-tracker
+CATEGORIES:Wykłady
+COLOR:blue
+DESCRIPTION:👥 Grupa: cały rok\n🔗 Teams / e-learning: brak linku w p
+ lanie - sprawdź e-learning WUM\n\n📚 Podstawy Pielęgniarstwa\n👤 pro
+ f. E. Krzych-Fałta\n💻 Online w czasie rzeczywistym\n🗂 Źródło: WY
+ KŁADY!A9
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🩺 WYK · PP 💻
+DTSTART;TZID=Europe/Warsaw:20261123T174500
+DTEND;TZID=Europe/Warsaw:20261123T200000
+DTSTAMP:20261005T120914Z
+UID:8d87da72d2c40d4fc4129b19cbff3d4b5090a906@wum-tracker
+CATEGORIES:Wykłady
+COLOR:blue
+DESCRIPTION:👥 Grupa: cały rok\n🔗 Teams / e-learning: brak linku w p
+ lanie - sprawdź e-learning WUM\n\n📚 Podstawy Pielęgniarstwa\n👤 pro
+ f. E. Krzych-Fałta\n💻 Online w czasie rzeczywistym\n🗂 Źródło: WY
+ KŁADY!A10
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🩺 WYK · PP 💻
+DTSTART;TZID=Europe/Warsaw:20261130T174500
+DTEND;TZID=Europe/Warsaw:20261130T200000
+DTSTAMP:20261005T120914Z
+UID:656d1fb534a0176f2189612c08e5528be7f00066@wum-tracker
+CATEGORIES:Wykłady
+COLOR:blue
+DESCRIPTION:👥 Grupa: cały rok\n🔗 Teams / e-learning: brak linku w p
+ lanie - sprawdź e-learning WUM\n\n📚 Podstawy Pielęgniarstwa\n👤 pro
+ f. E. Krzych-Fałta\n💻 Online w czasie rzeczywistym\n🗂 Źródło: WY
+ KŁADY!A11
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🩺 WYK · PP 💻
+DTSTART;TZID=Europe/Warsaw:20261207T174500
+DTEND;TZID=Europe/Warsaw:20261207T200000
+DTSTAMP:20261005T120914Z
+UID:965ead8e1a3cf5ba8bf279ee40aa98c754902a8d@wum-tracker
+CATEGORIES:Wykłady
+COLOR:blue
+DESCRIPTION:👥 Grupa: cały rok\n🔗 Teams / e-learning: brak linku w p
+ lanie - sprawdź e-learning WUM\n\n📚 Podstawy Pielęgniarstwa\n👤 pro
+ f. E. Krzych-Fałta\n💻 Online w czasie rzeczywistym\n🗂 Źródło: WY
+ KŁADY!A12
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🩺 WYK · PP 💻
+DTSTART;TZID=Europe/Warsaw:20261214T174500
+DTEND;TZID=Europe/Warsaw:20261214T200000
+DTSTAMP:20261005T120914Z
+UID:4457cf49c721f1fec12f74f8c78b12e20dd8e815@wum-tracker
+CATEGORIES:Wykłady
+COLOR:blue
+DESCRIPTION:👥 Grupa: cały rok\n🔗 Teams / e-learning: brak linku w p
+ lanie - sprawdź e-learning WUM\n\n📚 Podstawy Pielęgniarstwa\n👤 pro
+ f. E. Krzych-Fałta\n💻 Online w czasie rzeczywistym\n🗂 Źródło: WY
+ KŁADY!A13
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🩺 WYK · PP 💻
+DTSTART;TZID=Europe/Warsaw:20270104T174500
+DTEND;TZID=Europe/Warsaw:20270104T200000
+DTSTAMP:20261005T120914Z
+UID:3c6f9ac239e5c7577bce2cde7d7670663941abe5@wum-tracker
+CATEGORIES:Wykłady
+COLOR:blue
+DESCRIPTION:👥 Grupa: cały rok\n🔗 Teams / e-learning: brak linku w p
+ lanie - sprawdź e-learning WUM\n\n📚 Podstawy Pielęgniarstwa\n👤 pro
+ f. E. Krzych-Fałta\n💻 Online w czasie rzeczywistym\n🗂 Źródło: WY
+ KŁADY!A14
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🩺 WYK · PP 💻
+DTSTART;TZID=Europe/Warsaw:20270111T174500
+DTEND;TZID=Europe/Warsaw:20270111T200000
+DTSTAMP:20261005T120914Z
+UID:7ccc8c0cec02ccd374eca704bfe960c50ebe7398@wum-tracker
+CATEGORIES:Wykłady
+COLOR:blue
+DESCRIPTION:👥 Grupa: cały rok\n🔗 Teams / e-learning: brak linku w p
+ lanie - sprawdź e-learning WUM\n\n📚 Podstawy Pielęgniarstwa\n👤 pro
+ f. E. Krzych-Fałta\n💻 Online w czasie rzeczywistym\n🗂 Źródło: WY
+ KŁADY!A15
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🎓 WYK · Pedagogika 💻
+DTSTART;TZID=Europe/Warsaw:20261006T174500
+DTEND;TZID=Europe/Warsaw:20261006T200000
+DTSTAMP:20261005T120914Z
+UID:5ebaa150574cfb2f99c2dbf69d57d09e6f276b44@wum-tracker
+CATEGORIES:Wykłady
+COLOR:blue
+DESCRIPTION:👥 Grupa: cały rok\n🔗 Teams / e-learning: brak linku w p
+ lanie - sprawdź e-learning WUM\n\n📚 Pedagogika\n👤 dr hab. T. Kryczk
+ a\n💻 Online w czasie rzeczywistym\n🗂 Źródło: WYKŁADY!A20
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🧠 WYK · Psychologia
+DTSTART;TZID=Europe/Warsaw:20261013T174500
+DTEND;TZID=Europe/Warsaw:20261013T191500
+DTSTAMP:20261005T120914Z
+UID:7f10e485e0ca4c729a94cc8144ab303028e653ff@wum-tracker
+CATEGORIES:Wykłady
+COLOR:blue
+DESCRIPTION:👥 Grupa: cały rok\n\n📚 Psychologia\n👤 dr hab. D. Wł
+ odarczyk\n🗂 Źródło: WYKŁADY!A21
+LOCATION:Trojdena 2a\, Aula A\, Centrum Dydaktyczne\, Warszawa
+X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🎓 WYK · Pedagogika 💻
+DTSTART;TZID=Europe/Warsaw:20261020T174500
+DTEND;TZID=Europe/Warsaw:20261020T200000
+DTSTAMP:20261005T120914Z
+UID:35cb9d625685e837e56dc2c0d6e3d0a71a502180@wum-tracker
+CATEGORIES:Wykłady
+COLOR:blue
+DESCRIPTION:👥 Grupa: cały rok\n🔗 Teams / e-learning: brak linku w p
+ lanie - sprawdź e-learning WUM\n\n📚 Pedagogika\n👤 dr hab. T. Kryczk
+ a\n💻 Online w czasie rzeczywistym\n🗂 Źródło: WYKŁADY!A22
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:👥 WYK · Socjologia 💻
+DTSTART;TZID=Europe/Warsaw:20261027T174500
+DTEND;TZID=Europe/Warsaw:20261027T200000
+DTSTAMP:20261005T120914Z
+UID:6b4bc9a2b62ae4deb6ad369ece10c6f1c2bfec36@wum-tracker
+CATEGORIES:Wykłady
+COLOR:blue
+DESCRIPTION:👥 Grupa: cały rok\n🔗 Teams / e-learning: brak linku w p
+ lanie - sprawdź e-learning WUM\n\n📚 Socjologia\n👤 dr A. Doroszewska
+ \n💻 Online w czasie rzeczywistym\n🗂 Źródło: WYKŁADY!A23
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🎓 WYK · Pedagogika 💻
+DTSTART;TZID=Europe/Warsaw:20261103T174500
+DTEND;TZID=Europe/Warsaw:20261103T200000
+DTSTAMP:20261005T120914Z
+UID:83f984800aa0ab36e0faee49a1bcb5c983978275@wum-tracker
+CATEGORIES:Wykłady
+COLOR:blue
+DESCRIPTION:👥 Grupa: cały rok\n🔗 Teams / e-learning: brak linku w p
+ lanie - sprawdź e-learning WUM\n\n📚 Pedagogika\n👤 dr hab. T. Kryczk
+ a\n💻 Online w czasie rzeczywistym\n🗂 Źródło: WYKŁADY!A24
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:👥 WYK · Socjologia 💻
+DTSTART;TZID=Europe/Warsaw:20261110T174500
+DTEND;TZID=Europe/Warsaw:20261110T200000
+DTSTAMP:20261005T120914Z
+UID:add27a1104b38864fcad97bcefb84ed708f1f6cb@wum-tracker
+CATEGORIES:Wykłady
+COLOR:blue
+DESCRIPTION:👥 Grupa: cały rok\n🔗 Teams / e-learning: brak linku w p
+ lanie - sprawdź e-learning WUM\n\n📚 Socjologia\n👤 dr A. Doroszewska
+ \n💻 Online w czasie rzeczywistym\n🗂 Źródło: WYKŁADY!A25
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🎓 WYK · Pedagogika 💻
+DTSTART;TZID=Europe/Warsaw:20261117T174500
+DTEND;TZID=Europe/Warsaw:20261117T200000
+DTSTAMP:20261005T120914Z
+UID:dab22b32680963055cc3cb011503122903a5f798@wum-tracker
+CATEGORIES:Wykłady
+COLOR:blue
+DESCRIPTION:👥 Grupa: cały rok\n🔗 Teams / e-learning: brak linku w p
+ lanie - sprawdź e-learning WUM\n\n📚 Pedagogika\n👤 dr hab. T. Kryczk
+ a\n💻 Online w czasie rzeczywistym\n🗂 Źródło: WYKŁADY!A26
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🎓 WYK · Pedagogika 💻
+DTSTART;TZID=Europe/Warsaw:20261124T174500
+DTEND;TZID=Europe/Warsaw:20261124T200000
+DTSTAMP:20261005T120914Z
+UID:0a53a0dd03843045f1e211747c1749e67bd382b7@wum-tracker
+CATEGORIES:Wykłady
+COLOR:blue
+DESCRIPTION:👥 Grupa: cały rok\n🔗 Teams / e-learning: brak linku w p
+ lanie - sprawdź e-learning WUM\n\n📚 Pedagogika\n👤 dr hab. T. Kryczk
+ a\n💻 Online w czasie rzeczywistym\n🗂 Źródło: WYKŁADY!A27
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🦴 WYK · Anatomia
+DTSTART;TZID=Europe/Warsaw:20261007T174500
+DTEND;TZID=Europe/Warsaw:20261007T200000
+DTSTAMP:20261005T120914Z
+UID:1a502ce6a50fdbc0c0a19de0b9116ba12a6224c7@wum-tracker
+CATEGORIES:Wykłady
+COLOR:blue
+DESCRIPTION:👥 Grupa: cały rok\n\n📚 Anatomia\n👤 doc. P. Rzońca\n
+ ℹ️ forma nie podana w planie - zakładam stacjonarnie\n🗂 Źródło:
+  WYKŁADY!A37
+LOCATION:Trojdena 2a\, Aula B\, Centrum Dydaktyczne\, Warszawa
+X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:⚖️ WYK · Prawo 💻
+DTSTART;TZID=Europe/Warsaw:20261014T174500
+DTEND;TZID=Europe/Warsaw:20261014T200000
+DTSTAMP:20261005T120914Z
+UID:469a008a706a9695ff8dc4e4299804cbb77596d6@wum-tracker
+CATEGORIES:Wykłady
+COLOR:blue
+DESCRIPTION:👥 Grupa: cały rok\n🔗 Teams / e-learning: brak linku w p
+ lanie - sprawdź e-learning WUM\n\n📚 Prawo\n👤 prof. T. Pasierski\n
+ 💻 Online w czasie rzeczywistym\n🗂 Źródło: WYKŁADY!A38
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🧠 WYK · Psychologia
+DTSTART;TZID=Europe/Warsaw:20261021T174500
+DTEND;TZID=Europe/Warsaw:20261021T191500
+DTSTAMP:20261005T120914Z
+UID:0e2cbca01b77e3f4e0cabbcd7813ae17f6dddea2@wum-tracker
+CATEGORIES:Wykłady
+COLOR:blue
+DESCRIPTION:👥 Grupa: cały rok\n\n📚 Psychologia\n👤 doc. A. Dorosz
+ ewska\nℹ️ forma nie podana w planie - zakładam stacjonarnie\n🗂 Źr
+ ódło: WYKŁADY!A39
+LOCATION:Trojdena 2a\, Aula B\, Centrum Dydaktyczne\, Warszawa
+X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🤝 WYK · Etyka
+DTSTART;TZID=Europe/Warsaw:20261028T174500
+DTEND;TZID=Europe/Warsaw:20261028T200000
+DTSTAMP:20261005T120914Z
+UID:47b91381822451d276ba7d63da2417f0afb9eb53@wum-tracker
+CATEGORIES:Wykłady
+COLOR:blue
+DESCRIPTION:👥 Grupa: cały rok\n\n📚 Etyka zawodu pielęgniarki\n👤
+  dr hab. T. Kryczka\n🗂 Źródło: WYKŁADY!A40
+LOCATION:Trojdena 2a\, Aula B\, Centrum Dydaktyczne\, Warszawa
+X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🤝 WYK · Etyka 💻
+DTSTART;TZID=Europe/Warsaw:20261104T174500
+DTEND;TZID=Europe/Warsaw:20261104T200000
+DTSTAMP:20261005T120914Z
+UID:02b75ae1ebcd959b4ddb5a7319b24401fadd2b5a@wum-tracker
+CATEGORIES:Wykłady
+COLOR:blue
+DESCRIPTION:👥 Grupa: cały rok\n🔗 Teams / e-learning: brak linku w p
+ lanie - sprawdź e-learning WUM\n\n📚 Etyka zawodu pielęgniarki\n👤 d
+ r hab. T. Kryczka\n💻 Online w czasie rzeczywistym\n🗂 Źródło: WYK
+ ŁADY!A41
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:⚖️ WYK · Prawo 💻
+DTSTART;TZID=Europe/Warsaw:20261118T174500
+DTEND;TZID=Europe/Warsaw:20261118T200000
+DTSTAMP:20261005T120914Z
+UID:97588811ecbfc871d3f348baf29b0af9674b7fab@wum-tracker
+CATEGORIES:Wykłady
+COLOR:blue
+DESCRIPTION:👥 Grupa: cały rok\n🔗 Teams / e-learning: brak linku w p
+ lanie - sprawdź e-learning WUM\n\n📚 Prawo\n👤 prof. T. Pasierski\n
+ 💻 Online w czasie rzeczywistym\n🗂 Źródło: WYKŁADY!A42
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🧠 WYK · Psychologia
+DTSTART;TZID=Europe/Warsaw:20261125T174500
+DTEND;TZID=Europe/Warsaw:20261125T191500
+DTSTAMP:20261005T120914Z
+UID:ce987aca303e938baeb9d3b29c453f95babd83fa@wum-tracker
+CATEGORIES:Wykłady
+COLOR:blue
+DESCRIPTION:👥 Grupa: cały rok\n\n📚 Psychologia\n👤 doc. A. Dorosz
+ ewska\nℹ️ forma nie podana w planie - zakładam stacjonarnie\n🗂 Źr
+ ódło: WYKŁADY!A43
+LOCATION:Trojdena 2a\, Aula B\, Centrum Dydaktyczne\, Warszawa
+X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🩺 WYK · PP 💻
+DTSTART;TZID=Europe/Warsaw:20261202T174500
+DTEND;TZID=Europe/Warsaw:20261202T200000
+DTSTAMP:20261005T120914Z
+UID:3ce4d95e5bf5f8348ec571ec32a2c5a12d572ecc@wum-tracker
+CATEGORIES:Wykłady
+COLOR:blue
+DESCRIPTION:👥 Grupa: cały rok\n🔗 Teams / e-learning: brak linku w p
+ lanie - sprawdź e-learning WUM\n\n📚 Podstawy Pielęgniarstwa\n👤 pro
+ f. E. Krzych-Fałta\n💻 Online w czasie rzeczywistym\n🗂 Źródło: WY
+ KŁADY!A44
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🩺 WYK · PP 💻
+DTSTART;TZID=Europe/Warsaw:20261209T174500
+DTEND;TZID=Europe/Warsaw:20261209T200000
+DTSTAMP:20261005T120914Z
+UID:476e7e5a0684ce30f1e1199f16672ebce9e4e67f@wum-tracker
+CATEGORIES:Wykłady
+COLOR:blue
+DESCRIPTION:👥 Grupa: cały rok\n🔗 Teams / e-learning: brak linku w p
+ lanie - sprawdź e-learning WUM\n\n📚 Podstawy Pielęgniarstwa\n👤 pro
+ f. E. Krzych-Fałta\n💻 Online w czasie rzeczywistym\n🗂 Źródło: WY
+ KŁADY!A45
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🩺 WYK · PP 💻
+DTSTART;TZID=Europe/Warsaw:20261216T174500
+DTEND;TZID=Europe/Warsaw:20261216T200000
+DTSTAMP:20261005T120914Z
+UID:1c3b241d40cb8dad77b2cad5d8c61fcd4ff9e7ff@wum-tracker
+CATEGORIES:Wykłady
+COLOR:blue
+DESCRIPTION:👥 Grupa: cały rok\n🔗 Teams / e-learning: brak linku w p
+ lanie - sprawdź e-learning WUM\n\n📚 Podstawy Pielęgniarstwa\n👤 pro
+ f. E. Krzych-Fałta\n💻 Online w czasie rzeczywistym\n🗂 Źródło: WY
+ KŁADY!A46
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🩺 WYK · PP 💻
+DTSTART;TZID=Europe/Warsaw:20270113T174500
+DTEND;TZID=Europe/Warsaw:20270113T200000
+DTSTAMP:20261005T120914Z
+UID:27be2c67ce678ce91e48e9ad976fb8b4b4ad5178@wum-tracker
+CATEGORIES:Wykłady
+COLOR:blue
+DESCRIPTION:👥 Grupa: cały rok\n🔗 Teams / e-learning: brak linku w p
+ lanie - sprawdź e-learning WUM\n\n📚 Podstawy Pielęgniarstwa\n👤 pro
+ f. E. Krzych-Fałta\n💻 Online w czasie rzeczywistym\n🗂 Źródło: WY
+ KŁADY!A47
+END:VEVENT
+END:VCALENDAR

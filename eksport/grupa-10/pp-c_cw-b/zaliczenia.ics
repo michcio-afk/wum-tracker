@@ -1,0 +1,10 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//WUM-Tracker//plan zajec//PL
+CALSCALE:GREGORIAN
+NAME:WUM · Zaliczenia i egzaminy
+X-WR-CALNAME:WUM · Zaliczenia i egzaminy
+COLOR:purple
+X-APPLE-CALENDAR-COLOR:#8E24AA
+X-WR-TIMEZONE:Europe/Warsaw
+END:VCALENDAR

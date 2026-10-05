@@ -68,10 +68,28 @@ włączone automatyczne liczenie czasu dojazdu w Kalendarzu Apple.
 Emoji, kolory, kategorie, przypomnienia i listy „Przynieś” ustawia się w sekcji
 „WYGLĄD KALENDARZA” na początku skryptu.
 
+## Eksport dla wszystkich grup
+
+```bash
+python wum_tracker.py --export-dir eksport
+```
+
+Generuje kalendarze dla **każdej grupy** w **każdej konfiguracji podgrup**:
+`eksport/grupa-NN/pp-X_cw-Y/` (np. `eksport/grupa-08/pp-b_cw-a/`). Podgrupy są układane pod
+maksymalną liczbę studentów na zajęciach, więc student ma dwie niezależne litery:
+
+- `pp-X` – podgrupa a/b/c na ćwiczeniach z PP (po 8–10 osób, ograniczona liczba łóżek),
+- `cw-Y` – podgrupa a/b na pozostałych ćwiczeniach (po 12 osób).
+
+Który przedmiot ma jaki podział, skrypt sprawdza w samym planie. W każdym folderze jest
+`wszystko.ics` i cztery kolorowe kalendarze jak wyżej. Przy PP w opisie zostaje tylko
+„Przynieś: identyfikator”. Spis wszystkich konfiguracji z linkami jest w `eksport/README.md`.
+Przy każdym uruchomieniu folder `eksport/grupa-*` jest generowany od nowa.
+
 ## GitHub Actions
 
-Workflow `.github/workflows/generate-calendar.yml` generuje `plan_zajec.ics` oraz
-`kalendarze/*.ics` i commituje je do gałęzi `main`, gdy:
+Workflow `.github/workflows/generate-calendar.yml` generuje `plan_zajec.ics`,
+`kalendarze/*.ics` i `eksport/` i commituje je do gałęzi `main`, gdy:
 - na `main` trafi zmiana w `data/` (np. nowy plik z planem), skrypcie lub zależnościach,
 - uruchomisz go ręcznie (Actions → „Generuj kalendarz” → *Run workflow*),
 - codziennie rano, **tylko** jeśli ustawiono zmienną `WUM_PLAN_URL`.
