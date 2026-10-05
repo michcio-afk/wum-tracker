@@ -208,6 +208,12 @@ EXPORT_BRING: dict[tuple[str, str], str] = {
 # tu są tylko etykiety do nazw folderów w eksporcie.
 SPLIT_LABELS = {"abc": "pp", "ab": "cw"}
 EXPORT_DIR = "eksport"
+# Kategorie, które nie zależą od podgrupy, więc w eksporcie mają jeden plik:
+# wykłady - wspólny dla całego roku (eksport/wyklady.ics),
+# seminaria - jeden na grupę (eksport/grupa-NN/seminaria.ics).
+# W folderach wariantów zostają: wszystko.ics + pozostałe kategorie.
+EXPORT_YEAR_CATEGORIES = {"wyklady"}
+EXPORT_GROUP_CATEGORIES = {"seminaria"}
 
 # Linki do Teams / e-learningu: klucz to krótka nazwa przedmiotu ("PP")
 # albo para (nazwa, forma), np. ("PP", "WYK"). Link trafia do pola URL
@@ -948,7 +954,9 @@ def build_events(
             event = Event()
             # Deterministyczny UID -> przy ponownym imporcie/subskrypcji
             # kalendarz aktualizuje wydarzenia zamiast je dublować.
-            uid_src = f"{group_label}|{day.isoformat()}|{lesson.start}|{lesson.end}|{lesson.subject}|{look.form}"
+            # Zajęcia całego roku (wykłady) mają ten sam UID w każdym pliku i każdej grupie.
+            scope = "cały rok" if lesson.groups == ["cały rok"] else group_label
+            uid_src = f"{scope}|{day.isoformat()}|{lesson.start}|{lesson.end}|{lesson.subject}|{look.form}"
             event.add("uid", hashlib.sha1(uid_src.encode("utf-8")).hexdigest() + "@wum-tracker")
             event.add("dtstamp", stamp)
             event.add("dtstart", start)
@@ -1068,6 +1076,13 @@ def export_all_groups(ws: Worksheet, lectures: list[Lesson], export_dir: str, so
         for old in glob.glob(os.path.join(export_dir, "grupa-*")):
             shutil.rmtree(old)
 
+        # Wykłady: jeden plik dla całego roku.
+        year_events = build_events(lectures, "cały rok", show_subgroup=False, bring=EXPORT_BRING)
+        for key in EXPORT_YEAR_CATEGORIES:
+            spec = CALENDARS[key]
+            subset = [e for cat, e in year_events if cat == key]
+            write_calendar(os.path.join(export_dir, spec.filename), build_calendar(spec.name, subset, spec))
+
         index: dict[int, dict[str, int]] = {}
         for number in groups:
             lessons = lessons_by_group[number]
@@ -1083,19 +1098,33 @@ def export_all_groups(ws: Worksheet, lectures: list[Lesson], export_dir: str, so
             split_order = sorted(options, key=lambda s: (-len(s), s))  # najpierw a/b/c
 
             index[number] = {}
+            group_dir = os.path.join(export_dir, f"grupa-{number:02d}")
+            group_files: dict[str, set[str]] = {}  # kategoria -> UID-y (kontrola spójności)
             for combo in itertools.product(*(sorted(options[s]) for s in split_order)):
                 choice = dict(zip(split_order, combo))
                 name = "_".join(f"{split_label(s)}-{letter}" for s, letter in choice.items()) or "cala-grupa"
                 selected = lessons_for_config(lessons, splits, choice)
                 events = build_events(selected + lectures, f"grupa {number}", show_subgroup=False, bring=EXPORT_BRING)
 
-                folder = os.path.join(export_dir, f"grupa-{number:02d}", name)
+                folder = os.path.join(group_dir, name)
                 write_calendar(
                     os.path.join(folder, "wszystko.ics"),
                     build_calendar(f"WUM · grupa {number} ({name})", [e for _, e in events]),
                 )
                 for key, spec in CALENDARS.items():
+                    if key in EXPORT_YEAR_CATEGORIES:
+                        continue
                     subset = [e for cat, e in events if cat == key]
+                    if key in EXPORT_GROUP_CATEGORIES:
+                        # Wspólne dla wszystkich wariantów grupy - zapisujemy raz,
+                        # a przy kolejnych wariantach tylko sprawdzamy, czy się zgadzają.
+                        uids = {str(e["uid"]) for e in subset}
+                        if key not in group_files:
+                            group_files[key] = uids
+                            write_calendar(os.path.join(group_dir, spec.filename), build_calendar(spec.name, subset, spec))
+                        elif group_files[key] != uids:
+                            log.warning("Grupa %d: %s różnią się między wariantami (%s).", number, key, name)
+                        continue
                     write_calendar(os.path.join(folder, spec.filename), build_calendar(spec.name, subset, spec))
                 index[number][name] = len(events)
     finally:
@@ -1105,6 +1134,16 @@ def export_all_groups(ws: Worksheet, lectures: list[Lesson], export_dir: str, so
         log.info("  grupa %2d: %s", number, ", ".join(f"{name} ({count})" for name, count in configs.items()))
     write_export_index(export_dir, index, splits, source_name)
     log.info("Eksport gotowy: %d konfiguracji.", sum(len(c) for c in index.values()))
+
+
+def _export_path(key: str) -> str:
+    """Gdzie w eksporcie leży plik danej kategorii (do opisu w README)."""
+    filename = CALENDARS[key].filename
+    if key in EXPORT_YEAR_CATEGORIES:
+        return f"{filename}"
+    if key in EXPORT_GROUP_CATEGORIES:
+        return f"grupa-NN/{filename}"
+    return f"grupa-NN/<wariant>/{filename}"
 
 
 COLOR_NAMES_PL = {"red": "czerwony", "green": "zielony", "blue": "niebieski", "purple": "fioletowy"}
@@ -1133,16 +1172,17 @@ def write_export_index(export_dir: str, index: dict[int, dict[str, int]], splits
         "",
         "Seminaria, język angielski i wykłady są wspólne dla całej grupy / roku i są w każdej konfiguracji.",
         "",
-        "W każdym folderze:",
+        "Pliki:",
         "",
         "| Plik | Zawartość |",
         "|---|---|",
-        "| `wszystko.ics` | wszystkie zajęcia w jednym kalendarzu |",
-        *(f"| `{spec.filename}` | {spec.name.split('· ')[-1].lower()} ({COLOR_NAMES_PL.get(spec.color_css, spec.color_css)}) |"
-          for spec in CALENDARS.values()),
+        "| `grupa-NN/<wariant>/wszystko.ics` | **wszystkie zajęcia** wariantu w jednym kalendarzu (z wykładami i seminariami) |",
+        *(f"| `{_export_path(key)}` | {spec.name.split('· ')[-1].lower()} ({COLOR_NAMES_PL.get(spec.color_css, spec.color_css)}) |"
+          for key, spec in CALENDARS.items()),
         "",
-        "Zaimportuj **albo** `wszystko.ics`, **albo** cztery osobne pliki (każdy do osobnego",
-        "kalendarza w innym kolorze) – inaczej wydarzenia się zdublują.",
+        "Zaimportuj **albo** `wszystko.ics` swojego wariantu, **albo** osobne pliki: ćwiczenia i zaliczenia",
+        "ze swojego wariantu, seminaria swojej grupy i wspólne wykłady (każdy do osobnego kalendarza",
+        "w innym kolorze) – inaczej wydarzenia się zdublują.",
         "",
         "Liczba w tabeli to liczba wydarzeń w `wszystko.ics`.",
         "",

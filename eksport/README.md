@@ -10,18 +10,19 @@ grupa ma kilka konfiguracji. Nazwa folderu mówi, w której podgrupie jesteś:
 
 Seminaria, język angielski i wykłady są wspólne dla całej grupy / roku i są w każdej konfiguracji.
 
-W każdym folderze:
+Pliki:
 
 | Plik | Zawartość |
 |---|---|
-| `wszystko.ics` | wszystkie zajęcia w jednym kalendarzu |
-| `cwiczenia.ics` | ćwiczenia i praktyki (czerwony) |
-| `seminaria.ics` | seminaria (zielony) |
+| `grupa-NN/<wariant>/wszystko.ics` | **wszystkie zajęcia** wariantu w jednym kalendarzu (z wykładami i seminariami) |
+| `grupa-NN/<wariant>/cwiczenia.ics` | ćwiczenia i praktyki (czerwony) |
+| `grupa-NN/seminaria.ics` | seminaria (zielony) |
 | `wyklady.ics` | wykłady (niebieski) |
-| `zaliczenia.ics` | zaliczenia i egzaminy (fioletowy) |
+| `grupa-NN/<wariant>/zaliczenia.ics` | zaliczenia i egzaminy (fioletowy) |
 
-Zaimportuj **albo** `wszystko.ics`, **albo** cztery osobne pliki (każdy do osobnego
-kalendarza w innym kolorze) – inaczej wydarzenia się zdublują.
+Zaimportuj **albo** `wszystko.ics` swojego wariantu, **albo** osobne pliki: ćwiczenia i zaliczenia
+ze swojego wariantu, seminaria swojej grupy i wspólne wykłady (każdy do osobnego kalendarza
+w innym kolorze) – inaczej wydarzenia się zdublują.
 
 Liczba w tabeli to liczba wydarzeń w `wszystko.ics`.
 
