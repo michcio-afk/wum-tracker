@@ -126,7 +126,9 @@ Zmienne repozytorium (Settings → Secrets and variables → Actions → *Variab
 | `WUM_PLAN_URL` | `https://…/plan.xlsx` | pobieraj plan z tego adresu zamiast z `data/` |
 
 Aktualizacja planu: wrzuć nowy plik do `data/` (np. `licencjat-i-rok-piel.-15.10.2026.xlsx`).
-Skrypt wybiera plik z najnowszą datą w nazwie.
+Skrypt wybiera plik z najnowszą datą w nazwie, więc stary plik możesz usunąć później albo
+zostawić. Jeśli najpierw usuniesz stary plik, a dopiero potem wgrasz nowy, workflow dla commita
+„bez planu” zostanie pominięty (adnotacja w Actions), a kalendarze przeliczą się po wgraniu.
 
 ### Subskrypcja kalendarzy
 

@@ -56,10 +56,24 @@ jobs:
           curl -fsSL --retry 3 -o "$RUNNER_TEMP/plan.xlsx" "$WUM_PLAN_URL"
           echo "WUM_INPUT_FILE=$RUNNER_TEMP/plan.xlsx" >> "$GITHUB_ENV"
 
+      - name: Sprawdź, czy jest plan zajęć
+        id: plan
+        run: |
+          # Przy podmianie planu przez "Delete file" + "Add files via upload" powstają dwa
+          # commity; w pierwszym nie ma żadnego .xlsx - wtedy pomijamy, zamiast zgłaszać błąd.
+          if [ -n "${WUM_INPUT_FILE:-}" ] || compgen -G "data/*.xlsx" > /dev/null; then
+            echo "found=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::notice::Brak pliku .xlsx w data/ - pomijam generowanie (kalendarze zostają bez zmian)."
+            echo "found=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Generuj kalendarze
+        if: steps.plan.outputs.found == 'true'
         run: python wum_tracker.py --output plan_zajec.ics --calendars-dir kalendarze --export-dir eksport
 
       - name: Zapisz plik jako artefakt
+        if: steps.plan.outputs.found == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: kalendarze
@@ -69,6 +83,7 @@ jobs:
             eksport/
 
       - name: Commituj zmiany w kalendarzach
+        if: steps.plan.outputs.found == 'true'
         run: |
           git add -A plan_zajec.ics kalendarze/ eksport/
           # DTSTAMP zmienia się przy każdym uruchomieniu - ignorujemy go,
