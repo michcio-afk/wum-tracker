@@ -9,6 +9,7 @@ grupa ma kilka konfiguracji. Nazwa folderu mówi, w której podgrupie jesteś:
 - **`cw-X`** – Twoja podgrupa (a/b) na zajęciach: Anatomia (ćw), Bad. fizykalne (ćw), Fizjologia (ćw), Pedagogika (ćw), Psychologia (ćw)
 
 Seminaria, język angielski i wykłady są wspólne dla całej grupy / roku i są w każdej konfiguracji.
+Przy ćwiczeniach z PP w opisie jest prowadzący i sala z grafiku (`data/prowadzacy-pp.csv`).
 
 Pliki:
 

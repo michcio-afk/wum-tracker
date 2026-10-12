@@ -2,6 +2,10 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//WUM-Tracker//plan zajec//PL
 CALSCALE:GREGORIAN
+DESCRIPTION:PP 8b czw 14:00: mgr Weronika Sulowska (sala 7)\nPP 8b pt 11:0
+ 0: mgr Agnieszka Bednarczyk (sala 8)
+X-WR-CALDESC:PP 8b czw 14:00: mgr Weronika Sulowska (sala 7)\nPP 8b pt 11:
+ 00: mgr Agnieszka Bednarczyk (sala 8)
 NAME:WUM · Ćwiczenia i praktyki
 X-WR-CALNAME:WUM · Ćwiczenia i praktyki
 COLOR:red
@@ -61,7 +65,7 @@ BEGIN:VEVENT
 SUMMARY:🫁 ĆW · Bad. fizykalne
 DTSTART;TZID=Europe/Warsaw:20261209T083000
 DTEND;TZID=Europe/Warsaw:20261209T104500
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:3227b5adec01de478c348ece31759b86f5d1b1e1@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -85,7 +89,7 @@ BEGIN:VEVENT
 SUMMARY:🫁 ĆW · Bad. fizykalne
 DTSTART;TZID=Europe/Warsaw:20261216T083000
 DTEND;TZID=Europe/Warsaw:20261216T104500
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:ad27622c25b1d7027ae75040daff990eaf5bc0b4@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -109,7 +113,7 @@ BEGIN:VEVENT
 SUMMARY:🫁 ĆW · Bad. fizykalne
 DTSTART;TZID=Europe/Warsaw:20270113T083000
 DTEND;TZID=Europe/Warsaw:20270113T104500
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:048fdbb6104b2fbf7f6bf65634598fd769efebf7@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -133,7 +137,7 @@ BEGIN:VEVENT
 SUMMARY:🫁 ĆW · Bad. fizykalne
 DTSTART;TZID=Europe/Warsaw:20270120T083000
 DTEND;TZID=Europe/Warsaw:20270120T104500
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:1022cff568f84cac96333b330a49e5591784635e@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -157,7 +161,7 @@ BEGIN:VEVENT
 SUMMARY:🫁 ĆW · Bad. fizykalne
 DTSTART;TZID=Europe/Warsaw:20270127T083000
 DTEND;TZID=Europe/Warsaw:20270127T104500
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:e8570ecfa7871af61b9babc18cd88ccd2ab027c8@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -181,15 +185,16 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261009T110000
 DTEND;TZID=Europe/Warsaw:20261009T140000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:fc1c4a64e75c0e53a0b950ceb23aa1a62b444175@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 8b\n🎒 Przynieś: strój\, identyfikator\, spię
- te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\nℹ️
-  15 spotkań po 4 godz.\n📅 Terminy w planie: 09.10. - 29.01.\n🗂 Źr
- ódło: PLAN ZAJĘĆ!LV21:LV32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\n👤 m
+ gr Agnieszka Bednarczyk\nℹ️ 15 spotkań po 4 godz.\nℹ️ prowadzący
+  i sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 09.10. - 29.01.\n
+ 🗂 Źródło: PLAN ZAJĘĆ!LV21:LV32
+LOCATION:Ciołka 27\, sala 8\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -207,15 +212,16 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261016T110000
 DTEND;TZID=Europe/Warsaw:20261016T140000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:c77ccb32b88eb92eabc96be35e1c84bd2a4ecb60@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 8b\n🎒 Przynieś: strój\, identyfikator\, spię
- te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\nℹ️
-  15 spotkań po 4 godz.\n📅 Terminy w planie: 09.10. - 29.01.\n🗂 Źr
- ódło: PLAN ZAJĘĆ!LV21:LV32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\n👤 m
+ gr Agnieszka Bednarczyk\nℹ️ 15 spotkań po 4 godz.\nℹ️ prowadzący
+  i sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 09.10. - 29.01.\n
+ 🗂 Źródło: PLAN ZAJĘĆ!LV21:LV32
+LOCATION:Ciołka 27\, sala 8\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -233,15 +239,16 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261023T110000
 DTEND;TZID=Europe/Warsaw:20261023T140000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:23d1540cd21234fa114d2ce9029e51a197042476@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 8b\n🎒 Przynieś: strój\, identyfikator\, spię
- te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\nℹ️
-  15 spotkań po 4 godz.\n📅 Terminy w planie: 09.10. - 29.01.\n🗂 Źr
- ódło: PLAN ZAJĘĆ!LV21:LV32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\n👤 m
+ gr Agnieszka Bednarczyk\nℹ️ 15 spotkań po 4 godz.\nℹ️ prowadzący
+  i sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 09.10. - 29.01.\n
+ 🗂 Źródło: PLAN ZAJĘĆ!LV21:LV32
+LOCATION:Ciołka 27\, sala 8\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -259,15 +266,16 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261030T110000
 DTEND;TZID=Europe/Warsaw:20261030T140000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:61c264c1518690b8843e66b90b700655ed440c1e@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 8b\n🎒 Przynieś: strój\, identyfikator\, spię
- te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\nℹ️
-  15 spotkań po 4 godz.\n📅 Terminy w planie: 09.10. - 29.01.\n🗂 Źr
- ódło: PLAN ZAJĘĆ!LV21:LV32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\n👤 m
+ gr Agnieszka Bednarczyk\nℹ️ 15 spotkań po 4 godz.\nℹ️ prowadzący
+  i sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 09.10. - 29.01.\n
+ 🗂 Źródło: PLAN ZAJĘĆ!LV21:LV32
+LOCATION:Ciołka 27\, sala 8\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -285,15 +293,16 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261106T110000
 DTEND;TZID=Europe/Warsaw:20261106T140000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:9edb9c73a2ad6d79e6e296b09fece89c41b5c6fd@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 8b\n🎒 Przynieś: strój\, identyfikator\, spię
- te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\nℹ️
-  15 spotkań po 4 godz.\n📅 Terminy w planie: 09.10. - 29.01.\n🗂 Źr
- ódło: PLAN ZAJĘĆ!LV21:LV32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\n👤 m
+ gr Agnieszka Bednarczyk\nℹ️ 15 spotkań po 4 godz.\nℹ️ prowadzący
+  i sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 09.10. - 29.01.\n
+ 🗂 Źródło: PLAN ZAJĘĆ!LV21:LV32
+LOCATION:Ciołka 27\, sala 8\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -311,15 +320,16 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261113T110000
 DTEND;TZID=Europe/Warsaw:20261113T140000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:5cb8dc9a7a25ce6cb69f1981124457256447d0ad@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 8b\n🎒 Przynieś: strój\, identyfikator\, spię
- te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\nℹ️
-  15 spotkań po 4 godz.\n📅 Terminy w planie: 09.10. - 29.01.\n🗂 Źr
- ódło: PLAN ZAJĘĆ!LV21:LV32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\n👤 m
+ gr Agnieszka Bednarczyk\nℹ️ 15 spotkań po 4 godz.\nℹ️ prowadzący
+  i sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 09.10. - 29.01.\n
+ 🗂 Źródło: PLAN ZAJĘĆ!LV21:LV32
+LOCATION:Ciołka 27\, sala 8\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -337,15 +347,16 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261120T110000
 DTEND;TZID=Europe/Warsaw:20261120T140000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:05339bec5e4c7246ec908b29ae9cdfad6591da0c@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 8b\n🎒 Przynieś: strój\, identyfikator\, spię
- te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\nℹ️
-  15 spotkań po 4 godz.\n📅 Terminy w planie: 09.10. - 29.01.\n🗂 Źr
- ódło: PLAN ZAJĘĆ!LV21:LV32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\n👤 m
+ gr Agnieszka Bednarczyk\nℹ️ 15 spotkań po 4 godz.\nℹ️ prowadzący
+  i sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 09.10. - 29.01.\n
+ 🗂 Źródło: PLAN ZAJĘĆ!LV21:LV32
+LOCATION:Ciołka 27\, sala 8\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -363,15 +374,16 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261127T110000
 DTEND;TZID=Europe/Warsaw:20261127T140000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:36a61af68d76b7e6aa17eaa11814fa0a7f133f3e@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 8b\n🎒 Przynieś: strój\, identyfikator\, spię
- te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\nℹ️
-  15 spotkań po 4 godz.\n📅 Terminy w planie: 09.10. - 29.01.\n🗂 Źr
- ódło: PLAN ZAJĘĆ!LV21:LV32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\n👤 m
+ gr Agnieszka Bednarczyk\nℹ️ 15 spotkań po 4 godz.\nℹ️ prowadzący
+  i sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 09.10. - 29.01.\n
+ 🗂 Źródło: PLAN ZAJĘĆ!LV21:LV32
+LOCATION:Ciołka 27\, sala 8\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -389,15 +401,16 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261204T110000
 DTEND;TZID=Europe/Warsaw:20261204T140000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:28585b4beb1f943ddd9d20c40465192449208960@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 8b\n🎒 Przynieś: strój\, identyfikator\, spię
- te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\nℹ️
-  15 spotkań po 4 godz.\n📅 Terminy w planie: 09.10. - 29.01.\n🗂 Źr
- ódło: PLAN ZAJĘĆ!LV21:LV32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\n👤 m
+ gr Agnieszka Bednarczyk\nℹ️ 15 spotkań po 4 godz.\nℹ️ prowadzący
+  i sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 09.10. - 29.01.\n
+ 🗂 Źródło: PLAN ZAJĘĆ!LV21:LV32
+LOCATION:Ciołka 27\, sala 8\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -415,15 +428,16 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261211T110000
 DTEND;TZID=Europe/Warsaw:20261211T140000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:f556d04d0ebef9d8aa0f65e43bdd9f1ebc6be8e9@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 8b\n🎒 Przynieś: strój\, identyfikator\, spię
- te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\nℹ️
-  15 spotkań po 4 godz.\n📅 Terminy w planie: 09.10. - 29.01.\n🗂 Źr
- ódło: PLAN ZAJĘĆ!LV21:LV32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\n👤 m
+ gr Agnieszka Bednarczyk\nℹ️ 15 spotkań po 4 godz.\nℹ️ prowadzący
+  i sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 09.10. - 29.01.\n
+ 🗂 Źródło: PLAN ZAJĘĆ!LV21:LV32
+LOCATION:Ciołka 27\, sala 8\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -441,15 +455,16 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261218T110000
 DTEND;TZID=Europe/Warsaw:20261218T140000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:03117799e8edf20f48952b3b39e63e79b6b7b827@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 8b\n🎒 Przynieś: strój\, identyfikator\, spię
- te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\nℹ️
-  15 spotkań po 4 godz.\n📅 Terminy w planie: 09.10. - 29.01.\n🗂 Źr
- ódło: PLAN ZAJĘĆ!LV21:LV32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\n👤 m
+ gr Agnieszka Bednarczyk\nℹ️ 15 spotkań po 4 godz.\nℹ️ prowadzący
+  i sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 09.10. - 29.01.\n
+ 🗂 Źródło: PLAN ZAJĘĆ!LV21:LV32
+LOCATION:Ciołka 27\, sala 8\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -467,15 +482,16 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20270108T110000
 DTEND;TZID=Europe/Warsaw:20270108T140000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:540addb6952a5cb23aed6e8a95771a0860135126@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 8b\n🎒 Przynieś: strój\, identyfikator\, spię
- te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\nℹ️
-  15 spotkań po 4 godz.\n📅 Terminy w planie: 09.10. - 29.01.\n🗂 Źr
- ódło: PLAN ZAJĘĆ!LV21:LV32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\n👤 m
+ gr Agnieszka Bednarczyk\nℹ️ 15 spotkań po 4 godz.\nℹ️ prowadzący
+  i sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 09.10. - 29.01.\n
+ 🗂 Źródło: PLAN ZAJĘĆ!LV21:LV32
+LOCATION:Ciołka 27\, sala 8\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -493,15 +509,16 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20270115T110000
 DTEND;TZID=Europe/Warsaw:20270115T140000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:9407514c4a21712e714d1b37070d8e6dce8ff4f8@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 8b\n🎒 Przynieś: strój\, identyfikator\, spię
- te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\nℹ️
-  15 spotkań po 4 godz.\n📅 Terminy w planie: 09.10. - 29.01.\n🗂 Źr
- ódło: PLAN ZAJĘĆ!LV21:LV32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\n👤 m
+ gr Agnieszka Bednarczyk\nℹ️ 15 spotkań po 4 godz.\nℹ️ prowadzący
+  i sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 09.10. - 29.01.\n
+ 🗂 Źródło: PLAN ZAJĘĆ!LV21:LV32
+LOCATION:Ciołka 27\, sala 8\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -519,15 +536,16 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20270122T110000
 DTEND;TZID=Europe/Warsaw:20270122T140000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:5ec770852aefc80c6f359debcbb8c482b9b1840b@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 8b\n🎒 Przynieś: strój\, identyfikator\, spię
- te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\nℹ️
-  15 spotkań po 4 godz.\n📅 Terminy w planie: 09.10. - 29.01.\n🗂 Źr
- ódło: PLAN ZAJĘĆ!LV21:LV32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\n👤 m
+ gr Agnieszka Bednarczyk\nℹ️ 15 spotkań po 4 godz.\nℹ️ prowadzący
+  i sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 09.10. - 29.01.\n
+ 🗂 Źródło: PLAN ZAJĘĆ!LV21:LV32
+LOCATION:Ciołka 27\, sala 8\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -545,15 +563,16 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20270129T110000
 DTEND;TZID=Europe/Warsaw:20270129T140000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:1d5e0ba085de3bb950b5ebb3a8c41f364c4b2cd8@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 8b\n🎒 Przynieś: strój\, identyfikator\, spię
- te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\nℹ️
-  15 spotkań po 4 godz.\n📅 Terminy w planie: 09.10. - 29.01.\n🗂 Źr
- ódło: PLAN ZAJĘĆ!LV21:LV32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\n👤 m
+ gr Agnieszka Bednarczyk\nℹ️ 15 spotkań po 4 godz.\nℹ️ prowadzący
+  i sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 09.10. - 29.01.\n
+ 🗂 Źródło: PLAN ZAJĘĆ!LV21:LV32
+LOCATION:Ciołka 27\, sala 8\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -571,7 +590,7 @@ BEGIN:VEVENT
 SUMMARY:🫀 ĆW · Fizjologia
 DTSTART;TZID=Europe/Warsaw:20261117T111500
 DTEND;TZID=Europe/Warsaw:20261117T134500
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:3f918f4a0d1ebbc764df2ecdaa4dacb1cac70167@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -595,7 +614,7 @@ BEGIN:VEVENT
 SUMMARY:🫀 ĆW · Fizjologia
 DTSTART;TZID=Europe/Warsaw:20261124T111500
 DTEND;TZID=Europe/Warsaw:20261124T134500
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:534166d3e6fdcf25efb177a0af89aca2036e1f47@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -619,7 +638,7 @@ BEGIN:VEVENT
 SUMMARY:🫀 ĆW · Fizjologia
 DTSTART;TZID=Europe/Warsaw:20261201T111500
 DTEND;TZID=Europe/Warsaw:20261201T134500
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:ef5916b03ea69e8fff7e8b28be4ff2ea32ec54b4@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -643,7 +662,7 @@ BEGIN:VEVENT
 SUMMARY:🦴 ĆW · Anatomia
 DTSTART;TZID=Europe/Warsaw:20261012T123000
 DTEND;TZID=Europe/Warsaw:20261012T144500
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:1fb2c28d299351af7fd175217aa8544d65c77046@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -667,7 +686,7 @@ BEGIN:VEVENT
 SUMMARY:🦴 ĆW · Anatomia
 DTSTART;TZID=Europe/Warsaw:20261019T123000
 DTEND;TZID=Europe/Warsaw:20261019T144500
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:378594dcfe819256bdfab9782257593bf4330975@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -691,7 +710,7 @@ BEGIN:VEVENT
 SUMMARY:🦴 ĆW · Anatomia
 DTSTART;TZID=Europe/Warsaw:20261026T123000
 DTEND;TZID=Europe/Warsaw:20261026T144500
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:36720d6d069ef8747c5dae6903ec3ac33acb1b86@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -715,7 +734,7 @@ BEGIN:VEVENT
 SUMMARY:🦴 ĆW · Anatomia
 DTSTART;TZID=Europe/Warsaw:20261102T123000
 DTEND;TZID=Europe/Warsaw:20261102T144500
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:a7a80d208988b4ac4638648e8c524517798ac204@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -739,7 +758,7 @@ BEGIN:VEVENT
 SUMMARY:🦴 ĆW · Anatomia
 DTSTART;TZID=Europe/Warsaw:20261109T123000
 DTEND;TZID=Europe/Warsaw:20261109T144500
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:c413d76f08fdcd6066f1188c5fb5ece97df7048c@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -763,7 +782,7 @@ BEGIN:VEVENT
 SUMMARY:🦴 ĆW · Anatomia
 DTSTART;TZID=Europe/Warsaw:20261116T123000
 DTEND;TZID=Europe/Warsaw:20261116T144500
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:29bc69c7654bdab25cdf68aeca300ae94aa66d98@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -787,7 +806,7 @@ BEGIN:VEVENT
 SUMMARY:🦴 ĆW · Anatomia
 DTSTART;TZID=Europe/Warsaw:20261123T123000
 DTEND;TZID=Europe/Warsaw:20261123T144500
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:6cdf574f0bd1b38712810a183130d5ca860bac49@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -811,7 +830,7 @@ BEGIN:VEVENT
 SUMMARY:🦴 ĆW · Anatomia
 DTSTART;TZID=Europe/Warsaw:20261130T123000
 DTEND;TZID=Europe/Warsaw:20261130T144500
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:81b9eb321a000d86a1bcdb3c3125c7a8a5358e2c@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -835,7 +854,7 @@ BEGIN:VEVENT
 SUMMARY:🦴 ĆW · Anatomia
 DTSTART;TZID=Europe/Warsaw:20261207T123000
 DTEND;TZID=Europe/Warsaw:20261207T144500
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:4205baa828be14ac091d8afe242c67ed43a8a96e@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -859,7 +878,7 @@ BEGIN:VEVENT
 SUMMARY:🦴 ĆW · Anatomia
 DTSTART;TZID=Europe/Warsaw:20261214T123000
 DTEND;TZID=Europe/Warsaw:20261214T144500
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:eee8ae442b00c3fa89492bf8e4bf6c1ed18f3eb6@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -883,7 +902,7 @@ BEGIN:VEVENT
 SUMMARY:🧠 ĆW · Psychologia
 DTSTART;TZID=Europe/Warsaw:20261125T123000
 DTEND;TZID=Europe/Warsaw:20261125T144500
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:3d53da461c8834232ed87c0f55118536a96de5b0@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -908,7 +927,7 @@ BEGIN:VEVENT
 SUMMARY:🧠 ĆW · Psychologia
 DTSTART;TZID=Europe/Warsaw:20261202T123000
 DTEND;TZID=Europe/Warsaw:20261202T144500
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:a99973e63faec6e0ae57fd5737bb2bc470a42b4d@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -933,7 +952,7 @@ BEGIN:VEVENT
 SUMMARY:🧠 ĆW · Psychologia
 DTSTART;TZID=Europe/Warsaw:20261209T123000
 DTEND;TZID=Europe/Warsaw:20261209T144500
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:fd142b54d81f719b5a951e95d200e6f67ac91888@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -958,7 +977,7 @@ BEGIN:VEVENT
 SUMMARY:🧠 ĆW · Psychologia
 DTSTART;TZID=Europe/Warsaw:20261216T123000
 DTEND;TZID=Europe/Warsaw:20261216T144500
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:82a8e893d2d53c8cd555f2c96c13153892f65aa8@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -983,7 +1002,7 @@ BEGIN:VEVENT
 SUMMARY:🧠 ĆW · Psychologia
 DTSTART;TZID=Europe/Warsaw:20270113T123000
 DTEND;TZID=Europe/Warsaw:20270113T144500
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:76b66678862bf2514810842eed2fd6ce470c3cdb@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1008,14 +1027,15 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20270120T140000
 DTEND;TZID=Europe/Warsaw:20270120T170000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:7e7ed0bffd7f0f1fa4f5e5f2ae1d2115ec1749fb@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 8b\n🎒 Przynieś: strój\, identyfikator\, spię
  te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\nℹ️
-  15 spotkań po 4 godz.\n📅 Terminy w planie: 20.01.\n🗂 Źródło: PL
- AN ZAJĘĆ!IJ33:IJ44
+  15 spotkań po 4 godz.\nℹ️ prowadzący: brak tego terminu w grafiku P
+ P (w podgrupie prowadzą: mgr Agnieszka Bednarczyk\, mgr Weronika Sulowska
+ )\n📅 Terminy w planie: 20.01.\n🗂 Źródło: PLAN ZAJĘĆ!IJ33:IJ44
 LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
@@ -1034,14 +1054,15 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20270127T140000
 DTEND;TZID=Europe/Warsaw:20270127T170000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:20aab7db577e4db6bdef6dc0cd19fb9c3a80486d@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 8b\n🎒 Przynieś: strój\, identyfikator\, spię
  te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\nℹ️
-  15 spotkań po 4 godz.\n📅 Terminy w planie: 27.01.\n🗂 Źródło: PL
- AN ZAJĘĆ!IM33:IM44
+  15 spotkań po 4 godz.\nℹ️ prowadzący: brak tego terminu w grafiku P
+ P (w podgrupie prowadzą: mgr Agnieszka Bednarczyk\, mgr Weronika Sulowska
+ )\n📅 Terminy w planie: 27.01.\n🗂 Źródło: PLAN ZAJĘĆ!IM33:IM44
 LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
@@ -1060,15 +1081,16 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261008T140000
 DTEND;TZID=Europe/Warsaw:20261008T170000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:7ca358f0f82a0d6c31d3599b9a9397db514ac389@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 8b\n🎒 Przynieś: strój\, identyfikator\, spię
- te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\nℹ️
-  15 spotkań po 4 godz.\n📅 Terminy w planie: 08.10. - 28.01.\n🗂 Źr
- ódło: PLAN ZAJĘĆ!JX33:JX44
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\n👤 m
+ gr Weronika Sulowska\nℹ️ 15 spotkań po 4 godz.\nℹ️ prowadzący i 
+ sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 08.10. - 28.01.\n🗂
+  Źródło: PLAN ZAJĘĆ!JX33:JX44
+LOCATION:Ciołka 27\, sala 7\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -1086,15 +1108,16 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261015T140000
 DTEND;TZID=Europe/Warsaw:20261015T170000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:b14d7318b6111dcc3fac820e08347a7b831ef0b4@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 8b\n🎒 Przynieś: strój\, identyfikator\, spię
- te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\nℹ️
-  15 spotkań po 4 godz.\n📅 Terminy w planie: 08.10. - 28.01.\n🗂 Źr
- ódło: PLAN ZAJĘĆ!JX33:JX44
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\n👤 m
+ gr Weronika Sulowska\nℹ️ 15 spotkań po 4 godz.\nℹ️ prowadzący i 
+ sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 08.10. - 28.01.\n🗂
+  Źródło: PLAN ZAJĘĆ!JX33:JX44
+LOCATION:Ciołka 27\, sala 7\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -1112,15 +1135,16 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261022T140000
 DTEND;TZID=Europe/Warsaw:20261022T170000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:4ceb6b9f899aeb5f3f523935c4ef576d4010335d@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 8b\n🎒 Przynieś: strój\, identyfikator\, spię
- te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\nℹ️
-  15 spotkań po 4 godz.\n📅 Terminy w planie: 08.10. - 28.01.\n🗂 Źr
- ódło: PLAN ZAJĘĆ!JX33:JX44
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\n👤 m
+ gr Weronika Sulowska\nℹ️ 15 spotkań po 4 godz.\nℹ️ prowadzący i 
+ sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 08.10. - 28.01.\n🗂
+  Źródło: PLAN ZAJĘĆ!JX33:JX44
+LOCATION:Ciołka 27\, sala 7\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -1138,15 +1162,16 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261029T140000
 DTEND;TZID=Europe/Warsaw:20261029T170000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:655b8a23cd2961bdf0901fe3eb7cd1ef8a4f1c31@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 8b\n🎒 Przynieś: strój\, identyfikator\, spię
- te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\nℹ️
-  15 spotkań po 4 godz.\n📅 Terminy w planie: 08.10. - 28.01.\n🗂 Źr
- ódło: PLAN ZAJĘĆ!JX33:JX44
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\n👤 m
+ gr Weronika Sulowska\nℹ️ 15 spotkań po 4 godz.\nℹ️ prowadzący i 
+ sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 08.10. - 28.01.\n🗂
+  Źródło: PLAN ZAJĘĆ!JX33:JX44
+LOCATION:Ciołka 27\, sala 7\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -1164,15 +1189,16 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261105T140000
 DTEND;TZID=Europe/Warsaw:20261105T170000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:d3b26e73d752451ce1666b85be7da6a779f5eaed@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 8b\n🎒 Przynieś: strój\, identyfikator\, spię
- te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\nℹ️
-  15 spotkań po 4 godz.\n📅 Terminy w planie: 08.10. - 28.01.\n🗂 Źr
- ódło: PLAN ZAJĘĆ!JX33:JX44
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\n👤 m
+ gr Weronika Sulowska\nℹ️ 15 spotkań po 4 godz.\nℹ️ prowadzący i 
+ sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 08.10. - 28.01.\n🗂
+  Źródło: PLAN ZAJĘĆ!JX33:JX44
+LOCATION:Ciołka 27\, sala 7\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -1190,15 +1216,16 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261112T140000
 DTEND;TZID=Europe/Warsaw:20261112T170000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:c886fed1e2cbd22b533eac0e29338c791eda1fc9@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 8b\n🎒 Przynieś: strój\, identyfikator\, spię
- te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\nℹ️
-  15 spotkań po 4 godz.\n📅 Terminy w planie: 08.10. - 28.01.\n🗂 Źr
- ódło: PLAN ZAJĘĆ!JX33:JX44
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\n👤 m
+ gr Weronika Sulowska\nℹ️ 15 spotkań po 4 godz.\nℹ️ prowadzący i 
+ sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 08.10. - 28.01.\n🗂
+  Źródło: PLAN ZAJĘĆ!JX33:JX44
+LOCATION:Ciołka 27\, sala 7\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -1216,15 +1243,16 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261119T140000
 DTEND;TZID=Europe/Warsaw:20261119T170000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:4ff83ec4dbcb2212f5a8b23a14cd7deb516ff635@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 8b\n🎒 Przynieś: strój\, identyfikator\, spię
- te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\nℹ️
-  15 spotkań po 4 godz.\n📅 Terminy w planie: 08.10. - 28.01.\n🗂 Źr
- ódło: PLAN ZAJĘĆ!JX33:JX44
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\n👤 m
+ gr Weronika Sulowska\nℹ️ 15 spotkań po 4 godz.\nℹ️ prowadzący i 
+ sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 08.10. - 28.01.\n🗂
+  Źródło: PLAN ZAJĘĆ!JX33:JX44
+LOCATION:Ciołka 27\, sala 7\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -1242,15 +1270,16 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261126T140000
 DTEND;TZID=Europe/Warsaw:20261126T170000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:50035b06d9b535d4361de8021c3e4ac99e58702b@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 8b\n🎒 Przynieś: strój\, identyfikator\, spię
- te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\nℹ️
-  15 spotkań po 4 godz.\n📅 Terminy w planie: 08.10. - 28.01.\n🗂 Źr
- ódło: PLAN ZAJĘĆ!JX33:JX44
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\n👤 m
+ gr Weronika Sulowska\nℹ️ 15 spotkań po 4 godz.\nℹ️ prowadzący i 
+ sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 08.10. - 28.01.\n🗂
+  Źródło: PLAN ZAJĘĆ!JX33:JX44
+LOCATION:Ciołka 27\, sala 7\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -1268,15 +1297,16 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261203T140000
 DTEND;TZID=Europe/Warsaw:20261203T170000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:bb176ac2de3575ebbb3fd38418d669e52d924344@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 8b\n🎒 Przynieś: strój\, identyfikator\, spię
- te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\nℹ️
-  15 spotkań po 4 godz.\n📅 Terminy w planie: 08.10. - 28.01.\n🗂 Źr
- ódło: PLAN ZAJĘĆ!JX33:JX44
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\n👤 m
+ gr Weronika Sulowska\nℹ️ 15 spotkań po 4 godz.\nℹ️ prowadzący i 
+ sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 08.10. - 28.01.\n🗂
+  Źródło: PLAN ZAJĘĆ!JX33:JX44
+LOCATION:Ciołka 27\, sala 7\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -1294,15 +1324,16 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261210T140000
 DTEND;TZID=Europe/Warsaw:20261210T170000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:77221cdd9fa56566f93014fe257cf45b3a262da6@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 8b\n🎒 Przynieś: strój\, identyfikator\, spię
- te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\nℹ️
-  15 spotkań po 4 godz.\n📅 Terminy w planie: 08.10. - 28.01.\n🗂 Źr
- ódło: PLAN ZAJĘĆ!JX33:JX44
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\n👤 m
+ gr Weronika Sulowska\nℹ️ 15 spotkań po 4 godz.\nℹ️ prowadzący i 
+ sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 08.10. - 28.01.\n🗂
+  Źródło: PLAN ZAJĘĆ!JX33:JX44
+LOCATION:Ciołka 27\, sala 7\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -1320,15 +1351,16 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261217T140000
 DTEND;TZID=Europe/Warsaw:20261217T170000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:627e19514dbd4b409e1eb6945e296829342067b7@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 8b\n🎒 Przynieś: strój\, identyfikator\, spię
- te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\nℹ️
-  15 spotkań po 4 godz.\n📅 Terminy w planie: 08.10. - 28.01.\n🗂 Źr
- ódło: PLAN ZAJĘĆ!JX33:JX44
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\n👤 m
+ gr Weronika Sulowska\nℹ️ 15 spotkań po 4 godz.\nℹ️ prowadzący i 
+ sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 08.10. - 28.01.\n🗂
+  Źródło: PLAN ZAJĘĆ!JX33:JX44
+LOCATION:Ciołka 27\, sala 7\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -1346,15 +1378,16 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20270107T140000
 DTEND;TZID=Europe/Warsaw:20270107T170000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:b2344269b521d8b354d595237572f406f695135a@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 8b\n🎒 Przynieś: strój\, identyfikator\, spię
- te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\nℹ️
-  15 spotkań po 4 godz.\n📅 Terminy w planie: 08.10. - 28.01.\n🗂 Źr
- ódło: PLAN ZAJĘĆ!JX33:JX44
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\n👤 m
+ gr Weronika Sulowska\nℹ️ 15 spotkań po 4 godz.\nℹ️ prowadzący i 
+ sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 08.10. - 28.01.\n🗂
+  Źródło: PLAN ZAJĘĆ!JX33:JX44
+LOCATION:Ciołka 27\, sala 7\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -1372,15 +1405,16 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20270114T140000
 DTEND;TZID=Europe/Warsaw:20270114T170000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:f6f0787351fcd2ad128fcc3e88c047666b820c9f@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 8b\n🎒 Przynieś: strój\, identyfikator\, spię
- te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\nℹ️
-  15 spotkań po 4 godz.\n📅 Terminy w planie: 08.10. - 28.01.\n🗂 Źr
- ódło: PLAN ZAJĘĆ!JX33:JX44
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\n👤 m
+ gr Weronika Sulowska\nℹ️ 15 spotkań po 4 godz.\nℹ️ prowadzący i 
+ sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 08.10. - 28.01.\n🗂
+  Źródło: PLAN ZAJĘĆ!JX33:JX44
+LOCATION:Ciołka 27\, sala 7\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -1398,15 +1432,16 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20270121T140000
 DTEND;TZID=Europe/Warsaw:20270121T170000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:c4a94154d467d05b96674951c2647212bd145629@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 8b\n🎒 Przynieś: strój\, identyfikator\, spię
- te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\nℹ️
-  15 spotkań po 4 godz.\n📅 Terminy w planie: 08.10. - 28.01.\n🗂 Źr
- ódło: PLAN ZAJĘĆ!JX33:JX44
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\n👤 m
+ gr Weronika Sulowska\nℹ️ 15 spotkań po 4 godz.\nℹ️ prowadzący i 
+ sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 08.10. - 28.01.\n🗂
+  Źródło: PLAN ZAJĘĆ!JX33:JX44
+LOCATION:Ciołka 27\, sala 7\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -1424,15 +1459,16 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20270128T140000
 DTEND;TZID=Europe/Warsaw:20270128T170000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:a1bff008565951c98edf3c298e4304e89579551e@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 8b\n🎒 Przynieś: strój\, identyfikator\, spię
- te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\nℹ️
-  15 spotkań po 4 godz.\n📅 Terminy w planie: 08.10. - 28.01.\n🗂 Źr
- ódło: PLAN ZAJĘĆ!JX33:JX44
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ te włosy\, krótkie paznokcie\n\n📚 Podst. Piel. ćwiczenia NZA\n👤 m
+ gr Weronika Sulowska\nℹ️ 15 spotkań po 4 godz.\nℹ️ prowadzący i 
+ sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 08.10. - 28.01.\n🗂
+  Źródło: PLAN ZAJĘĆ!JX33:JX44
+LOCATION:Ciołka 27\, sala 7\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -1450,7 +1486,7 @@ BEGIN:VEVENT
 SUMMARY:🇬🇧 ĆW · Angielski
 DTSTART;TZID=Europe/Warsaw:20261006T153000
 DTEND;TZID=Europe/Warsaw:20261006T170000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:df47fd087f7a3cfd37081fbeab43ff4d8df4da31@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1475,7 +1511,7 @@ BEGIN:VEVENT
 SUMMARY:🇬🇧 ĆW · Angielski
 DTSTART;TZID=Europe/Warsaw:20261013T153000
 DTEND;TZID=Europe/Warsaw:20261013T170000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:76e3c5ccab845230e03dd37cee49b656b55cd9ed@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1500,7 +1536,7 @@ BEGIN:VEVENT
 SUMMARY:🇬🇧 ĆW · Angielski
 DTSTART;TZID=Europe/Warsaw:20261020T153000
 DTEND;TZID=Europe/Warsaw:20261020T170000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:2b78206a7473d3564ee46f64b2b733e737092373@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1525,7 +1561,7 @@ BEGIN:VEVENT
 SUMMARY:🇬🇧 ĆW · Angielski
 DTSTART;TZID=Europe/Warsaw:20261027T153000
 DTEND;TZID=Europe/Warsaw:20261027T170000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:ab9d62be911ceaac0e90cff41abd97b8c197145b@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1550,7 +1586,7 @@ BEGIN:VEVENT
 SUMMARY:🇬🇧 ĆW · Angielski
 DTSTART;TZID=Europe/Warsaw:20261103T153000
 DTEND;TZID=Europe/Warsaw:20261103T170000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:eef042a12da6d5c081064a02ceba8ac634edf234@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1575,7 +1611,7 @@ BEGIN:VEVENT
 SUMMARY:🇬🇧 ĆW · Angielski
 DTSTART;TZID=Europe/Warsaw:20261110T153000
 DTEND;TZID=Europe/Warsaw:20261110T170000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:ca2fb8c2d0e6e9072e2281954042f58deaf25484@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1600,7 +1636,7 @@ BEGIN:VEVENT
 SUMMARY:🇬🇧 ĆW · Angielski
 DTSTART;TZID=Europe/Warsaw:20261117T153000
 DTEND;TZID=Europe/Warsaw:20261117T170000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:b5ad0526e33437ca72adea19c8920f8e747cd78a@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1625,7 +1661,7 @@ BEGIN:VEVENT
 SUMMARY:🇬🇧 ĆW · Angielski
 DTSTART;TZID=Europe/Warsaw:20261124T153000
 DTEND;TZID=Europe/Warsaw:20261124T170000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:ed7808414d8c6281867945ab21bb4bf62f244dbd@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1650,7 +1686,7 @@ BEGIN:VEVENT
 SUMMARY:🇬🇧 ĆW · Angielski
 DTSTART;TZID=Europe/Warsaw:20261201T153000
 DTEND;TZID=Europe/Warsaw:20261201T170000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:7ce5f92f12e21b90456921354013c68ead734b82@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1675,7 +1711,7 @@ BEGIN:VEVENT
 SUMMARY:🇬🇧 ĆW · Angielski
 DTSTART;TZID=Europe/Warsaw:20261208T153000
 DTEND;TZID=Europe/Warsaw:20261208T170000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:0220e57cb79e44a22fe85380aa9e458bf68f9228@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1700,7 +1736,7 @@ BEGIN:VEVENT
 SUMMARY:🇬🇧 ĆW · Angielski
 DTSTART;TZID=Europe/Warsaw:20261215T153000
 DTEND;TZID=Europe/Warsaw:20261215T170000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:cda112db714f4eff89e4bf34bd81a6e782401808@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1725,7 +1761,7 @@ BEGIN:VEVENT
 SUMMARY:🇬🇧 ĆW · Angielski
 DTSTART;TZID=Europe/Warsaw:20270105T153000
 DTEND;TZID=Europe/Warsaw:20270105T170000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:a77cb2d1673c62d02e23543609adce8b342270e7@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1750,7 +1786,7 @@ BEGIN:VEVENT
 SUMMARY:🇬🇧 ĆW · Angielski
 DTSTART;TZID=Europe/Warsaw:20270112T153000
 DTEND;TZID=Europe/Warsaw:20270112T170000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:9cca1caa9aff57e019351b2c3e6e181d43b804d7@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1775,7 +1811,7 @@ BEGIN:VEVENT
 SUMMARY:🇬🇧 ĆW · Angielski
 DTSTART;TZID=Europe/Warsaw:20270119T153000
 DTEND;TZID=Europe/Warsaw:20270119T170000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:39da402df13ebe15aa15a4f886bcfc27b322368e@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1800,7 +1836,7 @@ BEGIN:VEVENT
 SUMMARY:🇬🇧 ĆW · Angielski
 DTSTART;TZID=Europe/Warsaw:20270126T153000
 DTEND;TZID=Europe/Warsaw:20270126T170000
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:603574b211d9efcd909f6a3ba9314694e8809296@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1825,7 +1861,7 @@ BEGIN:VEVENT
 SUMMARY:🎓 ĆW · Pedagogika
 DTSTART;TZID=Europe/Warsaw:20261218T160000
 DTEND;TZID=Europe/Warsaw:20261218T194500
-DTSTAMP:20261005T151923Z
+DTSTAMP:20261012T185359Z
 UID:679b3bab6d4c9414e0b87cc95f04ff958daa4855@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red

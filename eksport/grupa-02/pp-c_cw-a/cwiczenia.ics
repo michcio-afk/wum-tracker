@@ -2,6 +2,10 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//WUM-Tracker//plan zajec//PL
 CALSCALE:GREGORIAN
+DESCRIPTION:PP 2c pon 11:00: M. Jaciubek (sala 5)\nPP 2c śr 11:00: mgr Ju
+ lia Mazurek-Pytel (sala 5)
+X-WR-CALDESC:PP 2c pon 11:00: M. Jaciubek (sala 5)\nPP 2c śr 11:00: mgr J
+ ulia Mazurek-Pytel (sala 5)
 NAME:WUM · Ćwiczenia i praktyki
 X-WR-CALNAME:WUM · Ćwiczenia i praktyki
 COLOR:red
@@ -61,7 +65,7 @@ BEGIN:VEVENT
 SUMMARY:🦴 ĆW · Anatomia
 DTSTART;TZID=Europe/Warsaw:20261013T100000
 DTEND;TZID=Europe/Warsaw:20261013T121500
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:66d32a8f7236e1a1fc0e8e03e5e5318576b0ffcc@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -85,7 +89,7 @@ BEGIN:VEVENT
 SUMMARY:🦴 ĆW · Anatomia
 DTSTART;TZID=Europe/Warsaw:20261020T100000
 DTEND;TZID=Europe/Warsaw:20261020T121500
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:ffd0e52c685b8b372d9db5cbf6c9a50d1f8e34bf@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -109,7 +113,7 @@ BEGIN:VEVENT
 SUMMARY:🦴 ĆW · Anatomia
 DTSTART;TZID=Europe/Warsaw:20261027T100000
 DTEND;TZID=Europe/Warsaw:20261027T121500
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:c1f771fc12481b3ad64df0124b6d236e1395f961@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -133,7 +137,7 @@ BEGIN:VEVENT
 SUMMARY:🦴 ĆW · Anatomia
 DTSTART;TZID=Europe/Warsaw:20261103T100000
 DTEND;TZID=Europe/Warsaw:20261103T121500
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:b9af821d64a9b13ea082784c47fe0d49fd85c4a8@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -157,7 +161,7 @@ BEGIN:VEVENT
 SUMMARY:🦴 ĆW · Anatomia
 DTSTART;TZID=Europe/Warsaw:20261110T100000
 DTEND;TZID=Europe/Warsaw:20261110T121500
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:080e8bcbd128130182efcce00e389ca4a39e7116@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -181,7 +185,7 @@ BEGIN:VEVENT
 SUMMARY:🦴 ĆW · Anatomia
 DTSTART;TZID=Europe/Warsaw:20261117T100000
 DTEND;TZID=Europe/Warsaw:20261117T121500
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:f3c31fb290f16a7f15c9f27bcf80ee15b7aa93d2@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -205,7 +209,7 @@ BEGIN:VEVENT
 SUMMARY:🦴 ĆW · Anatomia
 DTSTART;TZID=Europe/Warsaw:20261124T100000
 DTEND;TZID=Europe/Warsaw:20261124T121500
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:8883ee730dbcd2c87dc82001b8fce81c8f9247f3@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -229,7 +233,7 @@ BEGIN:VEVENT
 SUMMARY:🦴 ĆW · Anatomia
 DTSTART;TZID=Europe/Warsaw:20261201T100000
 DTEND;TZID=Europe/Warsaw:20261201T121500
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:fe339e7cd96a29e9bd18ba9fd46380fe068b5a3b@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -253,7 +257,7 @@ BEGIN:VEVENT
 SUMMARY:🦴 ĆW · Anatomia
 DTSTART;TZID=Europe/Warsaw:20261208T100000
 DTEND;TZID=Europe/Warsaw:20261208T121500
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:e067bfc9e06d253070fee968da06346f90d257d9@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -277,7 +281,7 @@ BEGIN:VEVENT
 SUMMARY:🦴 ĆW · Anatomia
 DTSTART;TZID=Europe/Warsaw:20261215T100000
 DTEND;TZID=Europe/Warsaw:20261215T121500
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:b3483830e9ce07e5f6fda63bf0c0e6c6be2fde3b@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -301,14 +305,15 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261005T110000
 DTEND;TZID=Europe/Warsaw:20261005T140000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:6b5363eec89da461cab6a67c4c3ec8df00fb697b@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 2c\n🎒 Przynieś: identyfikator\n\n📚 Podst. P
- iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\n📅 Terminy w planie:
-  05.10. - 25.01.\n🗂 Źródło: PLAN ZAJĘĆ!C21:C32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ iel. ćwiczenia NZA\n👤 M. Jaciubek\nℹ️ 15 spotkań po 4 godz.\nℹ
+ ️ prowadzący i sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 05.
+ 10. - 25.01.\n🗂 Źródło: PLAN ZAJĘĆ!C21:C32
+LOCATION:Ciołka 27\, sala 5\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -325,14 +330,15 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261012T110000
 DTEND;TZID=Europe/Warsaw:20261012T140000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:15719813e0afed0e9fc7077413995e91d420c34b@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 2c\n🎒 Przynieś: identyfikator\n\n📚 Podst. P
- iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\n📅 Terminy w planie:
-  05.10. - 25.01.\n🗂 Źródło: PLAN ZAJĘĆ!C21:C32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ iel. ćwiczenia NZA\n👤 M. Jaciubek\nℹ️ 15 spotkań po 4 godz.\nℹ
+ ️ prowadzący i sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 05.
+ 10. - 25.01.\n🗂 Źródło: PLAN ZAJĘĆ!C21:C32
+LOCATION:Ciołka 27\, sala 5\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -349,14 +355,15 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261019T110000
 DTEND;TZID=Europe/Warsaw:20261019T140000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:7c5e494aaff80bd27ee7745a4bd351b31f9efbbf@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 2c\n🎒 Przynieś: identyfikator\n\n📚 Podst. P
- iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\n📅 Terminy w planie:
-  05.10. - 25.01.\n🗂 Źródło: PLAN ZAJĘĆ!C21:C32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ iel. ćwiczenia NZA\n👤 M. Jaciubek\nℹ️ 15 spotkań po 4 godz.\nℹ
+ ️ prowadzący i sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 05.
+ 10. - 25.01.\n🗂 Źródło: PLAN ZAJĘĆ!C21:C32
+LOCATION:Ciołka 27\, sala 5\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -373,14 +380,15 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261026T110000
 DTEND;TZID=Europe/Warsaw:20261026T140000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:bdd75d3152108d12f941a792211734ac13afa059@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 2c\n🎒 Przynieś: identyfikator\n\n📚 Podst. P
- iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\n📅 Terminy w planie:
-  05.10. - 25.01.\n🗂 Źródło: PLAN ZAJĘĆ!C21:C32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ iel. ćwiczenia NZA\n👤 M. Jaciubek\nℹ️ 15 spotkań po 4 godz.\nℹ
+ ️ prowadzący i sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 05.
+ 10. - 25.01.\n🗂 Źródło: PLAN ZAJĘĆ!C21:C32
+LOCATION:Ciołka 27\, sala 5\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -397,14 +405,15 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261102T110000
 DTEND;TZID=Europe/Warsaw:20261102T140000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:c01e4c3b7c21215df63158251ced849debfad480@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 2c\n🎒 Przynieś: identyfikator\n\n📚 Podst. P
- iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\n📅 Terminy w planie:
-  05.10. - 25.01.\n🗂 Źródło: PLAN ZAJĘĆ!C21:C32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ iel. ćwiczenia NZA\n👤 M. Jaciubek\nℹ️ 15 spotkań po 4 godz.\nℹ
+ ️ prowadzący i sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 05.
+ 10. - 25.01.\n🗂 Źródło: PLAN ZAJĘĆ!C21:C32
+LOCATION:Ciołka 27\, sala 5\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -421,14 +430,15 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261109T110000
 DTEND;TZID=Europe/Warsaw:20261109T140000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:a94d46901e7d94736747d19c97e5c24b7a6e7000@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 2c\n🎒 Przynieś: identyfikator\n\n📚 Podst. P
- iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\n📅 Terminy w planie:
-  05.10. - 25.01.\n🗂 Źródło: PLAN ZAJĘĆ!C21:C32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ iel. ćwiczenia NZA\n👤 M. Jaciubek\nℹ️ 15 spotkań po 4 godz.\nℹ
+ ️ prowadzący i sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 05.
+ 10. - 25.01.\n🗂 Źródło: PLAN ZAJĘĆ!C21:C32
+LOCATION:Ciołka 27\, sala 5\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -445,14 +455,15 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261116T110000
 DTEND;TZID=Europe/Warsaw:20261116T140000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:52c8e6a931228a3278a4dfa28a95b59498b2cf71@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 2c\n🎒 Przynieś: identyfikator\n\n📚 Podst. P
- iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\n📅 Terminy w planie:
-  05.10. - 25.01.\n🗂 Źródło: PLAN ZAJĘĆ!C21:C32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ iel. ćwiczenia NZA\n👤 M. Jaciubek\nℹ️ 15 spotkań po 4 godz.\nℹ
+ ️ prowadzący i sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 05.
+ 10. - 25.01.\n🗂 Źródło: PLAN ZAJĘĆ!C21:C32
+LOCATION:Ciołka 27\, sala 5\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -469,14 +480,15 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261123T110000
 DTEND;TZID=Europe/Warsaw:20261123T140000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:927f468582839637981023970e97e4792716b0f2@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 2c\n🎒 Przynieś: identyfikator\n\n📚 Podst. P
- iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\n📅 Terminy w planie:
-  05.10. - 25.01.\n🗂 Źródło: PLAN ZAJĘĆ!C21:C32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ iel. ćwiczenia NZA\n👤 M. Jaciubek\nℹ️ 15 spotkań po 4 godz.\nℹ
+ ️ prowadzący i sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 05.
+ 10. - 25.01.\n🗂 Źródło: PLAN ZAJĘĆ!C21:C32
+LOCATION:Ciołka 27\, sala 5\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -493,14 +505,15 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261130T110000
 DTEND;TZID=Europe/Warsaw:20261130T140000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:672e346cacc071248863b4ebe9d361607a71e12e@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 2c\n🎒 Przynieś: identyfikator\n\n📚 Podst. P
- iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\n📅 Terminy w planie:
-  05.10. - 25.01.\n🗂 Źródło: PLAN ZAJĘĆ!C21:C32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ iel. ćwiczenia NZA\n👤 M. Jaciubek\nℹ️ 15 spotkań po 4 godz.\nℹ
+ ️ prowadzący i sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 05.
+ 10. - 25.01.\n🗂 Źródło: PLAN ZAJĘĆ!C21:C32
+LOCATION:Ciołka 27\, sala 5\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -517,14 +530,15 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261207T110000
 DTEND;TZID=Europe/Warsaw:20261207T140000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:4a10003b36328e9d6be161d0c66d78302095c731@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 2c\n🎒 Przynieś: identyfikator\n\n📚 Podst. P
- iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\n📅 Terminy w planie:
-  05.10. - 25.01.\n🗂 Źródło: PLAN ZAJĘĆ!C21:C32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ iel. ćwiczenia NZA\n👤 M. Jaciubek\nℹ️ 15 spotkań po 4 godz.\nℹ
+ ️ prowadzący i sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 05.
+ 10. - 25.01.\n🗂 Źródło: PLAN ZAJĘĆ!C21:C32
+LOCATION:Ciołka 27\, sala 5\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -541,14 +555,15 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261214T110000
 DTEND;TZID=Europe/Warsaw:20261214T140000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:fb28e886da79f8f30d74ee42f50b7dc42ff42282@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 2c\n🎒 Przynieś: identyfikator\n\n📚 Podst. P
- iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\n📅 Terminy w planie:
-  05.10. - 25.01.\n🗂 Źródło: PLAN ZAJĘĆ!C21:C32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ iel. ćwiczenia NZA\n👤 M. Jaciubek\nℹ️ 15 spotkań po 4 godz.\nℹ
+ ️ prowadzący i sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 05.
+ 10. - 25.01.\n🗂 Źródło: PLAN ZAJĘĆ!C21:C32
+LOCATION:Ciołka 27\, sala 5\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -565,14 +580,15 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20270104T110000
 DTEND;TZID=Europe/Warsaw:20270104T140000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:c64498fccf4e6023049423d227410d2744f3be5e@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 2c\n🎒 Przynieś: identyfikator\n\n📚 Podst. P
- iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\n📅 Terminy w planie:
-  05.10. - 25.01.\n🗂 Źródło: PLAN ZAJĘĆ!C21:C32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ iel. ćwiczenia NZA\n👤 M. Jaciubek\nℹ️ 15 spotkań po 4 godz.\nℹ
+ ️ prowadzący i sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 05.
+ 10. - 25.01.\n🗂 Źródło: PLAN ZAJĘĆ!C21:C32
+LOCATION:Ciołka 27\, sala 5\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -589,14 +605,15 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20270111T110000
 DTEND;TZID=Europe/Warsaw:20270111T140000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:104a802274e15f489acf6707c81a23d9fd8a2ae9@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 2c\n🎒 Przynieś: identyfikator\n\n📚 Podst. P
- iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\n📅 Terminy w planie:
-  05.10. - 25.01.\n🗂 Źródło: PLAN ZAJĘĆ!C21:C32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ iel. ćwiczenia NZA\n👤 M. Jaciubek\nℹ️ 15 spotkań po 4 godz.\nℹ
+ ️ prowadzący i sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 05.
+ 10. - 25.01.\n🗂 Źródło: PLAN ZAJĘĆ!C21:C32
+LOCATION:Ciołka 27\, sala 5\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -613,14 +630,15 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20270118T110000
 DTEND;TZID=Europe/Warsaw:20270118T140000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:d205622711941496243fe1f9bcb3d2f75fb21b48@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 2c\n🎒 Przynieś: identyfikator\n\n📚 Podst. P
- iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\n📅 Terminy w planie:
-  05.10. - 25.01.\n🗂 Źródło: PLAN ZAJĘĆ!C21:C32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ iel. ćwiczenia NZA\n👤 M. Jaciubek\nℹ️ 15 spotkań po 4 godz.\nℹ
+ ️ prowadzący i sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 05.
+ 10. - 25.01.\n🗂 Źródło: PLAN ZAJĘĆ!C21:C32
+LOCATION:Ciołka 27\, sala 5\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -637,14 +655,15 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20270125T110000
 DTEND;TZID=Europe/Warsaw:20270125T140000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:8a6155b101ca2d3de41fc00823f5c3b353d74d22@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 2c\n🎒 Przynieś: identyfikator\n\n📚 Podst. P
- iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\n📅 Terminy w planie:
-  05.10. - 25.01.\n🗂 Źródło: PLAN ZAJĘĆ!C21:C32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ iel. ćwiczenia NZA\n👤 M. Jaciubek\nℹ️ 15 spotkań po 4 godz.\nℹ
+ ️ prowadzący i sala wg grafiku ćwiczeń PP\n📅 Terminy w planie: 05.
+ 10. - 25.01.\n🗂 Źródło: PLAN ZAJĘĆ!C21:C32
+LOCATION:Ciołka 27\, sala 5\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -661,14 +680,15 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261007T110000
 DTEND;TZID=Europe/Warsaw:20261007T140000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:64b32d6c8eb89becdb1c4eb8b569da8c4ac2b95c@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 2c\n🎒 Przynieś: identyfikator\n\n📚 Podst. P
- iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\n📅 Terminy w planie:
-  07.10. - 27.01.\n🗂 Źródło: PLAN ZAJĘĆ!GY21:GY32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ iel. ćwiczenia NZA\n👤 mgr Julia Mazurek-Pytel\nℹ️ 15 spotkań po 4
+  godz.\nℹ️ prowadzący i sala wg grafiku ćwiczeń PP\n📅 Terminy w 
+ planie: 07.10. - 27.01.\n🗂 Źródło: PLAN ZAJĘĆ!GY21:GY32
+LOCATION:Ciołka 27\, sala 5\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -685,14 +705,15 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261014T110000
 DTEND;TZID=Europe/Warsaw:20261014T140000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:b6d0824e6aab0f2e4aacc611e13770bdaeb033c8@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 2c\n🎒 Przynieś: identyfikator\n\n📚 Podst. P
- iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\n📅 Terminy w planie:
-  07.10. - 27.01.\n🗂 Źródło: PLAN ZAJĘĆ!GY21:GY32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ iel. ćwiczenia NZA\n👤 mgr Julia Mazurek-Pytel\nℹ️ 15 spotkań po 4
+  godz.\nℹ️ prowadzący i sala wg grafiku ćwiczeń PP\n📅 Terminy w 
+ planie: 07.10. - 27.01.\n🗂 Źródło: PLAN ZAJĘĆ!GY21:GY32
+LOCATION:Ciołka 27\, sala 5\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -709,14 +730,15 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261021T110000
 DTEND;TZID=Europe/Warsaw:20261021T140000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:de5dddd5ab5006661e121981da223416850df664@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 2c\n🎒 Przynieś: identyfikator\n\n📚 Podst. P
- iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\n📅 Terminy w planie:
-  07.10. - 27.01.\n🗂 Źródło: PLAN ZAJĘĆ!GY21:GY32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ iel. ćwiczenia NZA\n👤 mgr Julia Mazurek-Pytel\nℹ️ 15 spotkań po 4
+  godz.\nℹ️ prowadzący i sala wg grafiku ćwiczeń PP\n📅 Terminy w 
+ planie: 07.10. - 27.01.\n🗂 Źródło: PLAN ZAJĘĆ!GY21:GY32
+LOCATION:Ciołka 27\, sala 5\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -733,14 +755,15 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261028T110000
 DTEND;TZID=Europe/Warsaw:20261028T140000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:43e14fdb0cda46a767b0a9828308df05e6e1149c@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 2c\n🎒 Przynieś: identyfikator\n\n📚 Podst. P
- iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\n📅 Terminy w planie:
-  07.10. - 27.01.\n🗂 Źródło: PLAN ZAJĘĆ!GY21:GY32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ iel. ćwiczenia NZA\n👤 mgr Julia Mazurek-Pytel\nℹ️ 15 spotkań po 4
+  godz.\nℹ️ prowadzący i sala wg grafiku ćwiczeń PP\n📅 Terminy w 
+ planie: 07.10. - 27.01.\n🗂 Źródło: PLAN ZAJĘĆ!GY21:GY32
+LOCATION:Ciołka 27\, sala 5\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -757,14 +780,15 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261104T110000
 DTEND;TZID=Europe/Warsaw:20261104T140000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:c2b536bcf49af910bda0c2ec7bd6fe300a23e5af@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 2c\n🎒 Przynieś: identyfikator\n\n📚 Podst. P
- iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\n📅 Terminy w planie:
-  07.10. - 27.01.\n🗂 Źródło: PLAN ZAJĘĆ!GY21:GY32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ iel. ćwiczenia NZA\n👤 mgr Julia Mazurek-Pytel\nℹ️ 15 spotkań po 4
+  godz.\nℹ️ prowadzący i sala wg grafiku ćwiczeń PP\n📅 Terminy w 
+ planie: 07.10. - 27.01.\n🗂 Źródło: PLAN ZAJĘĆ!GY21:GY32
+LOCATION:Ciołka 27\, sala 5\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -781,14 +805,15 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261118T110000
 DTEND;TZID=Europe/Warsaw:20261118T140000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:db22e82225235d3e008e3a89f1b04b1c523438f4@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 2c\n🎒 Przynieś: identyfikator\n\n📚 Podst. P
- iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\n📅 Terminy w planie:
-  07.10. - 27.01.\n🗂 Źródło: PLAN ZAJĘĆ!GY21:GY32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ iel. ćwiczenia NZA\n👤 mgr Julia Mazurek-Pytel\nℹ️ 15 spotkań po 4
+  godz.\nℹ️ prowadzący i sala wg grafiku ćwiczeń PP\n📅 Terminy w 
+ planie: 07.10. - 27.01.\n🗂 Źródło: PLAN ZAJĘĆ!GY21:GY32
+LOCATION:Ciołka 27\, sala 5\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -805,14 +830,15 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261125T110000
 DTEND;TZID=Europe/Warsaw:20261125T140000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:d55b2561de35e11b20d15606c4bc32e71c50c020@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 2c\n🎒 Przynieś: identyfikator\n\n📚 Podst. P
- iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\n📅 Terminy w planie:
-  07.10. - 27.01.\n🗂 Źródło: PLAN ZAJĘĆ!GY21:GY32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ iel. ćwiczenia NZA\n👤 mgr Julia Mazurek-Pytel\nℹ️ 15 spotkań po 4
+  godz.\nℹ️ prowadzący i sala wg grafiku ćwiczeń PP\n📅 Terminy w 
+ planie: 07.10. - 27.01.\n🗂 Źródło: PLAN ZAJĘĆ!GY21:GY32
+LOCATION:Ciołka 27\, sala 5\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -829,14 +855,15 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261202T110000
 DTEND;TZID=Europe/Warsaw:20261202T140000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:9d1637c7c704aa41245d8dbcfcd9cfc2e0bb03cf@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 2c\n🎒 Przynieś: identyfikator\n\n📚 Podst. P
- iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\n📅 Terminy w planie:
-  07.10. - 27.01.\n🗂 Źródło: PLAN ZAJĘĆ!GY21:GY32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ iel. ćwiczenia NZA\n👤 mgr Julia Mazurek-Pytel\nℹ️ 15 spotkań po 4
+  godz.\nℹ️ prowadzący i sala wg grafiku ćwiczeń PP\n📅 Terminy w 
+ planie: 07.10. - 27.01.\n🗂 Źródło: PLAN ZAJĘĆ!GY21:GY32
+LOCATION:Ciołka 27\, sala 5\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -853,14 +880,15 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261209T110000
 DTEND;TZID=Europe/Warsaw:20261209T140000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:540b6df796f6ba3738742f730330c68fa67443a3@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 2c\n🎒 Przynieś: identyfikator\n\n📚 Podst. P
- iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\n📅 Terminy w planie:
-  07.10. - 27.01.\n🗂 Źródło: PLAN ZAJĘĆ!GY21:GY32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ iel. ćwiczenia NZA\n👤 mgr Julia Mazurek-Pytel\nℹ️ 15 spotkań po 4
+  godz.\nℹ️ prowadzący i sala wg grafiku ćwiczeń PP\n📅 Terminy w 
+ planie: 07.10. - 27.01.\n🗂 Źródło: PLAN ZAJĘĆ!GY21:GY32
+LOCATION:Ciołka 27\, sala 5\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -877,14 +905,15 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261216T110000
 DTEND;TZID=Europe/Warsaw:20261216T140000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:cb79e512a5c0d75030d7d653e2d6ce19763cb6d1@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 2c\n🎒 Przynieś: identyfikator\n\n📚 Podst. P
- iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\n📅 Terminy w planie:
-  07.10. - 27.01.\n🗂 Źródło: PLAN ZAJĘĆ!GY21:GY32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ iel. ćwiczenia NZA\n👤 mgr Julia Mazurek-Pytel\nℹ️ 15 spotkań po 4
+  godz.\nℹ️ prowadzący i sala wg grafiku ćwiczeń PP\n📅 Terminy w 
+ planie: 07.10. - 27.01.\n🗂 Źródło: PLAN ZAJĘĆ!GY21:GY32
+LOCATION:Ciołka 27\, sala 5\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -901,14 +930,15 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20270113T110000
 DTEND;TZID=Europe/Warsaw:20270113T140000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:0d28f5f746fb13da721d69a118532a62027078ea@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 2c\n🎒 Przynieś: identyfikator\n\n📚 Podst. P
- iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\n📅 Terminy w planie:
-  07.10. - 27.01.\n🗂 Źródło: PLAN ZAJĘĆ!GY21:GY32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ iel. ćwiczenia NZA\n👤 mgr Julia Mazurek-Pytel\nℹ️ 15 spotkań po 4
+  godz.\nℹ️ prowadzący i sala wg grafiku ćwiczeń PP\n📅 Terminy w 
+ planie: 07.10. - 27.01.\n🗂 Źródło: PLAN ZAJĘĆ!GY21:GY32
+LOCATION:Ciołka 27\, sala 5\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -925,14 +955,15 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20270120T110000
 DTEND;TZID=Europe/Warsaw:20270120T140000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:3ef55a7bb15d512a6fcdcfacd86bb02912c58de7@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 2c\n🎒 Przynieś: identyfikator\n\n📚 Podst. P
- iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\n📅 Terminy w planie:
-  07.10. - 27.01.\n🗂 Źródło: PLAN ZAJĘĆ!GY21:GY32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ iel. ćwiczenia NZA\n👤 mgr Julia Mazurek-Pytel\nℹ️ 15 spotkań po 4
+  godz.\nℹ️ prowadzący i sala wg grafiku ćwiczeń PP\n📅 Terminy w 
+ planie: 07.10. - 27.01.\n🗂 Źródło: PLAN ZAJĘĆ!GY21:GY32
+LOCATION:Ciołka 27\, sala 5\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -949,14 +980,15 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20270127T110000
 DTEND;TZID=Europe/Warsaw:20270127T140000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:4d57a07589c6068ffd833699b264fcd2e7022d9d@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 2c\n🎒 Przynieś: identyfikator\n\n📚 Podst. P
- iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\n📅 Terminy w planie:
-  07.10. - 27.01.\n🗂 Źródło: PLAN ZAJĘĆ!GY21:GY32
-LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
+ iel. ćwiczenia NZA\n👤 mgr Julia Mazurek-Pytel\nℹ️ 15 spotkań po 4
+  godz.\nℹ️ prowadzący i sala wg grafiku ćwiczeń PP\n📅 Terminy w 
+ planie: 07.10. - 27.01.\n🗂 Źródło: PLAN ZAJĘĆ!GY21:GY32
+LOCATION:Ciołka 27\, sala 5\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -973,7 +1005,7 @@ BEGIN:VEVENT
 SUMMARY:🎓 ĆW · Pedagogika
 DTSTART;TZID=Europe/Warsaw:20261106T120000
 DTEND;TZID=Europe/Warsaw:20261106T154500
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:b567d7c572605cae607db58ad2f8cd70047f670f@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -997,7 +1029,7 @@ BEGIN:VEVENT
 SUMMARY:🫁 ĆW · Bad. fizykalne
 DTSTART;TZID=Europe/Warsaw:20261217T124500
 DTEND;TZID=Europe/Warsaw:20261217T150000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:06c714a88e2d2d7ab319af95eb50a608d267656e@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1021,7 +1053,7 @@ BEGIN:VEVENT
 SUMMARY:🫁 ĆW · Bad. fizykalne
 DTSTART;TZID=Europe/Warsaw:20270107T124500
 DTEND;TZID=Europe/Warsaw:20270107T150000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:8c8a4c9e505166050ddfe8c08e76a8869ca34a76@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1045,7 +1077,7 @@ BEGIN:VEVENT
 SUMMARY:🫁 ĆW · Bad. fizykalne
 DTSTART;TZID=Europe/Warsaw:20270114T124500
 DTEND;TZID=Europe/Warsaw:20270114T150000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:f4c8528bd70c272c37da9e07fee7c0a8635540f4@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1069,7 +1101,7 @@ BEGIN:VEVENT
 SUMMARY:🫁 ĆW · Bad. fizykalne
 DTSTART;TZID=Europe/Warsaw:20270121T124500
 DTEND;TZID=Europe/Warsaw:20270121T150000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:94faf89f14e7b1f4f8a99084b06aa5d3566c6498@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1093,7 +1125,7 @@ BEGIN:VEVENT
 SUMMARY:🫁 ĆW · Bad. fizykalne
 DTSTART;TZID=Europe/Warsaw:20270128T124500
 DTEND;TZID=Europe/Warsaw:20270128T150000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:cff8052919f3ea6d3217e1249c335ceb7c77bb2c@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1117,13 +1149,15 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261110T140000
 DTEND;TZID=Europe/Warsaw:20261110T170000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:73609f15a2d1faef9e500fc682fe59e859b5b614@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 2c\n🎒 Przynieś: identyfikator\n\n📚 Podst. P
- iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\n📅 Terminy w planie:
-  10.11.\n🗂 Źródło: PLAN ZAJĘĆ!EO33:EO44
+ iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\nℹ️ prowadzący: br
+ ak tego terminu w grafiku PP (w podgrupie prowadzą: M. Jaciubek\, mgr Jul
+ ia Mazurek-Pytel)\n📅 Terminy w planie: 10.11.\n🗂 Źródło: PLAN ZAJ
+ ĘĆ!EO33:EO44
 LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
@@ -1141,13 +1175,15 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261117T140000
 DTEND;TZID=Europe/Warsaw:20261117T170000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:61da003ea2b2e0f4b35a72da9410702945f6c4e7@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 2c\n🎒 Przynieś: identyfikator\n\n📚 Podst. P
- iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\n📅 Terminy w planie:
-  17.11.\n🗂 Źródło: PLAN ZAJĘĆ!ER33:ER44
+ iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\nℹ️ prowadzący: br
+ ak tego terminu w grafiku PP (w podgrupie prowadzą: M. Jaciubek\, mgr Jul
+ ia Mazurek-Pytel)\n📅 Terminy w planie: 17.11.\n🗂 Źródło: PLAN ZAJ
+ ĘĆ!ER33:ER44
 LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
@@ -1165,13 +1201,15 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261124T140000
 DTEND;TZID=Europe/Warsaw:20261124T170000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:e114314f7729524f60b6920b1fba92054f0fef75@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 2c\n🎒 Przynieś: identyfikator\n\n📚 Podst. P
- iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\n📅 Terminy w planie:
-  24.11.\n🗂 Źródło: PLAN ZAJĘĆ!EU33:EU44
+ iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\nℹ️ prowadzący: br
+ ak tego terminu w grafiku PP (w podgrupie prowadzą: M. Jaciubek\, mgr Jul
+ ia Mazurek-Pytel)\n📅 Terminy w planie: 24.11.\n🗂 Źródło: PLAN ZAJ
+ ĘĆ!EU33:EU44
 LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
@@ -1189,13 +1227,15 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20261201T140000
 DTEND;TZID=Europe/Warsaw:20261201T170000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:b12e87f3d7c994bebcf02364678e0993f4a0f689@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 2c\n🎒 Przynieś: identyfikator\n\n📚 Podst. P
- iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\n📅 Terminy w planie:
-  01.12.\n🗂 Źródło: PLAN ZAJĘĆ!EX33:EX44
+ iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\nℹ️ prowadzący: br
+ ak tego terminu w grafiku PP (w podgrupie prowadzą: M. Jaciubek\, mgr Jul
+ ia Mazurek-Pytel)\n📅 Terminy w planie: 01.12.\n🗂 Źródło: PLAN ZAJ
+ ĘĆ!EX33:EX44
 LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
@@ -1213,13 +1253,15 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20270105T140000
 DTEND;TZID=Europe/Warsaw:20270105T170000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:45f86161748ebd8f063b65571a72be98ba9e8858@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 2c\n🎒 Przynieś: identyfikator\n\n📚 Podst. P
- iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\n📅 Terminy w planie:
-  05.01.\n🗂 Źródło: PLAN ZAJĘĆ!FG33:FG44
+ iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\nℹ️ prowadzący: br
+ ak tego terminu w grafiku PP (w podgrupie prowadzą: M. Jaciubek\, mgr Jul
+ ia Mazurek-Pytel)\n📅 Terminy w planie: 05.01.\n🗂 Źródło: PLAN ZAJ
+ ĘĆ!FG33:FG44
 LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
@@ -1237,13 +1279,15 @@ BEGIN:VEVENT
 SUMMARY:🩺 ĆW · PP
 DTSTART;TZID=Europe/Warsaw:20270112T140000
 DTEND;TZID=Europe/Warsaw:20270112T170000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:c408cb819182b7a18c8238f7ee1086cfcac649ae@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
 DESCRIPTION:👥 Grupa: 2c\n🎒 Przynieś: identyfikator\n\n📚 Podst. P
- iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\n📅 Terminy w planie:
-  12.01.\n🗂 Źródło: PLAN ZAJĘĆ!FJ33:FJ44
+ iel. ćwiczenia NZA\nℹ️ 15 spotkań po 4 godz.\nℹ️ prowadzący: br
+ ak tego terminu w grafiku PP (w podgrupie prowadzą: M. Jaciubek\, mgr Jul
+ ia Mazurek-Pytel)\n📅 Terminy w planie: 12.01.\n🗂 Źródło: PLAN ZAJ
+ ĘĆ!FJ33:FJ44
 LOCATION:Ciołka 27\, Pracownie do ćwiczeń\, Warszawa
 X-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC
 BEGIN:VALARM
@@ -1261,7 +1305,7 @@ BEGIN:VEVENT
 SUMMARY:🧠 ĆW · Psychologia
 DTSTART;TZID=Europe/Warsaw:20261014T144500
 DTEND;TZID=Europe/Warsaw:20261014T170000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:0e970ad7df7c5ca36dcf79eb4f5dd678365b2b8b@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1286,7 +1330,7 @@ BEGIN:VEVENT
 SUMMARY:🧠 ĆW · Psychologia
 DTSTART;TZID=Europe/Warsaw:20261021T144500
 DTEND;TZID=Europe/Warsaw:20261021T170000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:bf7b18db28286c8deb2831c53bcf0eb352e5bef6@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1311,7 +1355,7 @@ BEGIN:VEVENT
 SUMMARY:🧠 ĆW · Psychologia
 DTSTART;TZID=Europe/Warsaw:20261028T144500
 DTEND;TZID=Europe/Warsaw:20261028T170000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:65ba6a6a67012a4c68a639edf6d916b4cfc245a8@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1336,7 +1380,7 @@ BEGIN:VEVENT
 SUMMARY:🧠 ĆW · Psychologia
 DTSTART;TZID=Europe/Warsaw:20261104T144500
 DTEND;TZID=Europe/Warsaw:20261104T170000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:37a0aa0d40bedf5a693efb98ba3fb4b92cd65fc0@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1361,7 +1405,7 @@ BEGIN:VEVENT
 SUMMARY:🧠 ĆW · Psychologia
 DTSTART;TZID=Europe/Warsaw:20261118T144500
 DTEND;TZID=Europe/Warsaw:20261118T170000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:45ebf0013155127f418baca76c73ad463323cfe3@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1386,7 +1430,7 @@ BEGIN:VEVENT
 SUMMARY:🫀 ĆW · Fizjologia
 DTSTART;TZID=Europe/Warsaw:20261119T150000
 DTEND;TZID=Europe/Warsaw:20261119T173000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:4aa343fcaf8564fdd9e24a54a46a2ef2a41c0a37@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1410,7 +1454,7 @@ BEGIN:VEVENT
 SUMMARY:🫀 ĆW · Fizjologia
 DTSTART;TZID=Europe/Warsaw:20261126T150000
 DTEND;TZID=Europe/Warsaw:20261126T173000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:7a85ea37b2d3f4e92e3f588f4121f9a9e28b077a@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1434,7 +1478,7 @@ BEGIN:VEVENT
 SUMMARY:🫀 ĆW · Fizjologia
 DTSTART;TZID=Europe/Warsaw:20261203T150000
 DTEND;TZID=Europe/Warsaw:20261203T173000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:e350cceb77480e1389a6acb4eaaccb50054641c6@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1458,7 +1502,7 @@ BEGIN:VEVENT
 SUMMARY:🇬🇧 ĆW · Angielski
 DTSTART;TZID=Europe/Warsaw:20261002T163000
 DTEND;TZID=Europe/Warsaw:20261002T180000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:8f48d75447c7f1ae6e1448d5a847cc22ba6b6814@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1483,7 +1527,7 @@ BEGIN:VEVENT
 SUMMARY:🇬🇧 ĆW · Angielski
 DTSTART;TZID=Europe/Warsaw:20261009T163000
 DTEND;TZID=Europe/Warsaw:20261009T180000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:48d8edddbe307157fccd1e8656ba531addf4647e@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1508,7 +1552,7 @@ BEGIN:VEVENT
 SUMMARY:🇬🇧 ĆW · Angielski
 DTSTART;TZID=Europe/Warsaw:20261016T163000
 DTEND;TZID=Europe/Warsaw:20261016T180000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:f4dba78989ede668a0451d0e625e761d3d3fc10c@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1533,7 +1577,7 @@ BEGIN:VEVENT
 SUMMARY:🇬🇧 ĆW · Angielski
 DTSTART;TZID=Europe/Warsaw:20261023T163000
 DTEND;TZID=Europe/Warsaw:20261023T180000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:2a74f8c78f72e7b3e5855d80e3f5be37b8a21d36@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1558,7 +1602,7 @@ BEGIN:VEVENT
 SUMMARY:🇬🇧 ĆW · Angielski
 DTSTART;TZID=Europe/Warsaw:20261030T163000
 DTEND;TZID=Europe/Warsaw:20261030T180000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:010be1815e830e9b7b4d41863c9087fb841f7d22@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1583,7 +1627,7 @@ BEGIN:VEVENT
 SUMMARY:🇬🇧 ĆW · Angielski
 DTSTART;TZID=Europe/Warsaw:20261106T163000
 DTEND;TZID=Europe/Warsaw:20261106T180000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:5418a03009f7a27dd357f045a7550db5649927b0@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1608,7 +1652,7 @@ BEGIN:VEVENT
 SUMMARY:🇬🇧 ĆW · Angielski
 DTSTART;TZID=Europe/Warsaw:20261113T163000
 DTEND;TZID=Europe/Warsaw:20261113T180000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:5734e8cd572e1580c5617facbd7718c285b0265a@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1633,7 +1677,7 @@ BEGIN:VEVENT
 SUMMARY:🇬🇧 ĆW · Angielski
 DTSTART;TZID=Europe/Warsaw:20261120T163000
 DTEND;TZID=Europe/Warsaw:20261120T180000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:12c668a253c15606c80c29465edde6130b2fc505@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1658,7 +1702,7 @@ BEGIN:VEVENT
 SUMMARY:🇬🇧 ĆW · Angielski
 DTSTART;TZID=Europe/Warsaw:20261127T163000
 DTEND;TZID=Europe/Warsaw:20261127T180000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:b2e98032bd54efd1d3da7edd7dadf9ee3c8f04bd@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1683,7 +1727,7 @@ BEGIN:VEVENT
 SUMMARY:🇬🇧 ĆW · Angielski
 DTSTART;TZID=Europe/Warsaw:20261204T163000
 DTEND;TZID=Europe/Warsaw:20261204T180000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:5a85136fcd448e24acc23885899edf368cd5db29@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1708,7 +1752,7 @@ BEGIN:VEVENT
 SUMMARY:🇬🇧 ĆW · Angielski
 DTSTART;TZID=Europe/Warsaw:20261211T163000
 DTEND;TZID=Europe/Warsaw:20261211T180000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:f6985926bb9a5cd3bbde2c8d34aa8b29e46ad3c2@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1733,7 +1777,7 @@ BEGIN:VEVENT
 SUMMARY:🇬🇧 ĆW · Angielski
 DTSTART;TZID=Europe/Warsaw:20261218T163000
 DTEND;TZID=Europe/Warsaw:20261218T180000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:f95d3501bb87ab870acb15de420f5730313834e3@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1758,7 +1802,7 @@ BEGIN:VEVENT
 SUMMARY:🇬🇧 ĆW · Angielski
 DTSTART;TZID=Europe/Warsaw:20270108T163000
 DTEND;TZID=Europe/Warsaw:20270108T180000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:5d1ad7c9e2ae093d23872bcb54875e3147d598eb@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1783,7 +1827,7 @@ BEGIN:VEVENT
 SUMMARY:🇬🇧 ĆW · Angielski
 DTSTART;TZID=Europe/Warsaw:20270115T163000
 DTEND;TZID=Europe/Warsaw:20270115T180000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:8dda86aed6288d11c7acfe52716eddd56e959b0d@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1808,7 +1852,7 @@ BEGIN:VEVENT
 SUMMARY:🇬🇧 ĆW · Angielski
 DTSTART;TZID=Europe/Warsaw:20270122T163000
 DTEND;TZID=Europe/Warsaw:20270122T180000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:56be121960ebd8cb647b889021176daeab0b3871@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
@@ -1833,7 +1877,7 @@ BEGIN:VEVENT
 SUMMARY:🇬🇧 ĆW · Angielski
 DTSTART;TZID=Europe/Warsaw:20270129T163000
 DTEND;TZID=Europe/Warsaw:20270129T180000
-DTSTAMP:20261005T151927Z
+DTSTAMP:20261012T185401Z
 UID:d839a09df4e977042c79ec4d54b25d396ebace7d@wum-tracker
 CATEGORIES:Ćwiczenia i praktyki
 COLOR:red
