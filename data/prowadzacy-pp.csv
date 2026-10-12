@@ -1,0 +1,168 @@
+data,od,do,grupa,prowadzacy,sala
+06.10.2026,08:00,11:00,4a,dr Honorata Piasecka,5
+06.10.2026,08:00,11:00,4b,dr Honorata Piasecka,7
+06.10.2026,08:00,11:00,4c,mgr Karolina Deryło-Pietrzak,8
+06.10.2026,08:00,11:00,5a,mgr Agnieszka Bednarczyk,108
+06.10.2026,08:00,11:00,5b,mgr Agnieszka Bednarczyk,109
+06.10.2026,08:00,11:00,5c,dr Artur Kanteluk,201
+06.10.2026,11:00,14:00,6a,dr Honorata Piasecka,5
+06.10.2026,11:00,14:00,6b,dr Honorata Piasecka,7
+06.10.2026,11:00,14:00,6c,mgr Karolina Deryło-Pietrzak,8
+06.10.2026,11:00,14:00,7a,mgr Agnieszka Bednarczyk,108
+06.10.2026,11:00,14:00,7b,mgr Agnieszka Bednarczyk,109
+06.10.2026,11:00,14:00,7c,dr Artur Kanteluk,201
+06.10.2026,14:00,17:00,15a,dr Artur Kanteluk,7
+06.10.2026,14:00,17:00,15b,mgr Karolina Deryło-Pietrzak,8
+06.10.2026,14:00,17:00,15c,mgr Agnieszka Bednarczyk,108
+06.10.2026,14:00,17:00,14a,mgr Agnieszka Bednarczyk,109
+06.10.2026,14:00,17:00,1a,dr Artur Kanteluk,201
+07.10.2026,14:00,17:00,15a,mgr Aleksandra Ukleja,7
+07.10.2026,14:00,17:00,15b,mgr Julia Świder,108
+07.10.2026,14:00,17:00,15c,mgr Kinga Budziszewska,109
+08.10.2026,08:00,11:00,11a,mgr Julia Mazurek-Pytel,5
+08.10.2026,08:00,11:00,11b,mgr Weronika Sulowska,7
+08.10.2026,08:00,11:00,11c,mgr Karolina Deryło-Pietrzak,8
+08.10.2026,08:00,11:00,12a,dr Honorata Piasecka,108
+08.10.2026,08:00,11:00,12b,mgr Ruta Sawicka,109
+08.10.2026,08:00,11:00,12c,dr Izabella Krzykwa,201
+08.10.2026,11:00,14:00,6a,mgr Julia Mazurek-Pytel,5
+08.10.2026,11:00,14:00,6b,mgr Weronika Sulowska,7
+08.10.2026,11:00,14:00,6c,mgr Karolina Deryło-Pietrzak,8
+08.10.2026,11:00,14:00,1c,dr Honorata Piasecka,108
+08.10.2026,11:00,14:00,7a,mgr Ruta Sawicka,109
+08.10.2026,11:00,14:00,7b,dr Izabella Krzykwa,201
+08.10.2026,14:00,17:00,8a,mgr Julia Mazurek-Pytel,5
+08.10.2026,14:00,17:00,8b,mgr Weronika Sulowska,7
+08.10.2026,14:00,17:00,8c,mgr Dorota Banach,8
+08.10.2026,14:00,17:00,9a,dr Honorata Piasecka,108
+08.10.2026,14:00,17:00,14a,mgr Ruta Sawicka,109
+08.10.2026,14:00,17:00,14b,dr Aleksandra Łopatkiewicz,201
+08.10.2026,17:00,20:00,9b,mgr Julia Mazurek-Pytel,5
+08.10.2026,17:00,20:00,9c,mgr Weronika Sulowska,7
+08.10.2026,17:00,20:00,10a,mgr Dorota Banach,8
+08.10.2026,17:00,20:00,10b,dr Honorata Piasecka,108
+08.10.2026,17:00,20:00,10c,mgr Ruta Sawicka,109
+08.10.2026,17:00,20:00,14c,dr Aleksandra Łopatkiewicz,201
+09.10.2026,08:00,11:00,9b,dr Honorata Piasecka,5
+09.10.2026,08:00,11:00,9c,mgr Kamila Kamola,7
+09.10.2026,08:00,11:00,10a,mgr Agnieszka Bednarczyk,8
+09.10.2026,08:00,11:00,14c,mgr Elżbieta Wawiórko,108
+09.10.2026,08:00,11:00,10b,dr Honorata Piasecka,109
+09.10.2026,08:00,11:00,10c,dr Artur Kanteluk,201
+09.10.2026,11:00,14:00,7c,,5
+09.10.2026,11:00,14:00,14b,mgr Kamila Kamola,7
+09.10.2026,11:00,14:00,8b,mgr Agnieszka Bednarczyk,8
+09.10.2026,11:00,14:00,8c,mgr Elżbieta Wawiórko,108
+09.10.2026,11:00,14:00,9a,,109
+09.10.2026,11:00,14:00,8a,dr Artur Kanteluk,201
+09.10.2026,14:00,17:00,11a,mgr Wiktoria Bartmińska,5
+09.10.2026,14:00,17:00,11b,mgr Kamila Kamola,7
+09.10.2026,14:00,17:00,11c,mgr Agnieszka Bednarczyk,8
+09.10.2026,14:00,17:00,12a,mgr Elżbieta Wawiórko,108
+09.10.2026,14:00,17:00,12c,dr Honorata Piasecka,109
+09.10.2026,14:00,17:00,12b,dr Artur Kanteluk,201
+09.10.2026,17:00,20:00,4b,mgr Wiktoria Bartmińska,5
+09.10.2026,17:00,20:00,4c,mgr Kamila Kamola,7
+09.10.2026,17:00,20:00,5a,dr Honorata Piasecka,8
+09.10.2026,17:00,20:00,1a,mgr Elżbieta Wawiórko,108
+09.10.2026,17:00,20:00,5b,dr Honorata Piasecka,109
+09.10.2026,17:00,20:00,5c,dr Artur Kanteluk,201
+12.10.2026,08:00,11:00,1c,M. Jaciubek,5
+12.10.2026,08:00,11:00,1b,dr Honorata Piasecka,7
+12.10.2026,08:00,11:00,2a,mgr Elżbieta Wawiórko,8
+12.10.2026,08:00,11:00,2b,A. Skubiszewska,108
+12.10.2026,08:00,11:00,13a,K. Majka,109
+12.10.2026,08:00,11:00,13c,mgr Dorota Banach,201
+12.10.2026,11:00,14:00,2c,M. Jaciubek,5
+12.10.2026,11:00,14:00,3a,E. Suleja / dr Honorata Piasecka,7
+12.10.2026,11:00,14:00,3b,mgr Elżbieta Wawiórko,8
+12.10.2026,11:00,14:00,3c,A. Skubiszewska,108
+12.10.2026,11:00,14:00,13b,K. Majka,109
+12.10.2026,11:00,14:00,4a,mgr Dorota Banach,201
+12.10.2026,14:00,17:00,7a,M. Jaciubek,5
+12.10.2026,14:00,17:00,10a,mgr Elżbieta Wawiórko,8
+12.10.2026,14:00,17:00,11a,A. Skubiszewska,108
+12.10.2026,14:00,17:00,12a,K. Majka,109
+12.10.2026,14:00,17:00,14a,mgr Dorota Banach,201
+13.10.2026,08:00,11:00,4a,dr Honorata Piasecka,5
+13.10.2026,08:00,11:00,4b,W. Pałka,7
+13.10.2026,08:00,11:00,4c,mgr Karolina Deryło-Pietrzak,8
+13.10.2026,08:00,11:00,5a,I. Fornal,108
+13.10.2026,08:00,11:00,5b,mgr Agnieszka Bednarczyk,109
+13.10.2026,08:00,11:00,5c,dr Artur Kanteluk,201
+13.10.2026,11:00,14:00,6a,dr Honorata Piasecka,5
+13.10.2026,11:00,14:00,6b,W. Pałka,7
+13.10.2026,11:00,14:00,6c,mgr Karolina Deryło-Pietrzak,8
+13.10.2026,11:00,14:00,7a,I. Fornal,108
+13.10.2026,11:00,14:00,7b,mgr Agnieszka Bednarczyk,109
+13.10.2026,11:00,14:00,7c,dr Artur Kanteluk,201
+13.10.2026,14:00,17:00,15a,W. Pałka,7
+13.10.2026,14:00,17:00,15b,mgr Karolina Deryło-Pietrzak,8
+13.10.2026,14:00,17:00,15c,I. Fornal,108
+13.10.2026,14:00,17:00,1a,mgr Agnieszka Bednarczyk,109
+13.10.2026,14:00,17:00,13a,dr Artur Kanteluk,201
+14.10.2026,08:00,11:00,1a,mgr Julia Mazurek-Pytel,5
+14.10.2026,08:00,11:00,1b,E. Suleja,7
+14.10.2026,08:00,11:00,2a,mgr Elżbieta Wawiórko,8
+14.10.2026,08:00,11:00,2b,mgr Julia Świder,108
+14.10.2026,08:00,11:00,13a,mgr Kinga Budziszewska,109
+14.10.2026,08:00,11:00,13c,dr Izabella Krzykwa,201
+14.10.2026,11:00,14:00,2c,mgr Julia Mazurek-Pytel,5
+14.10.2026,11:00,14:00,3a,E. Suleja,7
+14.10.2026,11:00,14:00,3b,mgr Elżbieta Wawiórko,8
+14.10.2026,11:00,14:00,3c,mgr Julia Świder,108
+14.10.2026,11:00,14:00,13b,mgr Kinga Budziszewska,109
+14.10.2026,11:00,14:00,14a,dr Izabella Krzykwa,201
+14.10.2026,14:00,17:00,15a,mgr Julia Mazurek-Pytel,5
+14.10.2026,14:00,17:00,6b,mgr Aleksandra Ukleja,7
+14.10.2026,14:00,17:00,6c,mgr Elżbieta Wawiórko,8
+14.10.2026,14:00,17:00,15b,mgr Julia Świder,108
+14.10.2026,14:00,17:00,15c,mgr Kinga Budziszewska,109
+15.10.2026,07:45,10:45,11a,mgr Julia Mazurek-Pytel,5
+15.10.2026,07:45,10:45,11b,mgr Weronika Sulowska,7
+15.10.2026,07:45,10:45,11c,mgr Karolina Deryło-Pietrzak,8
+15.10.2026,07:45,10:45,12a,dr Honorata Piasecka,108
+15.10.2026,07:45,10:45,12b,mgr Ruta Sawicka,109
+15.10.2026,07:45,10:45,12c,dr Izabella Krzykwa,201
+15.10.2026,11:00,14:00,6a,mgr Julia Mazurek-Pytel,5
+15.10.2026,11:00,14:00,6b,mgr Weronika Sulowska,7
+15.10.2026,11:00,14:00,6c,mgr Karolina Deryło-Pietrzak,8
+15.10.2026,11:00,14:00,1c,dr Honorata Piasecka,108
+15.10.2026,11:00,14:00,7a,mgr Ruta Sawicka,109
+15.10.2026,11:00,14:00,7b,dr Izabella Krzykwa,201
+15.10.2026,14:00,17:00,8a,mgr Julia Mazurek-Pytel,5
+15.10.2026,14:00,17:00,8b,mgr Weronika Sulowska,7
+15.10.2026,14:00,17:00,8c,A. Skubiszewska,8
+15.10.2026,14:00,17:00,9a,I. Fornal,108
+15.10.2026,14:00,17:00,14a,mgr Ruta Sawicka,109
+15.10.2026,14:00,17:00,14b,,201
+15.10.2026,17:00,20:00,9b,mgr Julia Mazurek-Pytel,5
+15.10.2026,17:00,20:00,9c,mgr Weronika Sulowska,7
+15.10.2026,17:00,20:00,10a,A. Skubiszewska,8
+15.10.2026,17:00,20:00,10b,I. Fornal,108
+15.10.2026,17:00,20:00,10c,mgr Ruta Sawicka,109
+15.10.2026,17:00,20:00,14c,,201
+16.10.2026,08:00,11:00,9b,dr Honorata Piasecka,5
+16.10.2026,08:00,11:00,9c,mgr Kamila Kamola,7
+16.10.2026,08:00,11:00,10a,mgr Agnieszka Bednarczyk,8
+16.10.2026,08:00,11:00,14c,K. Prasek,108
+16.10.2026,08:00,11:00,10b,K. Wesołowska,109
+16.10.2026,08:00,11:00,10c,dr Artur Kanteluk,201
+16.10.2026,11:00,14:00,7c,mgr Wiktoria Bartmińska,5
+16.10.2026,11:00,14:00,14b,mgr Kamila Kamola,7
+16.10.2026,11:00,14:00,8b,mgr Agnieszka Bednarczyk,8
+16.10.2026,11:00,14:00,8c,K. Prasek,108
+16.10.2026,11:00,14:00,9a,K. Wesołowska,109
+16.10.2026,11:00,14:00,8a,dr Artur Kanteluk,201
+16.10.2026,14:00,17:00,11a,mgr Wiktoria Bartmińska,5
+16.10.2026,14:00,17:00,11b,mgr Kamila Kamola,7
+16.10.2026,14:00,17:00,11c,mgr Agnieszka Bednarczyk,8
+16.10.2026,14:00,17:00,12a,K. Prasek,108
+16.10.2026,14:00,17:00,12c,K. Wesołowska,109
+16.10.2026,14:00,17:00,12b,dr Artur Kanteluk,201
+16.10.2026,17:00,20:00,4b,mgr Wiktoria Bartmińska,5
+16.10.2026,17:00,20:00,4c,mgr Kamila Kamola,7
+16.10.2026,17:00,20:00,5a,,8
+16.10.2026,17:00,20:00,1a,K. Prasek,108
+16.10.2026,17:00,20:00,5b,K. Wesołowska,109
+16.10.2026,17:00,20:00,5c,dr Artur Kanteluk,201

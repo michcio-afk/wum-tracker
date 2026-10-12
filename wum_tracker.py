@@ -42,6 +42,7 @@ w każdej konfiguracji podgrup (np. eksport/grupa-08/pp-b_cw-a/wszystko.ics).
 from __future__ import annotations
 
 import argparse
+import csv
 import glob
 import hashlib
 import itertools
@@ -56,7 +57,7 @@ from datetime import date, datetime, timedelta, timezone
 
 import openpyxl
 import pytz
-from icalendar import Alarm, Calendar, Event
+from icalendar import Alarm, Calendar, Event, vText
 from openpyxl.utils import get_column_letter
 from openpyxl.worksheet.worksheet import Worksheet
 
@@ -929,6 +930,143 @@ def build_alarms(lesson: Lesson, look: Look, start: datetime) -> list[Alarm]:
     return alarms
 
 
+# ---------------------------------------------------------------------------
+# PROWADZĄCY ĆWICZENIA Z PP (data/prowadzacy-pp.csv)
+# ---------------------------------------------------------------------------
+
+@dataclass(frozen=True)
+class StaffEntry:
+    day: date
+    start: int   # minuty od północy
+    end: int
+    group: str   # np. "8b"
+    name: str    # pusty = w grafiku brak nazwiska
+    room: str
+
+
+def _minutes(hhmm: str) -> int:
+    hour, minute = (int(x) for x in hhmm.replace(".", ":").split(":"))
+    return hour * 60 + minute
+
+
+class StaffTable:
+    """Grafik prowadzących PP przepisany z tablicy ogłoszeń.
+
+    Prowadzący nie zmieniają się w trakcie semestru, więc dla każdego terminu
+    szukamy najpierw wpisu z tego samego dnia, a potem wpisu dla tej samej
+    podgrupy w ten sam dzień tygodnia i o tej samej porze (najnowszy wygrywa).
+    """
+
+    MIN_OVERLAP = 60  # minut wspólnych, żeby uznać termin za ten sam
+
+    def __init__(self, entries: list[StaffEntry], source: str):
+        self.entries = entries
+        self.source = source
+
+    @classmethod
+    def load(cls, path: str) -> "StaffTable":
+        entries: list[StaffEntry] = []
+        with open(path, encoding="utf-8", newline="") as fh:
+            for i, row in enumerate(csv.DictReader(fh), start=2):
+                try:
+                    entries.append(StaffEntry(
+                        day=datetime.strptime(row["data"].strip(), "%d.%m.%Y").date(),
+                        start=_minutes(row["od"].strip()),
+                        end=_minutes(row["do"].strip()),
+                        group=normalize_ws(row["grupa"]).lower().replace(" ", ""),
+                        name=normalize_ws(row.get("prowadzacy")),
+                        room=normalize_ws(row.get("sala")),
+                    ))
+                except (KeyError, ValueError) as exc:
+                    log.warning("%s:%d: pomijam wiersz (%s).", path, i, exc)
+        log.info("Prowadzący PP: %d wpisów z %s.", len(entries), path)
+        return cls(entries, os.path.basename(path))
+
+    def _matches(self, group: str, start: int, end: int, same):
+        return [
+            e for e in self.entries
+            if e.group == group and same(e) and min(end, e.end) - max(start, e.start) >= self.MIN_OVERLAP
+        ]
+
+    def lookup(self, group: str, day: date, start: str, end: str, exact: bool = True) -> StaffEntry | None:
+        s, e = _minutes(start), _minutes(end)
+        candidates = self._matches(group, s, e, lambda x: x.day == day) if exact else []
+        if not any(c.name for c in candidates):
+            candidates = sorted(
+                self._matches(group, s, e, lambda x: x.day.weekday() == day.weekday()),
+                key=lambda x: x.day, reverse=True,
+            )
+        with_name = [c for c in candidates if c.name]
+        if with_name:
+            best = with_name[0]
+            room = best.room or next((c.room for c in candidates if c.room), "")
+            return replace(best, room=room)
+        return None
+
+    def names_for(self, group: str) -> list[str]:
+        """Wszyscy prowadzący PP w podgrupie (zwykle dwie osoby)."""
+        seen: dict[str, None] = {}
+        for e in sorted(self.entries, key=lambda x: (x.day.weekday(), x.start, -x.day.toordinal())):
+            if e.group == group and e.name:
+                seen.setdefault(e.name, None)
+        return list(seen)
+
+
+# Ustawiane w main(); None = brak pliku z prowadzącymi.
+STAFF: StaffTable | None = None
+STAFF_SUBJECTS = {("PP", "ĆW"), ("PP", "ZP")}
+STAFF_FILE_GLOB = "data/prowadzacy*.csv"
+
+
+def _subgroups(lesson: Lesson) -> list[str]:
+    return [g for g in lesson.groups if g[-1].isalpha()]
+
+
+def with_staff(lesson: Lesson, look: Look, day: date) -> Lesson:
+    """Uzupełnia prowadzącego i salę z grafiku PP dla jednego terminu."""
+    if STAFF is None or (look.short, look.form) not in STAFF_SUBJECTS or not _subgroups(lesson):
+        return lesson
+    found = [STAFF.lookup(g, day, lesson.start, lesson.end) for g in _subgroups(lesson)]
+    found = [f for f in found if f]
+    if not found:
+        everyone = sorted({n for g in _subgroups(lesson) for n in STAFF.names_for(g)})
+        note = "prowadzący: brak tego terminu w grafiku PP"
+        if everyone:
+            note += f" (w podgrupie prowadzą: {', '.join(everyone)})"
+        return replace(lesson, notes=[*lesson.notes, note])
+
+    names = list(dict.fromkeys(f.name for f in found))
+    rooms = list(dict.fromkeys(f.room for f in found if f.room))
+    location = lesson.location
+    if rooms and location:
+        # "Ciołka 27, Pracownie do ćwiczeń, Warszawa" -> "Ciołka 27, sala 7, Warszawa"
+        location = f"{location.split(',')[0]}, sala {'/'.join(rooms)}, {CITY}"
+    return replace(
+        lesson,
+        lecturer=", ".join(names),
+        location=location,
+        notes=[*lesson.notes, "prowadzący i sala wg grafiku ćwiczeń PP"],
+    )
+
+
+def staff_summary(lessons: list[Lesson]) -> str:
+    """Opis kalendarza: kto i kiedy prowadzi PP w tym wariancie."""
+    if STAFF is None:
+        return ""
+    days = ["pon", "wt", "śr", "czw", "pt", "sob", "nd"]
+    lines: dict[str, None] = {}
+    for lesson in sorted(lessons, key=lambda l: (l.dates[0].weekday(), l.start)):
+        look = describe(lesson, show_subgroup=False)
+        if (look.short, look.form) not in STAFF_SUBJECTS:
+            continue
+        for g in _subgroups(lesson):
+            entry = STAFF.lookup(g, lesson.dates[-1], lesson.start, lesson.end, exact=False)
+            if entry:
+                room = f" (sala {entry.room})" if entry.room else ""
+                lines.setdefault(f"PP {g} {days[lesson.dates[0].weekday()]} {lesson.start}: {entry.name}{room}", None)
+    return "\n".join(lines)
+
+
 def build_events(
     lessons: list[Lesson],
     group_label: str,
@@ -941,9 +1079,12 @@ def build_events(
     events: list[tuple[str, Event]] = []
     for lesson in lessons:
         look = describe(lesson, show_subgroup, bring)
-        description = build_description(lesson, look)
         spec = CALENDARS[look.category]
-        for day in lesson.dates:
+        base = lesson
+        for day in base.dates:
+            # Prowadzący/sala z grafiku PP mogą się różnić między terminami.
+            lesson = with_staff(base, look, day)
+            description = build_description(lesson, look)
             key = (day, lesson.start, lesson.end, look.title)
             if key in seen:
                 log.info("Duplikat %s %s %s - pomijam.", look.title, day, lesson.start)
@@ -979,7 +1120,7 @@ def build_events(
     return events
 
 
-def build_calendar(name: str, events: list[Event], spec: CalendarSpec | None = None) -> Calendar:
+def build_calendar(name: str, events: list[Event], spec: CalendarSpec | None = None, description: str = "") -> Calendar:
     cal = Calendar()
     cal.add("prodid", "-//WUM-Tracker//plan zajec//PL")
     cal.add("version", "2.0")
@@ -987,6 +1128,9 @@ def build_calendar(name: str, events: list[Event], spec: CalendarSpec | None = N
     cal.add("x-wr-calname", name)
     cal.add("name", name)
     cal.add("x-wr-timezone", TIMEZONE.zone)
+    if description:
+        cal.add("x-wr-caldesc", vText(description))  # X-* bez typu nie escapuje nowych linii
+        cal.add("description", description)
     if spec:
         cal.add("color", spec.color_css)
         cal.add("x-apple-calendar-color", spec.color_hex)
@@ -999,9 +1143,11 @@ def build_calendar(name: str, events: list[Event], spec: CalendarSpec | None = N
 
 
 def write_calendar(path: str, cal: Calendar) -> None:
+    # Najpierw serializacja, potem zapis - błąd nie zostawi pustego pliku.
+    data = cal.to_ical()
     os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
     with open(path, "wb") as fh:
-        fh.write(cal.to_ical())
+        fh.write(data)
 
 
 # ---------------------------------------------------------------------------
@@ -1105,11 +1251,12 @@ def export_all_groups(ws: Worksheet, lectures: list[Lesson], export_dir: str, so
                 name = "_".join(f"{split_label(s)}-{letter}" for s, letter in choice.items()) or "cala-grupa"
                 selected = lessons_for_config(lessons, splits, choice)
                 events = build_events(selected + lectures, f"grupa {number}", show_subgroup=False, bring=EXPORT_BRING)
+                summary = staff_summary(selected)
 
                 folder = os.path.join(group_dir, name)
                 write_calendar(
                     os.path.join(folder, "wszystko.ics"),
-                    build_calendar(f"WUM · grupa {number} ({name})", [e for _, e in events]),
+                    build_calendar(f"WUM · grupa {number} ({name})", [e for _, e in events], description=summary),
                 )
                 for key, spec in CALENDARS.items():
                     if key in EXPORT_YEAR_CATEGORIES:
@@ -1125,7 +1272,10 @@ def export_all_groups(ws: Worksheet, lectures: list[Lesson], export_dir: str, so
                         elif group_files[key] != uids:
                             log.warning("Grupa %d: %s różnią się między wariantami (%s).", number, key, name)
                         continue
-                    write_calendar(os.path.join(folder, spec.filename), build_calendar(spec.name, subset, spec))
+                    write_calendar(
+                        os.path.join(folder, spec.filename),
+                        build_calendar(spec.name, subset, spec, description=summary if key == "cwiczenia" else ""),
+                    )
                 index[number][name] = len(events)
     finally:
         log.setLevel(previous_level)
@@ -1171,6 +1321,7 @@ def write_export_index(export_dir: str, index: dict[int, dict[str, int]], splits
         *explain,
         "",
         "Seminaria, język angielski i wykłady są wspólne dla całej grupy / roku i są w każdej konfiguracji.",
+        "Przy ćwiczeniach z PP w opisie jest prowadzący i sala z grafiku (`data/prowadzacy-pp.csv`).",
         "",
         "Pliki:",
         "",
@@ -1247,6 +1398,8 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--calendars-dir", default=os.environ.get("WUM_CALENDARS_DIR") or CALENDARS_DIR,
                         help=f"katalog na osobne kalendarze wg rodzaju zajęć (domyślnie: {CALENDARS_DIR})")
     parser.add_argument("--no-lectures", action="store_true", help="pomiń arkusz z wykładami")
+    parser.add_argument("--staff-file", default=os.environ.get("WUM_STAFF_FILE") or None,
+                        help=f"CSV z prowadzącymi PP (domyślnie: najnowszy {STAFF_FILE_GLOB})")
     parser.add_argument("--export-dir", default=os.environ.get("WUM_EXPORT_DIR") or None,
                         help=f"wygeneruj kalendarze dla wszystkich grup i konfiguracji podgrup (np. {EXPORT_DIR})")
     parser.add_argument("--verbose", "-v", action="store_true", help="więcej logów")
@@ -1277,6 +1430,13 @@ def main(argv: list[str] | None = None) -> int:
             log.warning("Brak arkusza '%s' - używam '%s'.", SHEET_NAME, ws.title)
         log.info("Arkusz '%s': %d wierszy x %d kolumn.", ws.title, ws.max_row, ws.max_column)
 
+        global STAFF
+        staff_path = args.staff_file or max(glob.glob(STAFF_FILE_GLOB), default=None, key=os.path.getmtime)
+        if staff_path:
+            STAFF = StaffTable.load(staff_path)
+        else:
+            log.info("Brak pliku z prowadzącymi PP (%s) - pomijam.", STAFF_FILE_GLOB)
+
         lessons = find_lessons(ws, number, subgroup)
         log.info("Znaleziono %d bloków zajęć dla %s.", len(lessons), group_label)
         if not lessons:
@@ -1300,7 +1460,8 @@ def main(argv: list[str] | None = None) -> int:
         events = build_events(lessons + lectures, group_label, show_subgroup=subgroup is None)
 
         # 1) Wszystko w jednym pliku (np. dla Google, gdzie kolor i tak ustawiasz ręcznie).
-        write_calendar(args.output, build_calendar(f"WUM · {group_label}", [e for _, e in events]))
+        summary = staff_summary(lessons)
+        write_calendar(args.output, build_calendar(f"WUM · {group_label}", [e for _, e in events], description=summary))
         log.info("Zapisano %d wydarzeń do %s.", len(events), args.output)
 
         # 2) Osobny kalendarz na każdy rodzaj zajęć - każdy z własnym kolorem.
@@ -1308,7 +1469,7 @@ def main(argv: list[str] | None = None) -> int:
         for key, spec in CALENDARS.items():
             subset = [e for cat, e in events if cat == key]
             path = os.path.join(args.calendars_dir, spec.filename)
-            write_calendar(path, build_calendar(spec.name, subset, spec))
+            write_calendar(path, build_calendar(spec.name, subset, spec, description=summary if key == "cwiczenia" else ""))
             log.info("  %-32s %-7s %3d wydarzeń -> %s", spec.name, spec.color_css, len(subset), path)
 
         if args.export_dir:

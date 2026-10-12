@@ -68,6 +68,22 @@ włączone automatyczne liczenie czasu dojazdu w Kalendarzu Apple.
 Emoji, kolory, kategorie, przypomnienia i listy „Przynieś” ustawia się w sekcji
 „WYGLĄD KALENDARZA” na początku skryptu.
 
+## Prowadzący ćwiczenia z PP
+
+Plik `data/prowadzacy-pp.csv` to grafik prowadzących ćwiczenia z PP przepisany z tablicy
+ogłoszeń (tygodnie 6–9.10 i 12–16.10). Kolumny: `data,od,do,grupa,prowadzacy,sala`.
+Prowadzący nie zmieniają się w trakcie semestru, więc skrypt dopisuje go do **każdego**
+terminu PP:
+
+1. jeśli w grafiku jest wpis z tego samego dnia, bierze go,
+2. w przeciwnym razie bierze najnowszy wpis dla tej samej podgrupy, w ten sam dzień tygodnia
+   i o tej samej porze.
+
+Prowadzący trafia do opisu wydarzenia (`👤`), sala do pola „Miejsce” (`Ciołka 27, sala 7, Warszawa`),
+a lista prowadzących danej podgrupy do opisu kalendarza. Terminy rotacyjne, których nie ma w żadnym
+z tygodni grafiku, dostają w opisie listę prowadzących z tej podgrupy. Gdy pojawi się nowy grafik,
+dopisz jego wiersze do CSV (albo dodaj nowy plik `data/prowadzacy-*.csv`).
+
 ## Eksport dla wszystkich grup
 
 ```bash
