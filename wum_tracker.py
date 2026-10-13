@@ -81,7 +81,9 @@ OUTPUT_FILE = "plan_zajec.ics"
 SHEET_NAME = "PLAN ZAJĘĆ"
 LECTURE_SHEET_NAME = "WYKŁADY"
 
-# Układ arkusza (indeksy 1-based, jak w Excelu).
+# Układ arkusza (indeksy 1-based, jak w Excelu). Wartości domyślne pasują do planu
+# zimowego; detect_layout() poprawia je dla innych układów (np. plan letni ma daty
+# w wierszu 6, sale w wierszu 5, a godziny w kolumnie B i arkusz "PRAKTYKI").
 ROW_DAYS = 3
 ROW_SUBJECT = 4
 ROW_DATES = 5
@@ -93,28 +95,59 @@ TIME_COL = 1
 TIMEZONE = pytz.timezone("Europe/Warsaw")
 
 # Rok akademicki: miesiące >= 8 należą do roku startowego, pozostałe do kolejnego
-# (10, 11, 12 -> 2026; 01, 02 -> 2027).
+# (10, 11, 12 -> 2026; 01, 02 -> 2027). configure_semester() ustawia go na podstawie
+# tytułu planu ("rok akademicki 2026/2027", "semestr letni 2025/2026").
 ACADEMIC_YEAR_START = 2026
 FIRST_MONTH_OF_ACADEMIC_YEAR = 8
+SEMESTER = "zimowy"
 
-# Granice semestru - używane dla wpisu "cały semestr".
+# Granice semestrów (miesiąc, dzień) - używane dla wpisu "cały semestr".
+SEMESTER_BOUNDS = {
+    "zimowy": ((10, 1), (1, 31)),
+    "letni": ((2, 15), (6, 30)),
+}
 SEMESTER_START = date(2026, 10, 1)
 SEMESTER_END = date(2027, 1, 31)
 
-# Dni bez zajęć, pomijane przy rozwijaniu ZAKRESÓW dat ("05.10. - 25.01.").
-# Daty wpisane w Excelu jawnie (pojedynczo) nie są filtrowane.
-# Przerwa świąteczna ustalona na podstawie list dat w samym planie
-# (np. poniedziałki: 14.12. -> 04.01.) - zweryfikuj z kalendarzem akademickim.
-NO_CLASS_DATES: set[date] = {
-    date(2026, 11, 1),   # Wszystkich Świętych
-    date(2026, 11, 11),  # Narodowe Święto Niepodległości
-    date(2026, 12, 24),  # Wigilia
-    date(2026, 12, 25),  # Boże Narodzenie
-    date(2026, 12, 26),  # Drugi dzień Bożego Narodzenia
-    date(2027, 1, 1),    # Nowy Rok
-    date(2027, 1, 6),    # Trzech Króli
+# Przerwy bez zajęć (poza świętami, które liczymy automatycznie), pomijane przy
+# rozwijaniu ZAKRESÓW dat ("05.10. - 25.01."). Daty wpisane w Excelu jawnie
+# (pojedynczo) nie są filtrowane. Przerwy ustalone na podstawie list dat w samych
+# planach - zweryfikuj z kalendarzem akademickim.
+SEMESTER_BREAKS: dict[tuple[int, str], list[tuple[date, date]]] = {
+    # zima 2026/27: poniedziałki 14.12. -> 04.01.
+    (2026, "zimowy"): [(date(2026, 12, 21), date(2027, 1, 3))],
+    # lato 2025/26: brak zajęć 02.04.-08.04. (Wielkanoc) i 27.04.-01.05.
+    (2025, "letni"): [(date(2026, 4, 2), date(2026, 4, 8)), (date(2026, 4, 27), date(2026, 5, 1))],
 }
-WINTER_BREAK = (date(2026, 12, 21), date(2027, 1, 3))
+
+
+def easter_sunday(year: int) -> date:
+    """Wielkanoc (algorytm Meeusa/Jonesa/Butchera, kalendarz gregoriański)."""
+    a, b, c = year % 19, year // 100, year % 100
+    d, e = divmod(b, 4)
+    f = (b + 8) // 25
+    g = (b - f + 1) // 3
+    h = (19 * a + b - d - g + 15) % 30
+    i, k = divmod(c, 4)
+    l = (32 + 2 * e + 2 * i - h - k) % 7
+    m = (a + 11 * h + 22 * l) // 451
+    month, day = divmod(h + l - 7 * m + 114, 31)
+    return date(year, month, day + 1)
+
+
+def polish_holidays(year: int) -> set[date]:
+    """Dni ustawowo wolne od pracy w Polsce (Wigilia od 2025 r.)."""
+    easter = easter_sunday(year)
+    fixed = [(1, 1), (1, 6), (5, 1), (5, 3), (8, 15), (11, 1), (11, 11), (12, 25), (12, 26)]
+    if year >= 2025:
+        fixed.append((12, 24))
+    days = {date(year, m, d) for m, d in fixed}
+    days |= {easter, easter + timedelta(days=1), easter + timedelta(days=49), easter + timedelta(days=60)}
+    return days
+
+
+NO_CLASS_DATES: set[date] = polish_holidays(ACADEMIC_YEAR_START) | polish_holidays(ACADEMIC_YEAR_START + 1)
+NO_CLASS_RANGES: list[tuple[date, date]] = SEMESTER_BREAKS[(ACADEMIC_YEAR_START, SEMESTER)]
 
 WEEKDAYS_PL = {
     "PONIEDZIAŁEK": 0,
@@ -161,9 +194,20 @@ SUBJECTS: list[tuple[str, str, str]] = [
     (r"socjolog", "Socjologia", "👥"),
     (r"pedagog", "Pedagogika", "🎓"),
     (r"prawo", "Prawo", "⚖️"),
-    (r"etyk", "Etyka", "🤝"),
+    (r"\betyk", "Etyka", "🤝"),   # \b: nie "gen-etyk-a"
     (r"ratownict", "Ratownictwo", "🚑"),
     (r"angielsk", "Angielski", "🇬🇧"),
+    # semestr letni
+    (r"choroby\s+wewn", "Interna", "🏥"),
+    (r"mikrobiolog", "Mikrobiologia", "🦠"),
+    (r"genetyk", "Genetyka", "🧬"),
+    (r"radiolog", "Radiologia", "☢️"),
+    (r"zakażen", "Zakażenia", "🧫"),
+    (r"dietetyk", "Dietetyka", "🥗"),
+    (r"farmakolog", "Farmakologia", "💊"),
+    (r"medycyna\s+ratunk", "Med. ratunkowa", "🚑"),
+    (r"patolog", "Patologia", "🔬"),
+    (r"współprac", "Współpraca", "🧩"),
 ]
 DEFAULT_SUBJECT_EMOJI = "📚"
 
@@ -264,7 +308,7 @@ def cell_ref(row: int, col: int) -> str:
 
 
 def is_no_class_day(d: date) -> bool:
-    return d in NO_CLASS_DATES or WINTER_BREAK[0] <= d <= WINTER_BREAK[1]
+    return d in NO_CLASS_DATES or any(start <= d <= end for start, end in NO_CLASS_RANGES)
 
 
 # ---------------------------------------------------------------------------
@@ -350,6 +394,79 @@ def build_time_map(ws: Worksheet) -> dict[int, tuple[str, str]]:
             first, last, time_map[first][0], time_map[last][1], len(time_map),
         )
     return time_map
+
+
+# ---------------------------------------------------------------------------
+# ROZPOZNAWANIE UKŁADU PLIKU I SEMESTRU
+# ---------------------------------------------------------------------------
+
+_DATE_LIKE_RE = re.compile(r"(?<!\d)\d{1,2}\.\d{1,2}\.(?!\d)|ca[łl]y\s+semestr", re.IGNORECASE)
+
+
+def _has_weekdays(ws: Worksheet) -> bool:
+    row = [normalize_ws(ws.cell(ROW_DAYS, c).value).upper() for c in range(1, min(ws.max_column, 400) + 1)]
+    return any(v in WEEKDAYS_PL for v in row)
+
+
+def detect_layout(wb) -> Worksheet:
+    """Wybiera arkusz z siatką zajęć i ustawia ROW_DATES/ROW_ROOM/TIME_COL/FIRST_GRID_COL.
+
+    Plan zimowy: arkusz "PLAN ZAJĘĆ", daty w wierszu 5, sale w 6, godziny w kolumnie A.
+    Plan letni: arkusz "PRAKTYKI", sale w wierszu 5, daty w 6, godziny w kolumnie B.
+    """
+    global ROW_DATES, ROW_ROOM, TIME_COL, FIRST_GRID_COL
+    if SHEET_NAME in wb.sheetnames:
+        ws = wb[SHEET_NAME]
+    else:
+        ws = next((s for s in wb.worksheets if _has_weekdays(s)), wb.worksheets[0])
+        log.warning("Brak arkusza '%s' - używam '%s'.", SHEET_NAME, ws.title)
+
+    # Kolumna z godzinami: pierwsza z lewej, w której pod nagłówkiem są sloty "8.15 - 8.30".
+    for col in range(1, 5):
+        slots = sum(1 for r in range(FIRST_GRID_ROW, FIRST_GRID_ROW + 20) if parse_time_slot(ws.cell(r, col).value))
+        if slots >= 5:
+            TIME_COL = col
+            break
+    FIRST_GRID_COL = max(3, TIME_COL + 1)
+
+    # Wiersz z datami: ten z wierszy 5-6, w którym jest więcej dat.
+    def date_cells(row: int) -> int:
+        return sum(1 for c in range(FIRST_GRID_COL, ws.max_column + 1) if _DATE_LIKE_RE.search(normalize_ws(ws.cell(row, c).value)))
+    ROW_DATES, ROW_ROOM = (6, 5) if date_cells(6) > date_cells(5) else (5, 6)
+
+    log.info(
+        "Układ arkusza '%s': godziny w kolumnie %s, daty w wierszu %d, sale w wierszu %d.",
+        ws.title, get_column_letter(TIME_COL), ROW_DATES, ROW_ROOM,
+    )
+    return ws
+
+
+def configure_semester(ws: Worksheet) -> None:
+    """Rok akademicki i semestr z tytułu planu, np. 'semestr letni 2025/2026'."""
+    global ACADEMIC_YEAR_START, SEMESTER, SEMESTER_START, SEMESTER_END, NO_CLASS_DATES, NO_CLASS_RANGES
+    title = " ".join(normalize_ws(ws.cell(r, c).value) for r in (1, 2) for c in range(1, 4))
+    years = re.search(r"(20\d\d)\s*/\s*(20\d\d)", title)
+    if years:
+        ACADEMIC_YEAR_START = int(years.group(1))
+    SEMESTER = "letni" if re.search(r"\blet(ni|nim)\b", title, re.IGNORECASE) else "zimowy"
+
+    (m1, d1), (m2, d2) = SEMESTER_BOUNDS[SEMESTER]
+    year = ACADEMIC_YEAR_START if SEMESTER == "zimowy" else ACADEMIC_YEAR_START + 1
+    SEMESTER_START = date(year, m1, d1)
+    SEMESTER_END = date(year + (1 if m2 < m1 else 0), m2, d2)
+    NO_CLASS_DATES = polish_holidays(ACADEMIC_YEAR_START) | polish_holidays(ACADEMIC_YEAR_START + 1)
+    NO_CLASS_RANGES = SEMESTER_BREAKS.get((ACADEMIC_YEAR_START, SEMESTER), [])
+    if (ACADEMIC_YEAR_START, SEMESTER) not in SEMESTER_BREAKS:
+        log.warning(
+            "Brak przerw dla semestru %s %d/%d w SEMESTER_BREAKS - zakresy dat obejmą tylko święta.",
+            SEMESTER, ACADEMIC_YEAR_START, ACADEMIC_YEAR_START + 1,
+        )
+    log.info(
+        "Semestr %s %d/%d: %s - %s, przerwy: %s.",
+        SEMESTER, ACADEMIC_YEAR_START, ACADEMIC_YEAR_START + 1,
+        SEMESTER_START.strftime("%d.%m.%Y"), SEMESTER_END.strftime("%d.%m.%Y"),
+        ", ".join(f"{a:%d.%m}-{b:%d.%m}" for a, b in NO_CLASS_RANGES) or "brak",
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -459,36 +576,88 @@ def parse_target(group: str, subgroup: str | None) -> tuple[str, str | None]:
     return number, letter
 
 
-def match_group_cell(text: object, number: str, subgroup: str | None) -> list[str] | None:
-    """Sprawdza, czy komórka siatki dotyczy docelowej grupy.
+# "grupa" / "grupy" / "grupa1" (bez spacji); po słowie nie może być litery.
+_GROUP_WORD_RE = re.compile(r"\s*grup[ay]?(?![a-ząćęłńóśźż])\.?\s*", re.IGNORECASE)
+# Jeden element listy grup: "8", "8a", samodzielna litera podgrupy ("a" w "8 a, b, c")
+# albo separator. Liczba z kropką/dwukropkiem ("8.15") to godzina - koniec listy.
+_GROUP_SCAN_RE = re.compile(
+    r"\s*(?:(?P<num>\d{1,2})(?P<let>[a-e])?(?![\d.:a-z])|(?P<sub>[a-e])(?![a-z\d.])|(?P<sep>,|\bi\b|&|\+|/))",
+    re.IGNORECASE,
+)
 
-    Zwykłe `'grupa 14' in text` jest błędne: łapie też 'grupa 14a' (inna
-    podgrupa), a 'grupa 1' łapie 'grupa 10'...'grupa 15'. Dlatego parsujemy
-    PIERWSZĄ linię komórki na tokeny (kolejne linie to zwykle sala).
 
-    Zwraca listę dopasowanych oznaczeń (np. ['14'] lub ['14a']) albo None.
+def parse_group_cell(text: object) -> tuple[list[tuple[str, str]], list[str]] | None:
+    """Rozbiera komórkę siatki na listę (numer, litera) i resztę tekstu.
+
+      'grupa 14a 14b'          -> [('14','a'), ('14','b')], []
+      'grupa 8 a, b, c'        -> [('8','a'), ('8','b'), ('8','c')], []
+      'grupa 8a i 8b'          -> [('8','a'), ('8','b')], []
+      '8a   8b'                -> [('8','a'), ('8','b')], []        (bez słowa "grupa")
+      'grupa 5 8.15 - 9.50'    -> [('5','')], ['8.15 - 9.50']      (własne godziny)
+      'grupa 8b - Klinika I'   -> [('8','b')], ['Klinika I']
+      'grupa 11 sala 8 CBI'    -> [('11','')], ['sala 8 CBI']       (8 to sala, nie grupa!)
+      'grupa 12\nsala 102 ...' -> [('12','')], ['sala 102 ...']
+
+    Zwykłe `'grupa 14' in text` byłoby błędne: łapie też 'grupa 14a' (inna podgrupa),
+    a 'grupa 1' łapie 'grupa 10'...'grupa 15'.
     """
     lines = split_lines(text)
-    if not lines or not _GROUP_PREFIX_RE.match(lines[0]):
+    if not lines:
         return None
-    tokens = _GROUP_TOKEN_RE.findall(_GROUP_PREFIX_RE.sub("", lines[0]))
+    prefix = _GROUP_WORD_RE.match(lines[0])
+    rest = lines[0][prefix.end():] if prefix else lines[0]
+
+    tokens: list[list[str]] = []
+    pos = 0
+    while pos < len(rest):
+        m = _GROUP_SCAN_RE.match(rest, pos)
+        if not m or m.end() == pos:
+            break
+        if m["num"]:
+            tokens.append([m["num"], (m["let"] or "").lower()])
+        elif m["sub"]:
+            if not tokens:
+                break
+            number = tokens[-1][0]
+            if tokens[-1][1] == "":
+                tokens[-1][1] = m["sub"].lower()   # "8 a" -> 8a
+            else:
+                tokens.append([number, m["sub"].lower()])  # "8 a, b" -> 8a, 8b
+        pos = m.end()
+    if not tokens:
+        return None
+    remainder = rest[pos:].strip(" -–—:;,")
+    # Bez słowa "grupa" akceptujemy tylko czyste listy podgrup ("8a 8b"),
+    # żeby nie wziąć za grupę np. numeru sali.
+    if not prefix and (remainder or not any(letter for _, letter in tokens)):
+        return None
+    extra = [part for part in (remainder, *lines[1:]) if part]
+    return [(n, letter) for n, letter in tokens], extra
+
+
+def match_group_cell(text: object, number: str, subgroup: str | None) -> tuple[list[str], list[str]] | None:
+    """Czy komórka dotyczy docelowej grupy? Zwraca (dopasowane oznaczenia, reszta tekstu),
+    np. (['14a'], ['sala 102']), albo None."""
+    parsed = parse_group_cell(text)
+    if not parsed:
+        return None
+    tokens, extra = parsed
     matched: list[str] = []
     for num, letter in tokens:
         if num != number:
             continue
-        letter = letter.lower()
         # Zajęcia całej grupy (bez litery) dotyczą każdej podgrupy.
         if not letter or subgroup is None or letter == subgroup:
             matched.append(f"{num}{letter}")
-    return matched or None
+    return (list(dict.fromkeys(matched)), extra) if matched else None
 
 
 # ---------------------------------------------------------------------------
 # SALA / LOKALIZACJA (wiersz 6)
 # ---------------------------------------------------------------------------
 
-# Linie opisujące liczbę spotkań/godzin - to nie jest lokalizacja.
-_NOT_LOCATION_RE = re.compile(r"spotka|godz|^i \d+ min|^\d+ min", re.IGNORECASE)
+# Linie opisujące liczbę spotkań/godzin/tury - to nie jest lokalizacja.
+_NOT_LOCATION_RE = re.compile(r"spotka|godz|^i \d+ min|^\d+ min|\d{1,2}[.:]\d{2}\s*[-–]\s*\d{1,2}[.:]\d{2}", re.IGNORECASE)
 _GROUP_LIST_LINE_RE = re.compile(r"^grup[ay]?\b[:\s]*(.*)$", re.IGNORECASE)
 
 
@@ -544,7 +713,7 @@ def format_location(raw: object) -> str:
       'brak sali'               -> ''
     """
     text = normalize_ws(raw)
-    if not text or _NO_ROOM_RE.search(text):
+    if not text or _NO_ROOM_RE.search(text) or re.search(r"pod planem", text, re.IGNORECASE):
         return ""
 
     street = ""
@@ -570,6 +739,7 @@ def format_location(raw: object) -> str:
         if re.fullmatch(r"\d+[\w.]*", part):  # sam numer sali, np. "120"
             part = f"sala {part}"
         part = re.sub(r"^Sal([ae])\b", r"sal\1", part)
+        part = re.sub(r"^(sal[ae])(\d)", r"\1 \2", part)
         parts.append(part)
 
     if not street:
@@ -581,6 +751,75 @@ def format_location(raw: object) -> str:
 # ---------------------------------------------------------------------------
 # GŁÓWNA LOGIKA
 # ---------------------------------------------------------------------------
+
+# ---------------------------------------------------------------------------
+# LEGENDA POD PLANEM (adresy klinik i jednostek)
+# ---------------------------------------------------------------------------
+
+_CLINIC_LINE_RE = re.compile(r"^Klinika\s*(?:nr\.?\s*)?([IVX]+)\s*[-–]\s*(.+)$", re.IGNORECASE)
+_CLINIC_REF_RE = re.compile(r"\bKlinik\w*\s*(?:nr\.?\s*)?([IVX]+)\b", re.IGNORECASE)
+_UNIT_CODE_RE = re.compile(r"\b(NZ[A-Z]{1,3}|1W\d+|1M\d+|S\d[A-Z]?|2M[A-Z])\b")
+
+
+@dataclass
+class Legend:
+    clinics: dict[str, str]   # "I" -> pełny opis kliniki z adresem
+    lines: list[str]          # pozostałe linie legendy ("PRZEDMIOT - jednostka, adres", uwagi)
+
+
+def read_legend(ws: Worksheet, first_row: int) -> Legend:
+    """Czyta notatki pod siatką (kolumna A): "Klinika nr I - ..., ul. Nowogrodzka 59" itp."""
+    clinics: dict[str, str] = {}
+    lines: list[str] = []
+    for row in range(first_row, ws.max_row + 1):
+        text = ws.cell(row, 1).value
+        for line in split_lines(text):
+            m = _CLINIC_LINE_RE.match(line)
+            if m:
+                clinics[m.group(1).upper()] = normalize_ws(m.group(2))
+        if normalize_ws(text) and not _CLINIC_LINE_RE.match(normalize_ws(text)):
+            lines.append(normalize_ws(text))
+    if clinics:
+        log.info("Legenda: kliniki %s.", ", ".join(sorted(clinics)))
+    return Legend(clinics, lines)
+
+
+def legend_entry(legend: Legend, subject: str) -> tuple[str, str]:
+    """(LOCATION, notatka) z legendy dla przedmiotu bez sali w planie, np.
+    'MIKROBIOLOGIA I PARAZYTOLOGIA - Zakład ... - sale ćwiczeniowe, ul. Litewska 14/16'
+    -> ('Litewska 14/16, sale ćwiczeniowe, Warszawa', cała linia)."""
+    short, _, form = short_and_form(subject)
+    code = _UNIT_CODE_RE.search(subject)
+    for line in legend.lines:
+        parts = [p.strip() for p in re.split(r"\s+[-–]\s+", line)]
+        head = parts[0]
+        l_short, _, _ = short_and_form(head)
+        if l_short != short or l_short == head:  # nieznany przedmiot w legendzie - nie zgadujemy
+            continue
+        l_form = next((f for f, pat in FORMS if re.search(pat, " ".join(parts[:2]), re.IGNORECASE)), None)
+        if l_form and l_form != form:
+            continue
+        l_code = _UNIT_CODE_RE.search(head)
+        if code and l_code and code.group(1) != l_code.group(1):
+            continue
+        tail = parts[-1]
+        return (format_location(tail) if _STREET_RE.search(tail) else ""), line
+    return "", ""
+
+
+def clean_subject(text: str) -> str:
+    """'Genetyka seminaria NZI 14.15 - 16.45 (3 spotkania po 3 godz.)' -> 'Genetyka seminaria NZI'."""
+    text = _TIME_SLOT_RE.sub(" ", text)
+    text = re.sub(r"\(\s*\d+\s+spotka[^)]*\)?", " ", text, flags=re.IGNORECASE)
+    text = re.sub(r"\s[-–]\s", " ", f" {text} ")
+    return normalize_ws(text).strip(" -–,;:")
+
+
+def _overlap(a: tuple[str, str], b: tuple[str, str]) -> int:
+    """Wspólne minuty dwóch przedziałów 'HH:MM'."""
+    to_min = lambda t: int(t[:2]) * 60 + int(t[3:])
+    return min(to_min(a[1]), to_min(b[1])) - max(to_min(a[0]), to_min(b[0]))
+
 
 @dataclass
 class Lesson:
@@ -621,9 +860,10 @@ def find_lessons(ws: Worksheet, group_number: str, subgroup: str | None) -> list
     sheet = MergedSheet(ws)
     time_map = build_time_map(ws)
     if not time_map:
-        raise RuntimeError("Nie znaleziono slotów czasowych w kolumnie A - zmienił się format pliku?")
+        raise RuntimeError("Nie znaleziono slotów czasowych w kolumnie godzin - zmienił się format pliku?")
     weekday_map = build_weekday_map(sheet, ws.max_column)
     last_time_row = max(time_map)
+    legend = read_legend(ws, last_time_row + 1)
 
     lessons: list[Lesson] = []
     for row in range(FIRST_GRID_ROW, last_time_row + 1):
@@ -631,9 +871,10 @@ def find_lessons(ws: Worksheet, group_number: str, subgroup: str | None) -> list
             raw = ws.cell(row, col).value
             if not isinstance(raw, str):
                 continue
-            groups = match_group_cell(raw, group_number, subgroup)
-            if not groups:
+            match = match_group_cell(raw, group_number, subgroup)
+            if not match:
                 continue
+            groups, extra = match
 
             min_row, max_row, min_col, _ = sheet.bounds(row, col)
             # Komórka w środku scalenia nie ma wartości, ale na wszelki wypadek
@@ -652,27 +893,65 @@ def find_lessons(ws: Worksheet, group_number: str, subgroup: str | None) -> list
             end_row = max(r for r in time_map if r <= max_row)
             start_time, end_time = time_map[min_row][0], time_map[end_row][1]
 
-            # Metadane z kolumny komórki (z rozwiązywaniem scaleń poziomych).
-            subject = normalize_ws(sheet.value(ROW_SUBJECT, col)).rstrip(" ,;:") or "Zajęcia"
-            _, _, block_min, _ = sheet.bounds(ROW_SUBJECT, col)
-
             notes: list[str] = []
+            # Godziny wpisane w komórce ('grupa 5 8.15 - 9.50') wygrywają z wysokością scalenia.
+            extra_text = ", ".join(extra)
+            own_slot = parse_time_slot(extra_text)
+            if own_slot:
+                start_time, end_time = own_slot
+                extra_text = normalize_ws(_TIME_SLOT_RE.sub(" ", extra_text)).strip(" ,;-")
+
+            # Metadane z kolumny komórki (z rozwiązywaniem scaleń poziomych).
+            subject_raw = sheet.value(ROW_SUBJECT, col)
+            _, _, block_min, _ = sheet.bounds(ROW_SUBJECT, col)
+            room_raw, _ = sheet.value_in_block(ROW_ROOM, col, block_min)
+            # Kolumny z dwoma przedmiotami o różnych godzinach (plan letni: "Genetyka 14.15 - 16.45"
+            # w wierszu przedmiotu i "Mikrobiologia 17.00 - 19.30" w wierszu sal).
+            subj_slot, alt_slot = parse_time_slot(subject_raw), parse_time_slot(room_raw)
+            if (alt_slot and _overlap(alt_slot, (start_time, end_time)) > 0
+                    and not (subj_slot and _overlap(subj_slot, (start_time, end_time)) > 0)):
+                subject_raw, room_raw = room_raw, None
+            subject = clean_subject(normalize_ws(subject_raw)).rstrip(" ,;:") or "Zajęcia"
+
             dates_raw, dates_col = sheet.value_in_block(ROW_DATES, col, block_min)
             if dates_col is not None and dates_col != col:
                 notes.append(f"daty przejęte z kolumny {get_column_letter(dates_col)}")
                 log.warning("%s: pusta komórka dat - użyto kolumny %s.", ctx, get_column_letter(dates_col))
-            room_raw, _ = sheet.value_in_block(ROW_ROOM, col, block_min)
 
             weekday = weekday_map.get(col)
             dates = parse_dates(dates_raw, weekday, ctx)
 
             # Sala: dopisek w samej komórce grupy (np. 'grupa 14\n5. DE 003 ...')
-            # ma pierwszeństwo przed ogólną informacją z wiersza 6.
-            cell_extra = ", ".join(split_lines(raw)[1:])
-            location_raw = cell_extra or extract_location(room_raw, group_number)
-            location = format_location(location_raw)
+            # ma pierwszeństwo przed ogólną informacją z wiersza sal.
+            clinic = _CLINIC_REF_RE.search(extra_text)
+            if re.search(r"\bCSM\b", normalize_ws(room_raw)):
+                # Plan letni: "UWAGA! WAŻNA INFORMACJA DOTYCZĄCA ZAJĘĆ W CSM" - zajęcia w CSM,
+                # szczegóły w legendzie pod planem.
+                location_raw = location = "CSM (Centrum Symulacji Medycznej)"
+                notes.extend(line for line in legend.lines if re.search(r"\bCSM\b", line))
+            elif clinic and clinic.group(1).upper() in legend.clinics:
+                # 'grupa 8b - Klinika I' -> adres z legendy pod planem.
+                roman = clinic.group(1).upper()
+                details = legend.clinics[roman]
+                street = _STREET_RE.search(details)
+                location_raw = f"Klinika {roman}"
+                location = format_location(f"Klinika {roman}, {details[street.start():]}") if street else location_raw
+                location = re.sub(r",\s*\d{2}-\d{3} Warszawa", "", location)  # kod pocztowy z legendy
+                notes.append(f"Klinika {roman}: {details}")
+            else:
+                location_raw = extra_text or extract_location(room_raw, group_number)
+                location = format_location(location_raw)
             if _NO_ROOM_RE.search(location_raw):
                 notes.append("w planie: brak sali")  # pole LOCATION zostaje puste
+            elif not location:
+                location, legend_note = legend_entry(legend, subject)
+                if legend_note:
+                    notes.append(legend_note)
+
+            # Tekst przy datach poza samymi datami ("20.02. - 27.03. sala 210").
+            leftover = normalize_ws(re.sub(r"\d{1,2}\.\d{1,2}\.?|ca[łl]y\s+semestr|[-–,;]|\bi\b", " ", normalize_ws(dates_raw)))
+            if re.search(r"[a-ząćęłńóśźż]{3,}", leftover, re.IGNORECASE):
+                notes.append(f"przy datach w planie: {leftover}")
 
             log.info(
                 "%s %-45s %s-%s  grupa=%-8s dat=%2d  sala=%s",
@@ -824,27 +1103,32 @@ def _first_match(patterns, text: str):
     return None, None
 
 
-def describe(lesson: Lesson, show_subgroup: bool, bring: dict[tuple[str, str], str] | None = None) -> Look:
-    """Tytuł 'emoji FORMA · Przedmiot: temat' (+ kategoria kalendarza).
-
-    Tytuł jest krótki - w widoku tygodnia w telefonie widać ok. 20 znaków.
-    """
-    _, subj = _first_match(SUBJECTS, lesson.subject)
+def short_and_form(subject: str, form: str | None = None) -> tuple[str, str, str]:
+    """(krótka nazwa, emoji, forma) dla nazwy przedmiotu z planu."""
+    _, subj = _first_match(SUBJECTS, subject)
     if subj:
         short, emoji = subj
     else:
         # Pierwsze słowo bez formy zajęć i kodu jednostki ("Mikrobiologia seminaria NZT").
         words = [
-            w for w in lesson.subject.split()
+            w for w in subject.split()
             if not any(re.search(p, w, re.IGNORECASE) for _, p in FORMS) and not re.fullmatch(r"[A-Z0-9]{2,5}", w)
         ]
-        short, emoji = (words[0] if words else lesson.subject), DEFAULT_SUBJECT_EMOJI
-        log.info("Nieznany przedmiot '%s' - używam '%s'.", lesson.subject, short)
-
-    form = lesson.form
+        short, emoji = (words[0] if words else subject), DEFAULT_SUBJECT_EMOJI
     if form is None:
-        found = next((f for f, pattern in FORMS if re.search(pattern, lesson.subject, re.IGNORECASE)), None)
+        found = next((f for f, pattern in FORMS if re.search(pattern, subject, re.IGNORECASE)), None)
         form = found or DEFAULT_FORM
+    return short, emoji, form
+
+
+def describe(lesson: Lesson, show_subgroup: bool, bring: dict[tuple[str, str], str] | None = None) -> Look:
+    """Tytuł 'emoji FORMA · Przedmiot: temat' (+ kategoria kalendarza).
+
+    Tytuł jest krótki - w widoku tygodnia w telefonie widać ok. 20 znaków.
+    """
+    short, emoji, form = short_and_form(lesson.subject, lesson.form)
+    if emoji == DEFAULT_SUBJECT_EMOJI:
+        log.debug("Nieznany przedmiot '%s' - używam '%s'.", lesson.subject, short)
 
     # Zaliczenia szukamy w nazwie i w komórce z grupą, ale nie w wierszu 6
     # (tam bywa np. "zaliczenie na ostatnich zajęciach" dla całej serii).
@@ -1171,10 +1455,9 @@ def discover_groups(ws: Worksheet) -> list[int]:
     numbers: set[int] = set()
     for row in build_time_map(ws):
         for col in range(FIRST_GRID_COL, ws.max_column + 1):
-            lines = split_lines(ws.cell(row, col).value)
-            if lines and _GROUP_PREFIX_RE.match(lines[0]):
-                tokens = _GROUP_TOKEN_RE.findall(_GROUP_PREFIX_RE.sub("", lines[0]))
-                numbers.update(int(num) for num, _ in tokens)
+            parsed = parse_group_cell(ws.cell(row, col).value)
+            if parsed:
+                numbers.update(int(num) for num, _ in parsed[0])
     return sorted(numbers)
 
 
@@ -1398,6 +1681,8 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--calendars-dir", default=os.environ.get("WUM_CALENDARS_DIR") or CALENDARS_DIR,
                         help=f"katalog na osobne kalendarze wg rodzaju zajęć (domyślnie: {CALENDARS_DIR})")
     parser.add_argument("--no-lectures", action="store_true", help="pomiń arkusz z wykładami")
+    parser.add_argument("--export-bring", action="store_true",
+                        help="'Przynieś' jak w eksporcie (przy PP tylko identyfikator)")
     parser.add_argument("--staff-file", default=os.environ.get("WUM_STAFF_FILE") or None,
                         help=f"CSV z prowadzącymi PP (domyślnie: najnowszy {STAFF_FILE_GLOB})")
     parser.add_argument("--export-dir", default=os.environ.get("WUM_EXPORT_DIR") or None,
@@ -1423,17 +1708,20 @@ def main(argv: list[str] | None = None) -> int:
         input_path = resolve_input(args.input)
         log.info("Wczytuję %s ...", input_path)
         wb = openpyxl.load_workbook(input_path, data_only=True)
-        if SHEET_NAME in wb.sheetnames:
-            ws = wb[SHEET_NAME]
-        else:
-            ws = wb.worksheets[0]
-            log.warning("Brak arkusza '%s' - używam '%s'.", SHEET_NAME, ws.title)
+        ws = detect_layout(wb)
+        configure_semester(ws)
         log.info("Arkusz '%s': %d wierszy x %d kolumn.", ws.title, ws.max_row, ws.max_column)
 
         global STAFF
         staff_path = args.staff_file or max(glob.glob(STAFF_FILE_GLOB), default=None, key=os.path.getmtime)
         if staff_path:
             STAFF = StaffTable.load(staff_path)
+            # Grafik dotyczy konkretnego semestru - nie przenosimy prowadzących z zimy na lato.
+            margin = timedelta(days=14)
+            STAFF.entries = [e for e in STAFF.entries if SEMESTER_START - margin <= e.day <= SEMESTER_END + margin]
+            if not STAFF.entries:
+                log.info("Grafik prowadzących %s dotyczy innego semestru - pomijam.", staff_path)
+                STAFF = None
         else:
             log.info("Brak pliku z prowadzącymi PP (%s) - pomijam.", STAFF_FILE_GLOB)
 
@@ -1457,7 +1745,10 @@ def main(argv: list[str] | None = None) -> int:
             if name not in (ws.title, LECTURE_SHEET_NAME):
                 log.info("Pomijam arkusz '%s' (pomocniczy, bez zajęć).", name)
 
-        events = build_events(lessons + lectures, group_label, show_subgroup=subgroup is None)
+        events = build_events(
+            lessons + lectures, group_label, show_subgroup=subgroup is None,
+            bring=EXPORT_BRING if args.export_bring else None,
+        )
 
         # 1) Wszystko w jednym pliku (np. dla Google, gdzie kolor i tak ustawiasz ręcznie).
         summary = staff_summary(lessons)

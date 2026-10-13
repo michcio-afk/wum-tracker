@@ -32,6 +32,20 @@ Subskrybuj **albo** cztery osobne kalendarze, **albo** `plan_zajec.ics`, inaczej
 Kody wyjścia: `0` – OK, `1` – nie znaleziono zajęć (plik `.ics` nie jest nadpisywany),
 `2` – błąd krytyczny.
 
+## Inne układy planu (np. semestr letni)
+
+Skrypt sam rozpoznaje układ pliku: arkusz z siatką (`PLAN ZAJĘĆ` albo np. `PRAKTYKI`), kolumnę
+z godzinami, wiersz z datami i wiersz z salami (w planie letnim są zamienione), a z tytułu planu
+– rok akademicki i semestr („semestr letni 2025/2026”). Święta liczone są automatycznie;
+przerwy semestralne (np. Wielkanoc) wpisuje się w `SEMESTER_BREAKS` – bez wpisu skrypt to zgłosi.
+
+Rozpoznawane zapisy grup: `grupa 14a 14b`, `grupa 8 a, b, c`, `grupa 8a i 8b`, `8a   8b`,
+`grupa 5 8.15 - 9.50` (godziny w komórce wygrywają z wysokością scalenia), `grupa 8b - Klinika I`
+(adres kliniki z legendy pod planem), `grupa 11 sala 8 CBI` (8 to sala, nie grupa).
+Brakującą salę skrypt próbuje uzupełnić z legendy pod planem (adresy jednostek).
+
+Przykład jednorazowego kalendarza dla innego planu: `archiwum/lato-2025-2026/README.md`.
+
 ## Założenia
 
 - Zakresy dat (`05.10. - 25.01.`) są rozwijane co 7 dni z pominięciem świąt i przerwy
