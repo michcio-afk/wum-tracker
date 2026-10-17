@@ -1,6 +1,6 @@
 # Kalendarze do eksportu – wszystkie grupy
 
-Wygenerowane automatycznie z pliku `licencjat-i-rok-piel.-12.10.2026-a.xlsx`. Nie edytuj ręcznie.
+Wygenerowane automatycznie z pliku `licencjat-i-rok-piel.-15.10.2026.xlsx`. Nie edytuj ręcznie.
 
 Podgrupy są układane pod maksymalną liczbę studentów na zajęciach, dlatego każda
 grupa ma kilka konfiguracji. Nazwa folderu mówi, w której podgrupie jesteś:
